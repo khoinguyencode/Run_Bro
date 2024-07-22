@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\vclib\SDL2-2.30.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vclib\SDL2-2.30.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclib\SDL2_image-2.8.2\include;C:\vclib\SDL2-2.30.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclib\SDL2_image-2.8.2\lib\x64;C:\vclib\SDL2-2.30.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,7 +132,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\entity.cpp" />
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\player.cpp" />
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\renderwindow.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Attack1.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Death.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Fall.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\ground_grass_1.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Idle.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Jump.png" />
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Entity.h" />
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Player.h" />
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Renderwindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

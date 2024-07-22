@@ -18,5 +18,48 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\renderwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Run.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Attack1.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Death.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Fall.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\ground_grass_1.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Idle.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="..\..\testlazyfoo\testlazyfoo\Jump.png">
+      <Filter>Source Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Renderwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
