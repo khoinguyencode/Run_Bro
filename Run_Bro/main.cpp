@@ -17,23 +17,17 @@ int main(int argc, char* argv[]) {
 
     RenderWindow window("Game V1.0", 1280, 720);
 
-    SDL_Texture* idleTex = window.loadTexture("Idle.png");
-    SDL_Texture* runTex = window.loadTexture("Run.png");
-    SDL_Texture* jumpTex = window.loadTexture("Jump.png");
-    SDL_Texture* fallTex = window.loadTexture("Fall.png");
-    SDL_Texture* attackTex = window.loadTexture("Attack1.png");
-    SDL_Texture* deathTex = window.loadTexture("Death.png");
-    SDL_Texture* grassTex = window.loadTexture("ground_grass_1.png");
+    SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamurai.png");
 
-    Player player(100, 300, idleTex);
-    player.setTextures(idleTex, runTex, jumpTex, fallTex, attackTex, deathTex);
+    Player player(100, 300, tex);
+
+    SDL_Texture* grassTex = window.loadTexture("res/gfx/ground_grass_1.png");
 
     Entity e(100, 450, grassTex);
 
     bool gameRunning = true;
     SDL_Event event;
 
-    // FPS and frame time calculation
     const int FPS = 60;
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
@@ -56,7 +50,6 @@ int main(int argc, char* argv[]) {
         window.render(e);
         window.display();
 
-        // Frame rate capping
         frameTime = SDL_GetTicks() - frameStart;
 
         if (frameDelay > frameTime) {

@@ -138,15 +138,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Attack1.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Death.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Fall.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\ground_grass_1.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Idle.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Jump.png" />
-    <Image Include="..\..\testlazyfoo\testlazyfoo\Run.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Entity.h" />
     <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Player.h" />
     <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Renderwindow.h" />
