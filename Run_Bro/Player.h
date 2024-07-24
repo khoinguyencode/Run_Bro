@@ -6,14 +6,16 @@ class Player : public Entity {
 public:
     Player(float p_x, float p_y, SDL_Texture* p_tex);
     void handleEvent(SDL_Event& e);
-    void update();
-    void gravity();
     void jump();
+    void gravity(); //keo nguoi choi xuong
+    void update(RenderWindow& p_renderwindow, SDL_Rect &wall);
+    void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
 private:
     const int PLAYER_WIDTH = 64;
-    const int PLAYER_HEIGHT = 56;
+    const int PLAYER_HEIGHT = 50;
     const int PLAYER_VEL = 6;
 
+    //cac animation
     static const int IDLING_ANIMATIONS_FRAME = 8;
     static const int RUNNING_ANIMATIONS_FRAME = 8;
     static const int JUMPING_ANIMATIONS_FRAME = 4;
@@ -27,6 +29,8 @@ private:
     SDL_Rect fallingClips[FALLING_ANIMATIONS_FRAME];
     SDL_Rect attackingClips[ATTACKING_ANIMATIONS_FRAME];
     SDL_Rect deathClips[DEATH_ANIMATIONS_FRAME];
+
+    int idleFrame = 0, runFrame = 0, jumpFrame = 0, fallFrame = 0, deathFrame = 0;
 
     int frame = 0;
     int velX = 0, velY = 0;

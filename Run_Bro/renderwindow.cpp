@@ -52,29 +52,33 @@ void RenderWindow::render(Entity& p_entity) {
 	SDL_RenderCopy(renderer, p_entity.getTex(), &src, &dst);
 }
 
-void RenderWindow::renderAnimation(Entity& p_entity, double angel, SDL_Point* p_point, SDL_RendererFlip p_flip) {
-	// xac dinh phan cua texture duoc ve
+SDL_Renderer* RenderWindow::getRenderer() const {
+	return renderer;
+}
+
+
+void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip) {
+	//xac dinh phan cua texture duoc ve
 	SDL_Rect src;
-	src.x = p_entity.getCurrentFrame().x;
-	src.y = p_entity.getCurrentFrame().y;
-	src.w = p_entity.getCurrentFrame().w;
-	src.h = p_entity.getCurrentFrame().h;
+	src.x = p_clip.x; 
+	src.y = p_clip.y; 
+	src.w = p_clip.w; 
+	src.h = p_clip.h;
 
-	// xac dinh vi tri va kich thuoc hinh chu nhat noi chua texture
+	//xac dinh vi tri va kich thuoc hinh chu nhat duoc ve len man hinh
 	SDL_Rect dst;
-	dst.x = p_entity.getX();
-	dst.y = p_entity.getY();
-	dst.w = p_entity.getCurrentFrame().w * 2;
-	dst.h = p_entity.getCurrentFrame().h * 2;
-
-	SDL_RenderCopyEx(renderer, p_entity.getTex(), &src, &dst, 0, NULL, p_entity.getflipType());
+	dst.x = p_entity.getX() - p_camera.x; //Vi tri cua nhan vat tren man hinh = vi tri thuc te - vi tri camera
+	dst.y = p_entity.getY() - p_camera.y;
+	dst.w = p_clip.w * 2;
+	dst.h = p_clip.h * 2;
+	SDL_RenderCopyEx(renderer, p_entity.getTex(), &p_clip, &dst, p_angle, p_center, p_flip);
 }
 
 void RenderWindow::display() {
-	SDL_SetRenderDrawColor(renderer, 0xFF, 0XFF, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(renderer, 0XFF, 0XFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);
 }
-bool checkCollision(SDL_Rect a, SDL_Rect b) {
+bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 	int leftA, leftB;
 	int rightA, rightB;
 	int topA, topB;

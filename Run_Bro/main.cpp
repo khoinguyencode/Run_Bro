@@ -1,4 +1,4 @@
-#include "SDL.h"
+﻿#include "SDL.h"
 #include <iostream>
 #include <vector>
 #include <SDL_image.h>
@@ -17,13 +17,16 @@ int main(int argc, char* argv[]) {
 
     RenderWindow window("Game V1.0", 1280, 720);
 
+    SDL_Rect camera = { 0, 0, 1280, 720 };
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamurai.png");
 
-    Player player(100, 300, tex);
+    Player player(100, 355, tex);
 
-    SDL_Texture* grassTex = window.loadTexture("res/gfx/ground_grass_1.png");
-
-    Entity e(100, 450, grassTex);
+    SDL_Rect wall;
+    wall.x = 500;
+    wall.y = 200;
+    wall.w = 200;
+    wall.h = 700;
 
     bool gameRunning = true;
     SDL_Event event;
@@ -42,12 +45,14 @@ int main(int argc, char* argv[]) {
             else
                 player.handleEvent(event);
         }
-
-        player.update();
+        player.update(window, wall);
 
         window.clear();
-        window.renderAnimation(player, 0.0, NULL, player.getflipType());
-        window.render(e);
+
+        SDL_SetRenderDrawColor(window.getRenderer(), 255, 0, 0, 255); // Đặt màu đỏ
+        SDL_RenderFillRect(window.getRenderer(), &wall);
+
+        player.render(window, camera);
         window.display();
 
         frameTime = SDL_GetTicks() - frameStart;

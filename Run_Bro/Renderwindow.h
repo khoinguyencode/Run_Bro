@@ -10,8 +10,14 @@ public:
     SDL_Texture* loadTexture(const char* p_filePath);
     void cleanUp();
     void clear();
+
+    //ve cac thuc the
     void render(Entity& p_entity);
-    void renderAnimation(Entity& p_entity, double angel = 0.0, SDL_Point* p_point = NULL, SDL_RendererFlip p_flip = SDL_FLIP_NONE);
+
+    SDL_Renderer* getRenderer() const;
+
+    //ve nguoi choi, quai vat len man hinh
+    void renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
 private:
