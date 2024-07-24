@@ -13,6 +13,7 @@ Entity::Entity(float p_x, float p_y, SDL_Texture* p_tex)
 float Entity::getX() {
 	return x;
 }
+
 float Entity::getY() {
 	return y;
 }

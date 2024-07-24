@@ -64,13 +64,14 @@ void RenderWindow::renderAnimation(Entity& p_entity, double angel, SDL_Point* p_
 	SDL_Rect dst;
 	dst.x = p_entity.getX();
 	dst.y = p_entity.getY();
-	dst.w = p_entity.getCurrentFrame().w;
-	dst.h = p_entity.getCurrentFrame().h;
+	dst.w = p_entity.getCurrentFrame().w * 2;
+	dst.h = p_entity.getCurrentFrame().h * 2;
 
 	SDL_RenderCopyEx(renderer, p_entity.getTex(), &src, &dst, 0, NULL, p_entity.getflipType());
 }
 
 void RenderWindow::display() {
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0XFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);
 }
 bool checkCollision(SDL_Rect a, SDL_Rect b) {
