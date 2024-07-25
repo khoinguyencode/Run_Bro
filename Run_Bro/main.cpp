@@ -18,15 +18,21 @@ int main(int argc, char* argv[]) {
     RenderWindow window("Game V1.0", 1280, 720);
 
     SDL_Rect camera = { 0, 0, 1280, 720 };
-    SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamurai.png");
+    SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
 
-    Player player(100, 355, tex);
+    Player player(100, 103, tex);
 
     SDL_Rect wall;
-    wall.x = 500;
-    wall.y = 200;
-    wall.w = 200;
-    wall.h = 700;
+    wall.x = 0;
+    wall.y = 600;
+    wall.w = 800;
+    wall.h = 100;
+
+    SDL_Rect wall2;
+    wall2.x = 600;
+    wall2.y = 540;
+    wall2.w = 200;
+    wall2.h = 100;
 
     bool gameRunning = true;
     SDL_Event event;
@@ -51,6 +57,7 @@ int main(int argc, char* argv[]) {
 
         SDL_SetRenderDrawColor(window.getRenderer(), 255, 0, 0, 255); // Đặt màu đỏ
         SDL_RenderFillRect(window.getRenderer(), &wall);
+        SDL_RenderFillRect(window.getRenderer(), &wall2);
 
         player.render(window, camera);
         window.display();
