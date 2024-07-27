@@ -75,9 +75,10 @@ void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect&
 }
 
 void RenderWindow::display() {
-	SDL_SetRenderDrawColor(renderer, 0XFF, 0XFF, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(renderer, 0, 0XFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);
 }
+
 bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 	int leftA, leftB;
 	int rightA, rightB;

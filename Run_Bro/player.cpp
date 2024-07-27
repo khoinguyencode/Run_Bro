@@ -104,14 +104,16 @@ void Player::gravity() {
         velY += 0.3;
         if (velY > 15.0) velY = 15.0;
     }
-    else velY = 1.0;
+    else velY = 2;
 }
 
-void Player::update(RenderWindow& p_renderwindow, SDL_Rect &wall) {
+void Player::update(RenderWindow& p_renderwindow, SDL_Rect& wall) {
     gravity();
     ////cout << velY << ' ' << velX << endl;
-
+    if (grounded == false) cout << "Chua cham dat\n";
+    else cout << "Cham dat\n";
     if (!isDead) {
+
         isIdling = (velX == 0 && grounded && !isAttacking);
 
         isRunning = (velX != 0 && grounded && !isAttacking);
@@ -127,15 +129,22 @@ void Player::update(RenderWindow& p_renderwindow, SDL_Rect &wall) {
             collision.x = x + PLAYER_WIDTH;
         }
     }
-    
+
     y += velY;
     collision.y = y + PLAYER_HEIGHT / 2;
-    if (y + PLAYER_HEIGHT / 2 < 0 || (p_renderwindow.checkCollision(collision, wall))) {
+
+    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, wall)) {
         y -= velY;
         collision.y = y + PLAYER_HEIGHT / 2;
-        if (velY > 0) grounded = true;
+        if (velY > 0) {
+            if (isFalling && !p_renderwindow.checkCollision(collision, wall)) grounded = true;
+        }
+        else if (velY < 0) {
+            y -= velY;
+            velY = 0;
+        }
+        collision.y = y + PLAYER_HEIGHT / 2;
     }
-
     if (velX > 0) flipType = SDL_FLIP_NONE;
     if (velX < 0) flipType = SDL_FLIP_HORIZONTAL;
 
@@ -145,6 +154,7 @@ void Player::update(RenderWindow& p_renderwindow, SDL_Rect &wall) {
 
 void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     if (isIdling) {
+        //cout << "Dang dung yen\n";
         p_renderwindow.renderAnimation(*this, idlingClips[idleFrame / 4], p_camera, 0, NULL, flipType);
         idleFrame++;
         if (idleFrame / 4 >= IDLING_ANIMATIONS_FRAME) idleFrame = 0;
@@ -152,6 +162,7 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else idleFrame = 0;
 
     if (isRunning) {
+        //cout << "Dang chay\n";
         p_renderwindow.renderAnimation(*this, runningClips[runFrame / 6], p_camera, 0, NULL, flipType);
         runFrame++;
         if (runFrame / 6 >= RUNNING_ANIMATIONS_FRAME) runFrame = 0;
@@ -166,6 +177,7 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else attackFrame = 0;
 
     if (isJumping) {
+        //cout << "Dang nhay\n";
         p_renderwindow.renderAnimation(*this, jumpingClips[jumpFrame / 8], p_camera, 0, NULL, flipType);
         jumpFrame++;
         if (jumpFrame / 8 >= JUMPING_ANIMATIONS_FRAME) jumpFrame = 0;
@@ -173,9 +185,10 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else jumpFrame = 0;
     
     if (isFalling) {
-        p_renderwindow.renderAnimation(*this, fallingClips[fallFrame / 8], p_camera, 0, NULL, flipType);
+        //cout << "Dang roi\n";
+        p_renderwindow.renderAnimation(*this, fallingClips[fallFrame / 4], p_camera, 0, NULL, flipType);
         fallFrame++;
-        if (fallFrame / 8 >= FALLING_ANIMATIONS_FRAME) fallFrame = 0;
+        if (fallFrame / 4 >= FALLING_ANIMATIONS_FRAME) fallFrame = 0;
     }
     else fallFrame = 0;
     
@@ -184,4 +197,15 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
         if (deathFrame / 8 < DEATH_ANIMATIONS_FRAME - 1) deathFrame++;
     }
     else deathFrame = 0;
+}
+
+void Player::setCamera(SDL_Rect& p_camera) {
+    p_camera.x = (collision.x + PLAYER_WIDTH / 2) - SCREEN_WIDTH / 2;
+    p_camera.y = (collision.y + PLAYER_HEIGHT / 2) - SCREEN_HEIGHT / 2;
+
+    //Giu cho camera luon nam trong vong
+    if (p_camera.x < 0) p_camera.x = 0;
+    if (p_camera.y < 0) p_camera.y = 0;
+    if (p_camera.x > LEVEL_WIDTH - p_camera.w) p_camera.x = LEVEL_WIDTH - p_camera.w;
+    if (p_camera.y > LEVEL_HEIGHT - p_camera.h) p_camera.y = LEVEL_HEIGHT - p_camera.h;
 }

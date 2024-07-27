@@ -10,6 +10,7 @@ public:
     void gravity(); //keo nguoi choi xuong
     void update(RenderWindow& p_renderwindow, SDL_Rect &wall);
     void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
+    void setCamera(SDL_Rect& p_camera);
 private:
     const int PLAYER_WIDTH = 64;
     const int PLAYER_HEIGHT = 64;

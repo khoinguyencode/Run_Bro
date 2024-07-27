@@ -1,8 +1,13 @@
 #pragma once
 #include "Entity.h"
 
-const float GRAVITY = 0.3;
-const float MAX_GRAVITY = 15;
+//kich co screen
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+
+//kich co level
+const int LEVEL_WIDTH = 1400;
+const int LEVEL_HEIGHT = 1024;
 
 class RenderWindow {
 public:
@@ -16,7 +21,7 @@ public:
 
     SDL_Renderer* getRenderer() const;
 
-    //ve nguoi choi, quai vat len man hinh
+    //ve cac animation len man hinh
     void renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);

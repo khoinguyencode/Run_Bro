@@ -15,9 +15,9 @@ int main(int argc, char* argv[]) {
     if (!(IMG_Init(IMG_INIT_PNG)))
         cout << "Img_init failed. SDL_ERROR: " << SDL_GetError() << endl;
 
-    RenderWindow window("Game V1.0", 1280, 720);
+    RenderWindow window("Game V1.0", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    SDL_Rect camera = { 0, 0, 1280, 720 };
+    SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
 
     Player player(100, 103, tex);
