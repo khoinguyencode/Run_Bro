@@ -24,18 +24,20 @@ const int TILE_BOTTOMLEFT = 9;
 const int TILE_LEFT = 10;
 const int TILE_TOPLEFT = 11;
 
+class RenderWindow;
+
 class Tile : public Entity{
 public:
 	Tile(float x, float y, SDL_Texture* p_tex , int tileType);
 	void render(SDL_Rect& camera, RenderWindow& p_renderwindow);
 	int getType();
-	bool setTiles(Tile* tiles[], SDL_Texture* p_tileTex);
+	static bool setTiles(Tile* tiles[], SDL_Texture* p_tileTex);
 	//get collison box
 	SDL_Rect getBox();
 	bool touchesWall(SDL_Rect box, Tile* tiles[], RenderWindow& p_renderwindow);
 private:
 	SDL_Rect box;
 	int type;
-	SDL_Rect gTileClips[TOTAL_TILE_SPRITES];
+	static SDL_Rect gTileClips[TOTAL_TILE_SPRITES];
 };
 

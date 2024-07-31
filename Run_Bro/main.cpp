@@ -5,6 +5,7 @@
 #include "Renderwindow.h"
 #include "Entity.h"
 #include "Player.h"
+#include "Tile.h"
 
 using namespace std;
 
@@ -21,19 +22,7 @@ int main(int argc, char* argv[]) {
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
     SDL_Texture* texTile = window.loadTexture("tiles.png");
 
-    Player player(100, 103, tex);
-
-    SDL_Rect wall;
-    wall.x = 0;
-    wall.y = 600;
-    wall.w = 800;
-    wall.h = 100;
-
-    SDL_Rect wall2;
-    wall2.x = 600;
-    wall2.y = 540;
-    wall2.w = 200;
-    wall2.h = 100;
+    Player player(0, 0, tex);
 
     bool gameRunning = true;
     SDL_Event event;
@@ -42,6 +31,13 @@ int main(int argc, char* argv[]) {
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
+
+    Tile* tileSet[TOTAL_TILES];
+
+    if (!Tile::setTiles(tileSet, texTile)) {
+        cout << "Failed to load tile set!" << endl;
+        return -1;
+    }
 
     while (gameRunning) {
         frameStart = SDL_GetTicks();
@@ -52,17 +48,16 @@ int main(int argc, char* argv[]) {
             else
                 player.handleEvent(event);
         }
-        player.update(window, wall);
-
+        player.update(window, tileSet);
+        player.setCamera(camera);
         window.clear();
-
-        SDL_SetRenderDrawColor(window.getRenderer(), 255, 0, 0, 255); // Đặt màu đỏ
-        SDL_RenderFillRect(window.getRenderer(), &wall);
-        SDL_RenderFillRect(window.getRenderer(), &wall2);
+        for (int i = 0; i < TOTAL_TILES; ++i)
+        {
+            tileSet[i]->render(camera, window);
+        }
 
         player.render(window, camera);
         window.display();
-
         frameTime = SDL_GetTicks() - frameStart;
 
         if (frameDelay > frameTime) {

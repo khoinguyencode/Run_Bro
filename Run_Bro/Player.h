@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Renderwindow.h"
+#include "Tile.h"
 
 class Player : public Entity {
 public:
@@ -8,7 +9,7 @@ public:
     void handleEvent(SDL_Event& e);
     void jump();
     void gravity(); //keo nguoi choi xuong
-    void update(RenderWindow& p_renderwindow, SDL_Rect& wall);
+    void update(RenderWindow& p_renderwindow, Tile *tiles[]);
     void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera);
 private:

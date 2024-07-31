@@ -107,7 +107,7 @@ void Player::gravity() {
     else velY = 2;
 }
 
-void Player::update(RenderWindow& p_renderwindow, SDL_Rect& wall) {
+void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
     gravity();
     ////cout << velY << ' ' << velX << endl;
     if (grounded == false) cout << "Chua cham dat\n";
@@ -123,21 +123,21 @@ void Player::update(RenderWindow& p_renderwindow, SDL_Rect& wall) {
         isFalling = (velY > 0 && !grounded && !isAttacking);
 
         x += velX;
-        collision.x = x + PLAYER_WIDTH;
-        if (x + PLAYER_WIDTH < 0 || (x + PLAYER_WIDTH > 1280) || (p_renderwindow.checkCollision(collision, wall))) {
+        collision.x = x;
+        if (x + PLAYER_WIDTH < 0 || (x + PLAYER_WIDTH > 1280) || (p_renderwindow.touchesWall(collision, tiles))) {
             x -= velX;
-            collision.x = x + PLAYER_WIDTH;
+            collision.x = x ;
         }
     }
 
     y += velY;
     collision.y = y + PLAYER_HEIGHT / 2;
 
-    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, wall)) {
+    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.touchesWall(collision, tiles)) {
         y -= velY;
         collision.y = y + PLAYER_HEIGHT / 2;
         if (velY > 0) {
-            if (isFalling && !p_renderwindow.checkCollision(collision, wall)) grounded = true;
+            if (isFalling) grounded = true;
         }
         else if (velY < 0) {
             y -= velY;

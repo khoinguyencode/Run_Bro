@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-
+#include "Tile.h"
 //kich co screen
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -8,6 +8,8 @@ const int SCREEN_HEIGHT = 720;
 //kich co level
 const int LEVEL_WIDTH = 1400;
 const int LEVEL_HEIGHT = 1024;
+
+class Tile;
 
 class RenderWindow {
 public:
@@ -29,6 +31,7 @@ public:
 
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
+    bool touchesWall(SDL_Rect box, Tile* tiles[]);
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;
