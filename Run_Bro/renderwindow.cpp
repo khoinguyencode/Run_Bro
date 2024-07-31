@@ -74,6 +74,15 @@ void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect&
 	SDL_RenderCopyEx(renderer, p_entity.getTex(), &p_clip, &dst, p_angle, p_center, p_flip);
 }
 
+void RenderWindow::renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera) {
+	SDL_Rect dst;
+	dst.x = p_entity.getX() - p_camera.x;
+	dst.y = p_entity.getY() - p_camera.y;
+	dst.w = p_clip.w;
+	dst.h = p_clip.h;
+	SDL_RenderCopy(renderer, p_entity.getTex(), &p_clip, &dst);
+}
+
 void RenderWindow::display() {
 	SDL_SetRenderDrawColor(renderer, 0, 0XFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);

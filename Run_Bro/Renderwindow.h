@@ -23,6 +23,10 @@ public:
 
     //ve cac animation len man hinh
     void renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
+
+    //ve tile
+    void renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& camera);
+
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
 private:
