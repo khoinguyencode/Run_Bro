@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
 
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
+    SDL_Texture* texTile = window.loadTexture("tiles.png");
 
     Player player(100, 103, tex);
 
