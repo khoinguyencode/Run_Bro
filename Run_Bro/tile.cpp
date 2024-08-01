@@ -37,7 +37,7 @@ bool Tile::setTiles(Tile* tiles[], SDL_Texture* p_tileTex)
 	int x = 0, y = 0;
 
 	//Open the map
-	std::ifstream map("lazy.map");
+	ifstream map("lazy.map");
 
 	//If the map couldn't be loaded
 	if (map.fail())
@@ -115,23 +115,4 @@ bool Tile::setTiles(Tile* tiles[], SDL_Texture* p_tileTex)
 
 	//If the map was loaded fine
 	return tilesLoaded;
-}
-
-bool Tile::touchesWall(SDL_Rect box, Tile* tiles[], RenderWindow& p_renderwindow)
-{
-	//Go through the tiles
-	for (int i = 0; i < TOTAL_TILES; ++i)
-	{
-		//If the tile is a wall type tile
-		if ((tiles[i]->getType() >= TILE_CENTER) && (tiles[i]->getType() <= TILE_TOPLEFT))
-		{
-			//If the collision box touches the wall tile
-			if (p_renderwindow.checkCollision(box, tiles[i]->getBox())) {
-				return true;
-			}
-		}
-	}
-
-	//If no wall tiles were touched
-	return false;
 }

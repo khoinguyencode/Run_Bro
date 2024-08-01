@@ -2,12 +2,12 @@
 #include "Entity.h"
 #include "Tile.h"
 //kich co screen
-const int SCREEN_WIDTH = 1280;
+const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 720;
 
 //kich co level
-const int LEVEL_WIDTH = 1400;
-const int LEVEL_HEIGHT = 1024;
+const int LEVEL_WIDTH = 1280;
+const int LEVEL_HEIGHT = 960;
 
 class Tile;
 

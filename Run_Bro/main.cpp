@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
     SDL_Texture* texTile = window.loadTexture("tiles.png");
 
-    Player player(0, 0, tex);
+    Player player(100, 0, tex);
 
     bool gameRunning = true;
     SDL_Event event;

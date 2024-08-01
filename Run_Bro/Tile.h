@@ -34,7 +34,6 @@ public:
 	static bool setTiles(Tile* tiles[], SDL_Texture* p_tileTex);
 	//get collison box
 	SDL_Rect getBox();
-	bool touchesWall(SDL_Rect box, Tile* tiles[], RenderWindow& p_renderwindow);
 private:
 	SDL_Rect box;
 	int type;

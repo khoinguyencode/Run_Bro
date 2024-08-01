@@ -3,8 +3,6 @@
 using namespace std;
 
 Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_tex) {
-    collision.x = x;
-    collision.y = y;
     collision.w = PLAYER_WIDTH;
     collision.h = PLAYER_HEIGHT;
 
@@ -109,9 +107,7 @@ void Player::gravity() {
 
 void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
     gravity();
-    ////cout << velY << ' ' << velX << endl;
-    if (grounded == false) cout << "Chua cham dat\n";
-    else cout << "Cham dat\n";
+    cout << x << endl;
     if (!isDead) {
 
         isIdling = (velX == 0 && grounded && !isAttacking);
@@ -123,10 +119,15 @@ void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
         isFalling = (velY > 0 && !grounded && !isAttacking);
 
         x += velX;
-        collision.x = x;
-        if (x + PLAYER_WIDTH < 0 || (x + PLAYER_WIDTH > 1280) || (p_renderwindow.touchesWall(collision, tiles))) {
+        collision.x = x + PLAYER_WIDTH;
+
+        if (x + PLAYER_WIDTH < 0) {
+            x = -PLAYER_WIDTH;
+            collision.x = x + PLAYER_WIDTH;
+        }
+        if (p_renderwindow.touchesWall(collision, tiles)) {
             x -= velX;
-            collision.x = x ;
+            collision.x = x + PLAYER_WIDTH;
         }
     }
 
@@ -154,7 +155,6 @@ void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
 
 void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     if (isIdling) {
-        //cout << "Dang dung yen\n";
         p_renderwindow.renderAnimation(*this, idlingClips[idleFrame / 4], p_camera, 0, NULL, flipType);
         idleFrame++;
         if (idleFrame / 4 >= IDLING_ANIMATIONS_FRAME) idleFrame = 0;
@@ -162,7 +162,6 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else idleFrame = 0;
 
     if (isRunning) {
-        //cout << "Dang chay\n";
         p_renderwindow.renderAnimation(*this, runningClips[runFrame / 6], p_camera, 0, NULL, flipType);
         runFrame++;
         if (runFrame / 6 >= RUNNING_ANIMATIONS_FRAME) runFrame = 0;
@@ -177,7 +176,6 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else attackFrame = 0;
 
     if (isJumping) {
-        //cout << "Dang nhay\n";
         p_renderwindow.renderAnimation(*this, jumpingClips[jumpFrame / 8], p_camera, 0, NULL, flipType);
         jumpFrame++;
         if (jumpFrame / 8 >= JUMPING_ANIMATIONS_FRAME) jumpFrame = 0;
@@ -185,7 +183,6 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else jumpFrame = 0;
     
     if (isFalling) {
-        //cout << "Dang roi\n";
         p_renderwindow.renderAnimation(*this, fallingClips[fallFrame / 4], p_camera, 0, NULL, flipType);
         fallFrame++;
         if (fallFrame / 4 >= FALLING_ANIMATIONS_FRAME) fallFrame = 0;
