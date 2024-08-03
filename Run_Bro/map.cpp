@@ -1,10 +1,11 @@
 #include "Map.h"
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex) {
-	x = p_x;
-	y = p_y;
+Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex) 
+    :x(p_x), y(p_y)
+{
 
     bool tilesLoaded = true;
     int x = getX(), y = getY();
@@ -19,7 +20,6 @@ Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex) {
             int tileType = -1;
 
             map >> tileType;
-
             if (map.fail()) {
                 printf("Error loading map: Unexpected end of file!\n");
                 tilesLoaded = false;
@@ -52,3 +52,10 @@ void Map::render(SDL_Rect p_tileClips[], SDL_Rect& p_camera, RenderWindow& p_ren
     }
 }
 
+float Map::getX() {
+    return x;
+}
+
+float Map::getY() {
+    return y;
+}

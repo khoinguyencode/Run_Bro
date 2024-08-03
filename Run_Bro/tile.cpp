@@ -23,4 +23,3 @@ int Tile::getType() {
 SDL_Rect Tile::getBox() {
     return box;
 }
-

@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Tile.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -19,9 +20,27 @@ int main(int argc, char* argv[]) {
     RenderWindow window("Game V1.0", SCREEN_WIDTH, SCREEN_HEIGHT);
 
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-    SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
+    SDL_Texture* playerTex = window.loadTexture("res/gfx/DarkSamuraiX.png");
+    SDL_Texture* tileTex = window.loadTexture("res/gfx/DungeonTileSet.png");
 
-    Player player(100, 0, tex);
+    Player player(0, 600, playerTex);
+
+    // Load the map
+    Map gameMap(0, 0, "res/gfx/maptest2.map", tileTex);
+
+    SDL_Rect tileClips[TOTAL_TILE_SPRITES];
+    int n = 0, m = 0;
+    for (int i = 0; i < TOTAL_TILE_SPRITES; i++) {
+        tileClips[i].x = n;
+        tileClips[i].y = m;
+        tileClips[i].w = TILE_WIDTH;
+        tileClips[i].h = TILE_HEIGHT;
+        n += TILE_WIDTH;
+        if (n > 16 * TILE_WIDTH) {
+            n = 0;
+            m += TILE_HEIGHT;
+        }
+    }
 
     bool gameRunning = true;
     SDL_Event event;
@@ -43,7 +62,13 @@ int main(int argc, char* argv[]) {
         player.update(window, camera);
         player.setCamera(camera);
         window.clear();
+
+        // Render the map
+        gameMap.render(tileClips, camera, window);
+
+        // Render the player
         player.render(window, camera);
+
         window.display();
         frameTime = SDL_GetTicks() - frameStart;
 

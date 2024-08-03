@@ -107,7 +107,6 @@ void Player::gravity() {
 
 void Player::update(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     gravity();
-    cout << x << endl;
     if (!isDead) {
 
         isIdling = (velX == 0 && grounded && !isAttacking);

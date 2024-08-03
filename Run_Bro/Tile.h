@@ -7,8 +7,8 @@
 //Tile constants
 const int TILE_WIDTH = 64;
 const int TILE_HEIGHT = 64;
-const int TOTAL_TILES = 600;
-const int TOTAL_TILE_SPRITES = 15;
+const int TOTAL_TILES = 336;
+const int TOTAL_TILE_SPRITES = 187;
 
 
 class Tile : public Entity{

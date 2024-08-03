@@ -84,6 +84,7 @@ void RenderWindow::renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_ca
 }
 
 void RenderWindow::display() {
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);
 }
 
@@ -121,7 +122,3 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 
 	return true;
 }
-
-
-
-
