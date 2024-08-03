@@ -2,7 +2,10 @@
 #include <fstream>
 using namespace std;
 
-Map::Map(const char* p_filePath, SDL_Texture* p_tileTex) {
+Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex) {
+	x = p_x;
+	y = p_y;
+
     bool tilesLoaded = true;
     int x = getX(), y = getY();
     ifstream map(p_filePath);
@@ -43,14 +46,9 @@ Map::Map(const char* p_filePath, SDL_Texture* p_tileTex) {
     map.close();
 }
 
-vector<Tile*> Map::getTiles() {
-    return tiles;
+void Map::render(SDL_Rect p_tileClips[], SDL_Rect& p_camera, RenderWindow& p_renderwindow) {
+    for (int i = 0; i < tiles.size(); i++) {
+        p_renderwindow.renderTile(*tiles[i], p_tileClips[tiles[i]->getType()], p_camera);
+    }
 }
 
-float Map::getX() {
-	return x;
-}
-
-float Map::getY() {
-	return y;
-}

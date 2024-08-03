@@ -18,6 +18,7 @@ bool MainGame::init(RenderWindow& p_renderwindow) {
 
 void MainGame::loadMedia(RenderWindow& p_renderwindow) {
 	p_renderwindow.loadTexture("res/gfx/DarkSamuraiX.png");
-	p_renderwindow.loadTexture("res/gfx/ground_grass_1.png");
+	p_renderwindow.loadTexture("tiles.png");
+
 }
 

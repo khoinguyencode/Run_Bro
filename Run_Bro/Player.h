@@ -9,7 +9,7 @@ public:
     void handleEvent(SDL_Event& e);
     void jump();
     void gravity(); //keo nguoi choi xuong
-    void update(RenderWindow& p_renderwindow, Tile *tiles[]);
+    void update(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera);
 private:

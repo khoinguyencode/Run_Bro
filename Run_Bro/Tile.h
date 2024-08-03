@@ -5,38 +5,21 @@
 #include "Entity.h"
 
 //Tile constants
-const int TILE_WIDTH = 80;
-const int TILE_HEIGHT = 80;
-const int TOTAL_TILES = 192;
-const int TOTAL_TILE_SPRITES = 12;
+const int TILE_WIDTH = 64;
+const int TILE_HEIGHT = 64;
+const int TOTAL_TILES = 600;
+const int TOTAL_TILE_SPRITES = 15;
 
-//The different tile sprites
-const int TILE_RED = 0;
-const int TILE_GREEN = 1;
-const int TILE_BLUE = 2;
-const int TILE_CENTER = 3;
-const int TILE_TOP = 4;
-const int TILE_TOPRIGHT = 5;
-const int TILE_RIGHT = 6;
-const int TILE_BOTTOMRIGHT = 7;
-const int TILE_BOTTOM = 8;
-const int TILE_BOTTOMLEFT = 9;
-const int TILE_LEFT = 10;
-const int TILE_TOPLEFT = 11;
-
-class RenderWindow;
 
 class Tile : public Entity{
 public:
-	Tile(float x, float y, SDL_Texture* p_tex , int tileType);
-	void render(SDL_Rect& camera, RenderWindow& p_renderwindow);
+	Tile(float p_x, float p_y, SDL_Texture* p_tex , int tileType);
+	void setType(int p_type);
 	int getType();
-	static bool setTiles(Tile* tiles[], SDL_Texture* p_tileTex);
 	//get collison box
 	SDL_Rect getBox();
 private:
 	SDL_Rect box;
 	int type;
-	static SDL_Rect gTileClips[TOTAL_TILE_SPRITES];
 };
 

@@ -105,7 +105,7 @@ void Player::gravity() {
     else velY = 2;
 }
 
-void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
+void Player::update(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     gravity();
     cout << x << endl;
     if (!isDead) {
@@ -125,7 +125,7 @@ void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
             x = -PLAYER_WIDTH;
             collision.x = x + PLAYER_WIDTH;
         }
-        if (p_renderwindow.touchesWall(collision, tiles)) {
+        if (p_renderwindow.checkCollision(collision, p_camera)) {
             x -= velX;
             collision.x = x + PLAYER_WIDTH;
         }
@@ -134,7 +134,7 @@ void Player::update(RenderWindow& p_renderwindow, Tile *tiles[]) {
     y += velY;
     collision.y = y + PLAYER_HEIGHT / 2;
 
-    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.touchesWall(collision, tiles)) {
+    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, p_camera)) {
         y -= velY;
         collision.y = y + PLAYER_HEIGHT / 2;
         if (velY > 0) {

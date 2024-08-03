@@ -20,7 +20,6 @@ int main(int argc, char* argv[]) {
 
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_Texture* tex = window.loadTexture("res/gfx/DarkSamuraiX.png");
-    SDL_Texture* texTile = window.loadTexture("tiles.png");
 
     Player player(100, 0, tex);
 
@@ -32,13 +31,6 @@ int main(int argc, char* argv[]) {
     Uint32 frameStart;
     int frameTime;
 
-    Tile* tileSet[TOTAL_TILES];
-
-    if (!Tile::setTiles(tileSet, texTile)) {
-        cout << "Failed to load tile set!" << endl;
-        return -1;
-    }
-
     while (gameRunning) {
         frameStart = SDL_GetTicks();
 
@@ -48,14 +40,9 @@ int main(int argc, char* argv[]) {
             else
                 player.handleEvent(event);
         }
-        player.update(window, tileSet);
+        player.update(window, camera);
         player.setCamera(camera);
         window.clear();
-        for (int i = 0; i < TOTAL_TILES; ++i)
-        {
-            tileSet[i]->render(camera, window);
-        }
-
         player.render(window, camera);
         window.display();
         frameTime = SDL_GetTicks() - frameStart;

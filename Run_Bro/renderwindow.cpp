@@ -122,23 +122,6 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 	return true;
 }
 
-bool RenderWindow::touchesWall(SDL_Rect box, Tile* tiles[])
-{
-	//Go through the tiles
-	for (int i = 0; i < TOTAL_TILES; ++i)
-	{
-		//If the tile is a wall type tile
-		if ((tiles[i]->getType() >= TILE_CENTER) && (tiles[i]->getType() <= TILE_TOPLEFT))
-		{
-			//If the collision box touches the wall tile
-			if (checkCollision(box, tiles[i]->getBox())) {
-				return true;
-			}
-		}
-	}
 
-	//If no wall tiles were touched
-	return false;
-}
 
 
