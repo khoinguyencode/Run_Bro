@@ -52,6 +52,10 @@ void Map::render(SDL_Rect p_tileClips[], SDL_Rect& p_camera, RenderWindow& p_ren
     }
 }
 
+vector<Tile*> Map::getTiles() {
+    return tiles;
+}
+
 float Map::getX() {
     return x;
 }

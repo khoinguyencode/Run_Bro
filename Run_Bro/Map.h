@@ -6,6 +6,7 @@
 using namespace std;
 
 class Tile;
+class RenderWindow;
 
 class Map {
 public:
@@ -16,10 +17,10 @@ public:
 
 	//reset lai game
 	//void setTilesType(const char* p_filePath);
-	vector<Tile*> getTiles();
+	vector<Tile*> getTiles(); 
 	float getX();
 	float getY();
 private:
 	float x, y;
-	vector<Tile*> tiles;
+	vector<Tile*> tiles; //vector chua con tro toi cac doi tuong Tile
 };

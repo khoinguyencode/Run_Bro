@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     SDL_Texture* playerTex = window.loadTexture("res/gfx/DarkSamuraiX.png");
     SDL_Texture* tileTex = window.loadTexture("res/gfx/DungeonTileSet.png");
 
-    Player player(0, 600, playerTex);
+    Player player(600, 600, playerTex);
 
     // Load the map
     Map gameMap(0, 0, "res/gfx/maptest2.map", tileTex);
@@ -36,6 +36,7 @@ int main(int argc, char* argv[]) {
         tileClips[i].w = TILE_WIDTH;
         tileClips[i].h = TILE_HEIGHT;
         n += TILE_WIDTH;
+        //xuong dong
         if (n > 16 * TILE_WIDTH) {
             n = 0;
             m += TILE_HEIGHT;
@@ -59,7 +60,7 @@ int main(int argc, char* argv[]) {
             else
                 player.handleEvent(event);
         }
-        player.update(window, camera);
+        player.update(window, gameMap);
         player.setCamera(camera);
         window.clear();
 

@@ -9,10 +9,11 @@ public:
     void handleEvent(SDL_Event& e);
     void jump();
     void gravity(); //keo nguoi choi xuong
-    void update(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
+    void update(RenderWindow& p_renderwindow, Map& p_map);
     void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera);
 private:
+    //player size
     const int PLAYER_WIDTH = 64;
     const int PLAYER_HEIGHT = 64;
     const int PLAYER_VEL = 6;
@@ -25,6 +26,7 @@ private:
     static const int ATTACKING_ANIMATIONS_FRAME = 3;
     static const int DEATH_ANIMATIONS_FRAME = 14;
 
+    //cac frame
     SDL_Rect idlingClips[IDLING_ANIMATIONS_FRAME];
     SDL_Rect runningClips[RUNNING_ANIMATIONS_FRAME];
     SDL_Rect jumpingClips[JUMPING_ANIMATIONS_FRAME];

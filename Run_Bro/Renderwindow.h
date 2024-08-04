@@ -1,15 +1,17 @@
 #pragma once
 #include "Entity.h"
 #include "Tile.h"
+#include "Map.h"
 //kich co screen
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
 //kich co level
-const int LEVEL_WIDTH = 1344; //1 pixel width cua 1 tile x 30
-const int LEVEL_HEIGHT = 1024; //1 pixel height cua 1 tile x 20
+const int LEVEL_WIDTH = 1536; //1 pixel width cua 1 tile(64) x so cot(24)
+const int LEVEL_HEIGHT = 1024; //1 pixel height cua 1 tile(64) x so dong(16)
 
 class Tile;
+class Map;
 
 class RenderWindow {
 public:
@@ -31,7 +33,8 @@ public:
 
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
-    bool touchesWall(SDL_Rect box, Tile* tiles[]);
+    bool checkTileCollsionX(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow);
+    bool checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow);
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;

@@ -105,8 +105,9 @@ void Player::gravity() {
     else velY = 2;
 }
 
-void Player::update(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
+void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     gravity();
+    cout << collision.x << ' ' << collision.y << endl;
     if (!isDead) {
 
         isIdling = (velX == 0 && grounded && !isAttacking);
@@ -124,27 +125,27 @@ void Player::update(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
             x = -PLAYER_WIDTH;
             collision.x = x + PLAYER_WIDTH;
         }
-        if (p_renderwindow.checkCollision(collision, p_camera)) {
+        if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow)) {
             x -= velX;
             collision.x = x + PLAYER_WIDTH;
         }
     }
 
     y += velY;
-    collision.y = y + PLAYER_HEIGHT / 2;
+    collision.y = y + PLAYER_HEIGHT;
 
-    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, p_camera)) {
-        y -= velY;
-        collision.y = y + PLAYER_HEIGHT / 2;
-        if (velY > 0) {
-            if (isFalling) grounded = true;
-        }
-        else if (velY < 0) {
-            y -= velY;
-            velY = 0;
-        }
-        collision.y = y + PLAYER_HEIGHT / 2;
-    }
+    //if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, p_camera)) {
+    //    y -= velY;
+    ////    collision.y = y + PLAYER_HEIGHT;
+    ////    if (velY > 0) {
+    ////        if (isFalling) grounded = true;
+    ////    }
+    ////    else if (velY < 0) {
+    ////        y -= velY;
+    ////        velY = 0;
+    ////    }
+    ////    collision.y = y + PLAYER_HEIGHT / 2;
+    ////}
     if (velX > 0) flipType = SDL_FLIP_NONE;
     if (velX < 0) flipType = SDL_FLIP_HORIZONTAL;
 

@@ -69,8 +69,8 @@ void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect&
 	SDL_Rect dst;
 	dst.x = p_entity.getX() - p_camera.x; //Vi tri cua nhan vat tren man hinh = vi tri thuc te - vi tri camera
 	dst.y = p_entity.getY() - p_camera.y;
-	dst.w = p_clip.w * 2;
-	dst.h = p_clip.h * 2;
+	dst.w = p_clip.w * 3;
+	dst.h = p_clip.h * 3;
 	SDL_RenderCopyEx(renderer, p_entity.getTex(), &p_clip, &dst, p_angle, p_center, p_flip);
 }
 
@@ -122,3 +122,35 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 
 	return true;
 }
+
+bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow) {
+	if (p_collision.x > p_map.getX() && p_collision.x + p_collision.h < LEVEL_WIDTH + p_map.getX() && p_collision.y >= 0 && p_collision.y < LEVEL_WIDTH - TILE_HEIGHT) {
+		//xac dinh cac khoang ma collsion nam trong hoac va cham
+		int col_start = p_collision.x / TILE_WIDTH;
+		int col_end = col_start + 1;
+		int row_start = p_collision.y / TILE_WIDTH;
+		int row_end = row_start + 1;
+
+		//vi tri(ID) cua tile xung quanh collsion cua player = dong * Tong so cot + cot
+		int indexTile1 = row_start * 24 + col_start; //dong tren cot trai
+		int indexTile2 = row_end * 24 + col_start; //dong duoi cot trai
+		int indexTile3 = row_start * 24 + col_end; //dong tren cot phai
+		int indexTile4 = row_end * 24 + col_end; //dong duoi cot phai
+
+		//kiem tra type cua tile
+		if (indexTile1 < p_map.getTiles().size() && p_map.getTiles()[indexTile1]->getType() >= 0 && p_map.getTiles()[indexTile1]->getType() != 18 && p_map.getTiles()[indexTile1]->getType() <= 40) {
+			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile1]->getBox(), p_collision)) return true;
+		}
+		if (indexTile2 < p_map.getTiles().size() && p_map.getTiles()[indexTile2]->getType() >= 0 && p_map.getTiles()[indexTile2]->getType() != 18 && p_map.getTiles()[indexTile2]->getType() <= 40) {
+			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile2]->getBox(), p_collision)) return true;
+		}
+		if (indexTile3 < p_map.getTiles().size() && p_map.getTiles()[indexTile3]->getType() >= 0 && p_map.getTiles()[indexTile3]->getType() != 18 && p_map.getTiles()[indexTile3]->getType() <= 40) {
+			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile3]->getBox(), p_collision)) return true;
+		}
+		if (indexTile4 < p_map.getTiles().size() && p_map.getTiles()[indexTile4]->getType() >= 0 && p_map.getTiles()[indexTile4]->getType() != 18 && p_map.getTiles()[indexTile4]->getType() <= 40) {
+			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile4]->getBox(), p_collision)) return true;
+		}
+	}
+	return false;
+}
+
