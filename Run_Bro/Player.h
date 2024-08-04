@@ -36,9 +36,8 @@ private:
 
     int idleFrame = 0, runFrame = 0, jumpFrame = 0, fallFrame = 0, attackFrame, deathFrame = 0;
 
-    int frame = 0;
     float velX = 0, velY = 0;
-
     bool grounded = false, isIdling = true, isRunning = false, isJumping = false, isFalling = true, isAttacking = false, isDead = false;
+
     SDL_Rect collision;
 };

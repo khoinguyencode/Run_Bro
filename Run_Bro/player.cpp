@@ -3,7 +3,7 @@
 using namespace std;
 
 Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_tex) {
-    collision.w = PLAYER_WIDTH;
+    collision.w = PLAYER_WIDTH + 10;
     collision.h = PLAYER_HEIGHT;
 
     for (int i = 0; i < IDLING_ANIMATIONS_FRAME; ++i) {
@@ -134,18 +134,18 @@ void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
 
-    //if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkCollision(collision, p_camera)) {
-    //    y -= velY;
-    ////    collision.y = y + PLAYER_HEIGHT;
-    ////    if (velY > 0) {
-    ////        if (isFalling) grounded = true;
-    ////    }
-    ////    else if (velY < 0) {
-    ////        y -= velY;
-    ////        velY = 0;
-    ////    }
-    ////    collision.y = y + PLAYER_HEIGHT / 2;
-    ////}
+    if (y + PLAYER_HEIGHT < 0 || p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded)) {
+        y -= velY;
+        collision.y = y + PLAYER_HEIGHT;
+        if (velY > 0) {
+            if (isFalling) grounded = true;
+        }
+        else if (velY < 0) {
+            y -= velY;
+            velY = 0;
+        }
+        collision.y = y + PLAYER_HEIGHT / 2;
+    }
     if (velX > 0) flipType = SDL_FLIP_NONE;
     if (velX < 0) flipType = SDL_FLIP_HORIZONTAL;
 
