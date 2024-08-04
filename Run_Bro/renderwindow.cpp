@@ -154,9 +154,9 @@ bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, Map& p_map, RenderW
 	return false;
 }
 
-bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& p_grounded) {
+bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex) {
 	bool ok = false;
-	if (p_collision.x + p_collision.w > p_map.getX() && p_collision.x <= LEVEL_WIDTH + p_map.getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
+	if (p_collision.x + p_collision.w + 12 > p_map.getX() && p_collision.x <= LEVEL_WIDTH + p_map.getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
 		//xac dinh cac khoang ma collsion nam trong hoac va cham
 		int col_start = p_collision.x / TILE_WIDTH;
 		int col_end = col_start + 1;
@@ -170,21 +170,28 @@ bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderW
 		int indexTile4 = row_end * 24 + col_end; //dong duoi cot phai
 
 		//kiem tra type cua tile
-		if (indexTile1 < p_map.getTiles().size() && p_map.getTiles()[indexTile1]->getType() >= 0 && p_map.getTiles()[indexTile1]->getType() != 18 && p_map.getTiles()[indexTile1]->getType() <= 40) {
-			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile1]->getBox(), p_collision)) return true;
-		}
-		if (indexTile2 < p_map.getTiles().size() && p_map.getTiles()[indexTile2]->getType() >= 0 && p_map.getTiles()[indexTile2]->getType() != 18 && p_map.getTiles()[indexTile2]->getType() <= 40) {
-			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile2]->getBox(), p_collision)) return true;
-		}
-		if (indexTile3 < p_map.getTiles().size() && p_map.getTiles()[indexTile3]->getType() >= 0 && p_map.getTiles()[indexTile3]->getType() != 18 && p_map.getTiles()[indexTile3]->getType() <= 40) {
-			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile3]->getBox(), p_collision)) return true;
-		}
-		if (indexTile4 < p_map.getTiles().size() && p_map.getTiles()[indexTile4]->getType() >= 0 && p_map.getTiles()[indexTile4]->getType() != 18 && p_map.getTiles()[indexTile4]->getType() <= 40) {
-			if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile4]->getBox(), p_collision)) return true;
-		}
 		if (p_collision.x <= p_map.getX() && p_collision.x + p_collision.w >= p_map.getX() || p_collision.x <= p_map.getX() + LEVEL_WIDTH && p_collision.x + p_collision.w + 12 >= p_map.getX() + LEVEL_WIDTH) {
 			p_grounded = false;
 		}
+		else {
+			if (indexTile1 < p_map.getTiles().size() && p_map.getTiles()[indexTile1]->getType() >= 0 && p_map.getTiles()[indexTile1]->getType() != 18 && p_map.getTiles()[indexTile1]->getType() <= 40) {
+				if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile1]->getBox(), p_collision)) ok = true;
+			}
+			if (indexTile2 < p_map.getTiles().size() && p_map.getTiles()[indexTile2]->getType() >= 0 && p_map.getTiles()[indexTile2]->getType() != 18 && p_map.getTiles()[indexTile2]->getType() <= 40) {
+				if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile2]->getBox(), p_collision)) ok = true;
+			}
+			if (indexTile3 < p_map.getTiles().size() && p_map.getTiles()[indexTile3]->getType() >= 0 && p_map.getTiles()[indexTile3]->getType() != 18 && p_map.getTiles()[indexTile3]->getType() <= 40) {
+				if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile3]->getBox(), p_collision)) ok = true;
+			}
+			if (indexTile4 < p_map.getTiles().size() && p_map.getTiles()[indexTile4]->getType() >= 0 && p_map.getTiles()[indexTile4]->getType() != 18 && p_map.getTiles()[indexTile4]->getType() <= 40) {
+				if (p_renderwindow.checkCollision(p_map.getTiles()[indexTile4]->getBox(), p_collision)) ok = true;
+			}
+			if (indexTile2 < p_map.getTiles().size() && indexTile4 < p_map.getTiles().size() && (p_map.getTiles()[indexTile2]->getType() != 18 && (p_map.getTiles()[indexTile4]->getType() != 18))) {
+				if ((p_map.getTiles()[indexTile2]->getType() > 40) && (p_map.getTiles()[indexTile4]->getType() > 40)) p_grounded = false;
+				if ((p_map.getTiles()[indexTile4]->getType() > 40) && (p_map.getTiles()[indexTile2]->getType() <= 40) && p_collision.x + p_collision.w <= p_map.getTiles()[indexTile2]->getBox().x) p_grounded = false;
+			}
+		}
+		p_groundIndex = indexTile4;
 	}
-	return false;
+	return ok;
 }
