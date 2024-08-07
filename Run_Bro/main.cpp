@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     SDL_Texture* playerTex = window.loadTexture("res/gfx/DarkSamuraiX.png");
     SDL_Texture* tileTex = window.loadTexture("res/gfx/DungeonTileSet.png");
 
-    Player player(600, 600, playerTex);
+    Player player(500, 200, playerTex);
 
     // Load the map
     Map gameMap(0, 0, "res/gfx/maptest2.map", tileTex);

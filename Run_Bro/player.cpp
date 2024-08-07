@@ -3,7 +3,7 @@
 using namespace std;
 
 Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_tex) {
-    collision.w = PLAYER_WIDTH- 10;
+    collision.w = PLAYER_WIDTH;
     collision.h = PLAYER_HEIGHT;
 
     for (int i = 0; i < IDLING_ANIMATIONS_FRAME; ++i) {
@@ -107,52 +107,53 @@ void Player::gravity() {
 
 void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     gravity();
-    cout << x << ' ' << y << endl;
+
     if (!isDead) {
-
         isIdling = (velX == 0 && grounded && !isAttacking);
-
         isRunning = (velX != 0 && grounded && !isAttacking);
-
         isJumping = (velY <= 0 && !grounded && !isAttacking);
-
         isFalling = (velY > 0 && !grounded && !isAttacking);
-
-        x += velX;
-        collision.x = x + PLAYER_WIDTH;
-
-        if (x + PLAYER_WIDTH < 0) {
-            x = -PLAYER_WIDTH;
-            collision.x = x + PLAYER_WIDTH;
-        }
-        if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow)) {
-            x -= velX;
-            collision.x = x + PLAYER_WIDTH;
-        }
     }
+
+    //check X collsion
+    x += velX;
+    collision.x = x + PLAYER_WIDTH - 8;
+    if (x + PLAYER_WIDTH < 0) {
+        x = -PLAYER_WIDTH;
+        collision.x = x + PLAYER_WIDTH;
+    }
+    if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow)) {
+        x -= velX;
+        collision.x = x + PLAYER_WIDTH - 12;
+    }
+
+    //check Y collsion
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
     if (y + PLAYER_HEIGHT < 0) {
         y = -PLAYER_HEIGHT;
         collision.y = y + PLAYER_HEIGHT;
     }
-    if (p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)) {
+    if(p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)){
         if (velY > 0) {
             y = p_map.getTiles()[groundIndex]->getY() - 64 * 2;
             if (isFalling) grounded = true;
-        }
+        } 
         else if (velY < 0) {
             y -= velY;
             velY = 0;
         }
         collision.y = y + PLAYER_HEIGHT;
     }
+
     if (velX > 0) flipType = SDL_FLIP_NONE;
     if (velX < 0) flipType = SDL_FLIP_HORIZONTAL;
 
+
     /*cout << "Player grounded: " << grounded << " isFalling: " << isFalling << " velY: " << velY << endl;*/
-    //cout << "Player position: (" << x << ", " << y << ")" << endl;
+    /*cout << "Player position: (" << x << ", " << y << ")" << endl;*/
 }
+
 
 void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     if (isIdling) {
@@ -182,14 +183,14 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
         if (jumpFrame / 8 >= JUMPING_ANIMATIONS_FRAME) jumpFrame = 0;
     }
     else jumpFrame = 0;
-    
+
     if (isFalling) {
         p_renderwindow.renderAnimation(*this, fallingClips[fallFrame / 4], p_camera, 0, NULL, flipType);
         fallFrame++;
         if (fallFrame / 4 >= FALLING_ANIMATIONS_FRAME) fallFrame = 0;
     }
     else fallFrame = 0;
-    
+
     if (isDead) {
         p_renderwindow.renderAnimation(*this, deathClips[deathFrame / 8], p_camera, 0, NULL, flipType);
         if (deathFrame / 8 < DEATH_ANIMATIONS_FRAME - 1) deathFrame++;
