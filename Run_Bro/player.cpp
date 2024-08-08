@@ -107,35 +107,28 @@ void Player::gravity() {
 
 void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     gravity();
-
+    cout << y << endl;
     if (!isDead) {
         isIdling = (velX == 0 && grounded && !isAttacking);
         isRunning = (velX != 0 && grounded && !isAttacking);
-        isJumping = (velY <= 0 && !grounded && !isAttacking);
+        isJumping = (velY < 0 && !grounded && !isAttacking);
         isFalling = (velY > 0 && !grounded && !isAttacking);
     }
 
     //check X collsion
     x += velX;
-    collision.x = x + PLAYER_WIDTH - 8;
-    if (x + PLAYER_WIDTH < 0) {
-        x = -PLAYER_WIDTH;
-        collision.x = x + PLAYER_WIDTH;
-    }
+    collision.x = x + PLAYER_WIDTH;
     if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow)) {
         x -= velX;
-        collision.x = x + PLAYER_WIDTH - 12;
+        collision.x = x + PLAYER_WIDTH;
     }
 
     //check Y collsion
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
-    if (y + PLAYER_HEIGHT < 0) {
-        y = -PLAYER_HEIGHT;
-        collision.y = y + PLAYER_HEIGHT;
-    }
     if(p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)){
         if (velY > 0) {
+            //set lai y
             y = p_map.getTiles()[groundIndex]->getY() - 64 * 2;
             if (isFalling) grounded = true;
         } 

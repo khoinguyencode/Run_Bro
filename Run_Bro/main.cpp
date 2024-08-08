@@ -21,12 +21,12 @@ int main(int argc, char* argv[]) {
 
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_Texture* playerTex = window.loadTexture("res/gfx/DarkSamuraiX.png");
-    SDL_Texture* tileTex = window.loadTexture("res/gfx/DungeonTileSet.png");
+    SDL_Texture* tileTex = window.loadTexture("res/gfx/fake.png");
 
-    Player player(500, 200, playerTex);
+    Player player(0, 0, playerTex);
 
     // Load the map
-    Map gameMap(0, 0, "res/gfx/maptest2.map", tileTex);
+    Map gameMap(0, 0, "res/gfx/dungeon11.map", tileTex);
 
     SDL_Rect tileClips[TOTAL_TILE_SPRITES];
     int n = 0, m = 0;
