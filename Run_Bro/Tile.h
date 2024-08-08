@@ -15,6 +15,7 @@ class Tile : public Entity {
 public:
 	Tile(float p_x, float p_y, SDL_Texture* p_tex, int tileType);
 	void setType(int p_type);
+	void setX(int p_x);
 	int getType();
 	//get collison box
 	SDL_Rect getBox();

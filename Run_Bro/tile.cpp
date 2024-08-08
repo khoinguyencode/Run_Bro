@@ -16,6 +16,11 @@ void Tile::setType(int p_type) {
     type = p_type;
 }
 
+void Tile::setX(int p_x) {
+    x = p_x;
+    box.x = x;
+}
+
 int Tile::getType() {
     return type;
 }

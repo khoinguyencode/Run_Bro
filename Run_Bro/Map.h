@@ -14,11 +14,10 @@ class Map {
 public:
 	Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex);
 	void render(SDL_Rect p_tileClips[], SDL_Rect& p_camera, RenderWindow& p_renderwindow);
-	//void setX(float p_x);
-	//void setLevel(Map& p_level);
-
-	//reset lai game
-	//void setTilesType(const char* p_filePath);
+	void setX(float p_x); //dam bao vi tri cac o trong map cung dich chuyen theo vi tri moi cua map
+	void setMap(Map& p_map); //dat vi tri map hien tai ngay canh ben phai p_map 
+	
+	void setTilesType(const char* p_filePath);
 	vector<Tile*> getTiles();
 	float getX();
 	float getY();
