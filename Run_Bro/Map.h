@@ -5,6 +5,8 @@
 #include "Renderwindow.h"
 using namespace std;
 
+const int TOTAL_MAP = 12;
+
 class Tile;
 class RenderWindow;
 
@@ -17,7 +19,7 @@ public:
 
 	//reset lai game
 	//void setTilesType(const char* p_filePath);
-	vector<Tile*> getTiles(); 
+	vector<Tile*> getTiles();
 	float getX();
 	float getY();
 private:

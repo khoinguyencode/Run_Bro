@@ -11,9 +11,9 @@ const int TOTAL_TILES = 384; //chieu rong x chieu cao cua map
 const int TOTAL_TILE_SPRITES = 187; //chieu rong x chieu cao cua tileSet
 
 
-class Tile : public Entity{
+class Tile : public Entity {
 public:
-	Tile(float p_x, float p_y, SDL_Texture* p_tex , int tileType);
+	Tile(float p_x, float p_y, SDL_Texture* p_tex, int tileType);
 	void setType(int p_type);
 	int getType();
 	//get collison box
@@ -22,4 +22,3 @@ private:
 	SDL_Rect box;
 	int type;
 };
-

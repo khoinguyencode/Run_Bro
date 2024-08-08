@@ -82,7 +82,7 @@ void Player::handleEvent(SDL_Event& e) {
             }
             break;
         case SDLK_SPACE:
-            isAttacking = false; 
+            isAttacking = false;
             break;
         default:
             break;
@@ -126,12 +126,12 @@ void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     //check Y collsion
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
-    if(p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)){
+    if (p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)) {
         if (velY > 0) {
             //set lai y
             y = p_map.getTiles()[groundIndex]->getY() - 64 * 2;
             if (isFalling) grounded = true;
-        } 
+        }
         else if (velY < 0) {
             y -= velY;
             velY = 0;
@@ -191,9 +191,17 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     else deathFrame = 0;
 }
 
-void Player::setCamera(SDL_Rect& p_camera) {
-    p_camera.x = (collision.x + PLAYER_WIDTH / 2) - SCREEN_WIDTH / 2;
-    p_camera.y = (collision.y + PLAYER_HEIGHT / 2) - SCREEN_HEIGHT / 2;
+void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
+    if (!isDead) p_camera.x += velCam;
+    // tang dan gia toc theo thoi gian
+    float gia_toc = 0.0001;
+    velCam += gia_toc;
+
+    //camera tu dong di chuyen
+    if (x + PLAYER_WIDTH / 2 - p_camera.x >= SCREEN_WIDTH * 2 / 3) {
+        p_camera.x = (x + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 2 / 3;
+    }
+    p_camera.y = (y + PLAYER_HEIGHT / 2) - SCREEN_HEIGHT / 2;
 
     //Giu cho camera luon nam trong vong
     if (p_camera.x < 0) p_camera.x = 0;

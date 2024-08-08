@@ -23,10 +23,39 @@ int main(int argc, char* argv[]) {
     SDL_Texture* playerTex = window.loadTexture("res/gfx/DarkSamuraiX.png");
     SDL_Texture* tileTex = window.loadTexture("res/gfx/fake.png");
 
-    Player player(0, 0, playerTex);
+    Player player(0, 600, playerTex);
 
     // Load the map
-    Map gameMap(0, 0, "res/gfx/dungeon11.map", tileTex);
+    vector<const char*> maps;
+    vector<Map> levels;
+
+
+    maps.push_back("res/gfx/dungeon0.map");
+    maps.push_back("res/gfx/dungeon1.map");
+    maps.push_back("res/gfx/dungeon2.map");
+    maps.push_back("res/gfx/dungeon3.map");
+    maps.push_back("res/gfx/dungeon4.map");
+    maps.push_back("res/gfx/dungeon5.map");
+    maps.push_back("res/gfx/dungeon6.map");
+    maps.push_back("res/gfx/dungeon7.map");
+    maps.push_back("res/gfx/dungeon8.map");
+    maps.push_back("res/gfx/dungeon9.map");
+    maps.push_back("res/gfx/dungeon10.map");
+    maps.push_back("res/gfx/dungeon11.map");
+
+    //khong tinh map 0
+    int tong_map = TOTAL_MAP - 1;
+
+    //render 3 map dau
+    for (int i = 0; i < 3; i++) {
+        //lay ngau nhien 1 map
+        int random = rand() % tong_map;
+        if (i == 0) random = tong_map;
+        Map map(i * LEVEL_WIDTH, 0, maps[random], tileTex);
+        levels.push_back(map);
+    }
+    
+    Map gameMap(0, 0, "res/gfx/dungeon0.map", tileTex);
 
     SDL_Rect tileClips[TOTAL_TILE_SPRITES];
     int n = 0, m = 0;
@@ -50,7 +79,7 @@ int main(int argc, char* argv[]) {
     const int frameDelay = 1000 / FPS;
     Uint32 frameStart;
     int frameTime;
-
+    float velCam = 1.5;
     while (gameRunning) {
         frameStart = SDL_GetTicks();
 
@@ -61,7 +90,7 @@ int main(int argc, char* argv[]) {
                 player.handleEvent(event);
         }
         player.update(window, gameMap);
-        player.setCamera(camera);
+        player.setCamera(camera, velCam);
         window.clear();
 
         // Render the map

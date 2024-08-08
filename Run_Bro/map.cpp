@@ -3,10 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex) 
+Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex)
     :x(p_x), y(p_y)
 {
-
     bool tilesLoaded = true;
     int x = getX(), y = getY();
     ifstream map(p_filePath);
@@ -15,7 +14,7 @@ Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex)
         printf("Unable to load map file!\n");
         tilesLoaded = false;
     }
-    else{
+    else {
         for (int i = 0; i < TOTAL_TILES; ++i) {
             int tileType = -1;
 

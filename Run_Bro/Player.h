@@ -10,8 +10,8 @@ public:
     void jump();
     void gravity(); //keo nguoi choi xuong
     void update(RenderWindow& p_renderwindow, Map& p_map);
-    void render(RenderWindow& p_renderwindow ,SDL_Rect& p_camera);
-    void setCamera(SDL_Rect& p_camera);
+    void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
+    void setCamera(SDL_Rect& p_camera, float& velCam);
 private:
     //player size
     const int PLAYER_WIDTH = 64;
