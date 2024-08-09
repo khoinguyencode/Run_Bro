@@ -1,9 +1,10 @@
 ﻿#include "MainGame.h"
-
 #include <iostream>
 using namespace std;
 
-MainGame::MainGame() {
+MainGame::MainGame(RenderWindow& renderwindow)
+	:p_renderwindow(renderwindow)
+{
 	setTile();
 }
 
@@ -12,7 +13,7 @@ bool MainGame::init() {
 		cout << "SDL Init failed: " << SDL_GetError << endl;
 		return false;
 	}
-	if (IMG_Init(IMG_INIT_PNG)) {
+	if (!IMG_Init(IMG_INIT_PNG)) {
 		cout << "IMG Init failed: " << SDL_GetError << endl;
 		return false;
 	}
@@ -45,7 +46,7 @@ void MainGame::createMapLists() {
 	lists.push_back("res/gfx/dungeon11.map");
 }
 
-void MainGame::loadLevel() {
+void MainGame::loadMap() {
 	//render truoc 3 map
 	for (int i = 0; i < 3; i++) {
 		//chon ngau nhien 1 map
@@ -97,6 +98,12 @@ void MainGame::setTile() {
 void updatePlayer();
 void updateGame();
 void resetGame();
-void handleGameInput(SDL_Event& event);
+
+void MainGame::handleGameEvent(SDL_Event& event) {
+	if(event.type == SDL_QUIT) isRunning = false;
+}
 bool isRunning();
 
+bool MainGame::getIsRunning() {
+	return isRunning;
+}

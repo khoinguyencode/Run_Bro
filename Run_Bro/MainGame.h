@@ -6,21 +6,22 @@
 #include "Entity.h"
 #include "Player.h"
 
+
 class MainGame {
 public:
-	MainGame();
+	MainGame(RenderWindow& renderwindow);
 	bool init();
 	void loadMedia();
 	void loadPlayer();
 	void createMapLists();
-	void loadLevel();
+	void loadMap();
 	void updateMap();
 	void setTile();
 	void updatePlayer();
 	void updateGame();
 	void resetGame();
-	void handleGameInput(SDL_Event& event);
-	bool isRunning();
+	void handleGameEvent(SDL_Event& event);
+	bool getIsRunning();
 
 
 private:

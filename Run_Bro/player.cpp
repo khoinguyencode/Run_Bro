@@ -118,7 +118,7 @@ void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     //check X collsion
     x += velX;
     collision.x = x + PLAYER_WIDTH;
-    if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow)) {
+    if (p_renderwindow.checkTileCollsionX(collision, p_map, p_renderwindow, isDead)) {
         x -= velX;
         collision.x = x + PLAYER_WIDTH;
     }
@@ -126,7 +126,7 @@ void Player::update(RenderWindow& p_renderwindow, Map& p_map) {
     //check Y collsion
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
-    if (p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex)) {
+    if (p_renderwindow.checkTileCollsionY(collision, p_map, p_renderwindow, grounded, groundIndex, isDead)) {
         if (velY > 0) {
             //set lai y
             y = p_map.getTiles()[groundIndex]->getY() - 64 * 2;
