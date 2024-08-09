@@ -82,7 +82,6 @@ void RenderWindow::renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_ca
 }
 
 void RenderWindow::display() {
-	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderPresent(renderer);
 }
 
@@ -121,9 +120,9 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 	return true;
 }
 
-bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& isDead) {
+bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, vector<Map>& p_maps, RenderWindow& p_renderwindow, bool& isDead) {
 	//check truoc 3 map
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < p_maps.size(); i++) {
 		if (p_collision.x > p_maps[i].getX() && p_collision.x + p_collision.w < LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
 			//xac dinh cac khoang ma collsion nam trong hoac va cham
 			int col_start = p_collision.x / TILE_WIDTH;
@@ -176,10 +175,10 @@ bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, vector<Map> p_maps,
 }
 
 
-bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex) {
+bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, vector<Map>& p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex) {
 	bool ok = false;
 	//check truoc 3 map
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < p_maps.size(); i++) {
 		if (p_collision.x + p_collision.w >= p_maps[i].getX() && p_collision.x <= LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
 			//xac dinh cac khoang ma collsion nam trong hoac va cham
 			int col_start = p_collision.x / TILE_WIDTH;

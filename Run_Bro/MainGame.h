@@ -27,7 +27,7 @@ public:
 private:
 	RenderWindow& p_renderwindow;
 	bool isRunning = true;
-	const int tong_map = TOTAL_MAP - 1;
+	int tong_map = TOTAL_MAP - 1;
 	//cac texture
 	SDL_Texture* playerTex = NULL;
 	SDL_Texture* tileTex = NULL;

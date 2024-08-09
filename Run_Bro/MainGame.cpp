@@ -17,13 +17,12 @@ bool MainGame::init() {
 		cout << "IMG Init failed: " << SDL_GetError << endl;
 		return false;
 	}
-	p_renderwindow = RenderWindow("Game", 100, 100);
 	return true;
 }
 
 void MainGame::loadMedia() {
-	p_renderwindow.loadTexture("res/gfx/DarkSamuraiX.png");
-	p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
+	playerTex = p_renderwindow.loadTexture("res/gfx/DarkSamuraiX.png");
+	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
 }
 
 void MainGame::loadPlayer() {
@@ -32,7 +31,6 @@ void MainGame::loadPlayer() {
 }
 
 void MainGame::createMapLists() {
-	lists.push_back("res/gfx/dungeon0.map");
 	lists.push_back("res/gfx/dungeon1.map");
 	lists.push_back("res/gfx/dungeon2.map");
 	lists.push_back("res/gfx/dungeon3.map");
@@ -44,6 +42,7 @@ void MainGame::createMapLists() {
 	lists.push_back("res/gfx/dungeon9.map");
 	lists.push_back("res/gfx/dungeon10.map");
 	lists.push_back("res/gfx/dungeon11.map");
+	lists.push_back("res/gfx/dungeon0.map");
 }
 
 void MainGame::loadMap() {
@@ -100,13 +99,35 @@ void MainGame::updatePlayer() {
 	players[0].setCamera(camera, velCam);
 	players[0].render(p_renderwindow, camera);
 }
-void updateGame();
-void resetGame();
+
+void MainGame::updateGame() {
+	p_renderwindow.clear();
+	updateMap();
+	updatePlayer();
+	p_renderwindow.display();
+}
+
+void MainGame::resetGame() {
+	players[0].resetPlayer();
+	camera.x = 0;
+	camera.y = 0;
+	velCam = 1.5;
+
+	for (int i = 0; i < maps.size(); i++) {
+		int random = rand() % (tong_map);
+		if (i == 0) {
+			random = tong_map;
+			maps[i].setX(0);
+		}
+		else maps[i].setMap(maps[i - 1]);
+		maps[i].setTilesType(lists[random]);
+	}
+
+}
 
 void MainGame::handleGameEvent(SDL_Event& event) {
 	if(event.type == SDL_QUIT) isRunning = false;
 }
-bool isRunning();
 
 bool MainGame::getIsRunning() {
 	return isRunning;

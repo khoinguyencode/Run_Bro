@@ -14,18 +14,20 @@ using namespace std;
 int main(int argc, char* argv[]) {
     RenderWindow window("Game", SCREEN_WIDTH, SCREEN_HEIGHT);
     MainGame game(window);
+    srand(time(NULL));
     if (game.init()) {
         game.loadMedia();
-        game.loadPlayer();
         game.createMapLists();
+        game.loadPlayer();
         game.loadMap();
-        SDL_Event event;
         while (game.getIsRunning()) {
+            SDL_Event event;
             while (SDL_PollEvent(&event)) {
                 game.handleGameEvent(event);
             }
-            game.updatePlayer();
+            game.updateGame();
         }
     }
+    window.cleanUp();
     return 0;
 }

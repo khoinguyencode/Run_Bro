@@ -35,8 +35,8 @@ public:
 
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
-    bool checkTileCollsionX(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& isDead);
-    bool checkTileCollsionY(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex);
+    bool checkTileCollsionX(SDL_Rect& p_collision, vector<Map>& p_maps, RenderWindow& p_renderwindow, bool& isDead);
+    bool checkTileCollsionY(SDL_Rect& p_collision, vector<Map>& p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex);
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;

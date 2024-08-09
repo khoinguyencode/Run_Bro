@@ -105,12 +105,12 @@ void Player::gravity() {
     else velY = 2;
 }
 
-void Player::update(RenderWindow& p_renderwindow, vector<Map> p_maps) {
+void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps) {
     gravity();
     if (!isDead) {
         isIdling = (velX == 0 && grounded && !isAttacking);
         isRunning = (velX != 0 && grounded && !isAttacking);
-        isJumping = (velY < 0 && !grounded && !isAttacking);
+        isJumping = (velY <= 0 && !grounded && !isAttacking);
         isFalling = (velY > 0 && !grounded && !isAttacking);
     }
 
@@ -194,6 +194,8 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     if (!isDead) p_camera.x += velCam;
     // tang dan gia toc theo thoi gian
     float gia_toc = 0.0001;
+    if (velCam > 4) gia_toc = 0.0003;
+    if (velCam > 5) gia_toc = 0.00001;
     velCam += gia_toc;
 
     //camera tu dong di chuyen
@@ -207,4 +209,13 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     if (p_camera.y < 0) p_camera.y = 0;
     if (p_camera.x > LEVEL_WIDTH - p_camera.w) p_camera.x = LEVEL_WIDTH - p_camera.w;
     if (p_camera.y > LEVEL_HEIGHT - p_camera.h) p_camera.y = LEVEL_HEIGHT - p_camera.h;
+}
+
+void Player::resetPlayer() {
+    x = 200;
+    y = 1000;
+    velX = 0;
+    velY = 0;
+    isDead = false;
+    flipType = SDL_FLIP_NONE;
 }
