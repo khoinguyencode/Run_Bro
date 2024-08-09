@@ -2,6 +2,8 @@
 #include "Entity.h"
 #include "Tile.h"
 #include "Map.h"
+#include <vector>
+using namespace std;
 //kich co screen
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -33,8 +35,8 @@ public:
 
     void display();
     static bool checkCollision(SDL_Rect a, SDL_Rect b);
-    bool checkTileCollsionX(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& isDead);
-    bool checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead);
+    bool checkTileCollsionX(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& isDead);
+    bool checkTileCollsionY(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex);
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;

@@ -24,6 +24,7 @@ int main(int argc, char* argv[]) {
             while (SDL_PollEvent(&event)) {
                 game.handleGameEvent(event);
             }
+            game.updatePlayer();
         }
     }
     return 0;

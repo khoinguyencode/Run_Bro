@@ -2,6 +2,9 @@
 #include "Entity.h"
 #include "Renderwindow.h"
 #include "Tile.h"
+#include <vector>
+using namespace std;
+
 
 class Player : public Entity {
 public:
@@ -9,7 +12,7 @@ public:
     void handleEvent(SDL_Event& e);
     void jump();
     void gravity(); //keo nguoi choi xuong
-    void update(RenderWindow& p_renderwindow, Map& p_map);
+    void update(RenderWindow& p_renderwindow, vector<Map> p_maps);
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera, float& velCam);
 private:
@@ -38,7 +41,7 @@ private:
 
     float velX = 0, velY = 0;
 
-    int groundIndex = 1;
+    int groundIndex = 1, mapIndex = 1;
     bool grounded = false, isIdling = true, isRunning = false, isJumping = false, isFalling = true, isAttacking = false, isDead = false;
 
     SDL_Rect collision;

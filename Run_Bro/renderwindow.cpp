@@ -121,110 +121,123 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 	return true;
 }
 
-bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& isDead) {
-	if (p_collision.x > p_map.getX() && p_collision.x + p_collision.w < LEVEL_WIDTH + p_map.getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
-		int col_start = p_collision.x / TILE_WIDTH;
-		int col_end = col_start + 1;
-		int row_start = p_collision.y / TILE_WIDTH;
-		int row_end = row_start + 1;
+bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& isDead) {
+	//check truoc 3 map
+	for (int i = 0; i < 3; i++) {
+		if (p_collision.x > p_maps[i].getX() && p_collision.x + p_collision.w < LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
+			//xac dinh cac khoang ma collsion nam trong hoac va cham
+			int col_start = p_collision.x / TILE_WIDTH;
+			int col_end = col_start + 1;
+			int row_start = p_collision.y / TILE_HEIGHT;
+			int row_end = row_start + 1;
 
-		int indexTile1 = row_start * 24 + col_end;
-		int indexTile2 = row_end * 24 + col_end;
-		int indexTile3 = row_start * 24 + col_start;
-		int indexTile4 = row_end * 24 + col_start;
+			//vi tri(ID) cua tile xung quanh collsion cua player = dong * Tong so cot + cot
+			int indexTile1 = row_start * 24 + col_end; //dong tren cot phai
+			int indexTile2 = row_end * 24 + col_end; //dong duoi cot phai
+			int indexTile3 = row_start * 24 + col_start; //dong tren cot trai
+			int indexTile4 = row_end * 24 + col_start; //dong duoi cot trai
 
-		if (indexTile1 < p_map.getTiles().size()) {
-			int type1 = p_map.getTiles()[indexTile1]->getType();
-			if (type1 >= 77 && type1 <= 83) {
-				isDead = true;  // nhan vat chet
-				return true;
+			//kiem tra type cua tile
+			if (indexTile1 < p_maps[i].getTiles().size()) {
+				int type1 = p_maps[i].getTiles()[indexTile1]->getType();
+				if (type1 >= 77 && type1 <= 83) {
+					isDead = true;  // nhan vat chet
+					return true;
+				}
+				if (type1 >= 0 && type1 <= 40 && p_renderwindow.checkCollision(p_collision, p_maps[i].getTiles()[indexTile1]->getBox())) return true;
 			}
-			if (type1 >= 0 && type1 <= 40 && p_renderwindow.checkCollision(p_collision, p_map.getTiles()[indexTile1]->getBox())) return true;
-		}
-		if (indexTile2 < p_map.getTiles().size()) {
-			int type2 = p_map.getTiles()[indexTile2]->getType();
-			if (type2 >= 77 && type2 <= 83) {
-				isDead = true;
-				return true;
+			if (indexTile2 < p_maps[i].getTiles().size()) {
+				int type2 = p_maps[i].getTiles()[indexTile2]->getType();
+				if (type2 >= 77 && type2 <= 83) {
+					isDead = true;
+					return true;
+				}
+				if (type2 >= 0 && type2 <= 40 && p_renderwindow.checkCollision(p_collision, p_maps[i].getTiles()[indexTile2]->getBox())) return true;
 			}
-			if (type2 >= 0 && type2 <= 40 && p_renderwindow.checkCollision(p_collision, p_map.getTiles()[indexTile2]->getBox())) return true;
-		}
-		if (indexTile3 < p_map.getTiles().size()) {
-			int type3 = p_map.getTiles()[indexTile3]->getType();
-			if (type3 >= 77 && type3 <= 83) {
-				isDead = true;
-				return true;
+			if (indexTile3 < p_maps[i].getTiles().size()) {
+				int type3 = p_maps[i].getTiles()[indexTile3]->getType();
+				if (type3 >= 77 && type3 <= 83) {
+					isDead = true;
+					return true;
+				}
+				if (type3 >= 0 && type3 <= 40 && p_renderwindow.checkCollision(p_collision, p_maps[i].getTiles()[indexTile3]->getBox())) return true;
 			}
-			if (type3 >= 0 && type3 <= 40 && p_renderwindow.checkCollision(p_collision, p_map.getTiles()[indexTile3]->getBox())) return true;
-		}
-		if (indexTile4 < p_map.getTiles().size()) {
-			int type4 = p_map.getTiles()[indexTile4]->getType();
-			if (type4 >= 77 && type4 <= 83) {
-				isDead = true;
-				return true;
+			if (indexTile4 < p_maps[i].getTiles().size()) {
+				int type4 = p_maps[i].getTiles()[indexTile4]->getType();
+				if (type4 >= 77 && type4 <= 83) {
+					isDead = true;
+					return true;
+				}
+				if (type4 >= 0 && type4 <= 40 && p_renderwindow.checkCollision(p_collision, p_maps[i].getTiles()[indexTile4]->getBox())) return true;
 			}
-			if (type4 >= 0 && type4 <= 40 && p_renderwindow.checkCollision(p_collision, p_map.getTiles()[indexTile4]->getBox())) return true;
 		}
 	}
 	return false;
 }
 
 
-bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, Map& p_map, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead) {
+bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, vector<Map> p_maps, RenderWindow& p_renderwindow, bool& p_grounded, int& p_groundIndex, bool& isDead, int& p_mapIndex) {
 	bool ok = false;
-	if (p_collision.x + p_collision.w >= p_map.getX() && p_collision.x <= LEVEL_WIDTH + p_map.getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
-		int col_start = p_collision.x / TILE_WIDTH;
-		int col_end = col_start + 1;
-		int row_start = p_collision.y / TILE_HEIGHT;
-		int row_end = row_start + 1;
+	//check truoc 3 map
+	for (int i = 0; i < 3; i++) {
+		if (p_collision.x + p_collision.w >= p_maps[i].getX() && p_collision.x <= LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
+			//xac dinh cac khoang ma collsion nam trong hoac va cham
+			int col_start = p_collision.x / TILE_WIDTH;
+			int col_end = col_start + 1;
+			int row_start = p_collision.y / TILE_HEIGHT;
+			int row_end = row_start + 1;
 
-		int indexTile1 = row_start * 24 + col_end;
-		int indexTile2 = row_end * 24 + col_end;
-		int indexTile3 = row_start * 24 + col_start;
-		int indexTile4 = row_end * 24 + col_start;
+			//vi tri(ID) cua tile xung quanh collsion cua player = dong * Tong so cot + cot
+			int indexTile1 = row_start * 24 + col_end; //dong tren cot phai
+			int indexTile2 = row_end * 24 + col_end; //dong duoi cot phai
+			int indexTile3 = row_start * 24 + col_start; //dong tren cot trai
+			int indexTile4 = row_end * 24 + col_start; //dong duoi cot trai
 
-		if (p_collision.x <= p_map.getX() && p_collision.x + p_collision.w >= p_map.getX() || p_collision.x <= p_map.getX() + LEVEL_WIDTH && p_collision.x + p_collision.w >= p_map.getX() + LEVEL_WIDTH) {
-			p_grounded = false;
+			//kiem tra type cua tile
+			if (p_collision.x <= p_maps[i].getX() && p_collision.x + p_collision.w >= p_maps[i].getX() || p_collision.x <= p_maps[i].getX() + LEVEL_WIDTH && p_collision.x + p_collision.w >= p_maps[i].getX() + LEVEL_WIDTH) {
+				p_grounded = false;
+			}
+			else {
+				if (indexTile1 < p_maps[i].getTiles().size()) {
+					int type1 = p_maps[i].getTiles()[indexTile1]->getType();
+					if (type1 >= 77 && type1 <= 83) {
+						isDead = true;  // nhan vat chet
+						return true;
+					}
+					if (type1 >= 0 && type1 <= 40 && p_renderwindow.checkCollision(p_maps[i].getTiles()[indexTile1]->getBox(), p_collision)) ok = true;
+				}
+				if (indexTile2 < p_maps[i].getTiles().size()) {
+					int type2 = p_maps[i].getTiles()[indexTile2]->getType();
+					if (type2 >= 77 && type2 <= 83) {
+						isDead = true;
+						return true;
+					}
+					if (type2 >= 0 && type2 <= 40 && p_renderwindow.checkCollision(p_maps[i].getTiles()[indexTile2]->getBox(), p_collision)) ok = true;
+				}
+				if (indexTile3 < p_maps[i].getTiles().size()) {
+					int type3 = p_maps[i].getTiles()[indexTile3]->getType();
+					if (type3 >= 77 && type3 <= 83) {
+						isDead = true;
+						return true;
+					}
+					if (type3 >= 0 && type3 <= 40 && p_renderwindow.checkCollision(p_maps[i].getTiles()[indexTile3]->getBox(), p_collision)) ok = true;
+				}
+				if (indexTile4 < p_maps[i].getTiles().size()) {
+					int type4 = p_maps[i].getTiles()[indexTile4]->getType();
+					if (type4 >= 77 && type4 <= 83) {
+						isDead = true;
+						return true;
+					}
+					if (type4 >= 0 && type4 <= 40 && p_renderwindow.checkCollision(p_maps[i].getTiles()[indexTile4]->getBox(), p_collision)) ok = true;
+				}
+				if (indexTile2 < p_maps[i].getTiles().size() && indexTile4 < p_maps[i].getTiles().size()) {
+					if ((p_maps[i].getTiles()[indexTile2]->getType() > 40) && (p_maps[i].getTiles()[indexTile4]->getType() > 40)) p_grounded = false;
+					if ((p_maps[i].getTiles()[indexTile4]->getType() > 40) && (p_maps[i].getTiles()[indexTile2]->getType() <= 40) && p_collision.x + p_collision.w <= p_maps[i].getTiles()[indexTile2]->getX()) p_grounded = false;
+				}
+			}
+			p_mapIndex = i;
+			p_groundIndex = indexTile4;
 		}
-		else {
-			if (indexTile1 < p_map.getTiles().size()) {
-				int type1 = p_map.getTiles()[indexTile1]->getType();
-				if (type1 >= 77 && type1 <= 83) {
-					isDead = true;  // nhan vat chet
-					return true;
-				}
-				if (type1 >= 0 && type1 <= 40 && p_renderwindow.checkCollision(p_map.getTiles()[indexTile1]->getBox(), p_collision)) ok = true;
-			}
-			if (indexTile2 < p_map.getTiles().size()) {
-				int type2 = p_map.getTiles()[indexTile2]->getType();
-				if (type2 >= 77 && type2 <= 83) {
-					isDead = true;
-					return true;
-				}
-				if (type2 >= 0 && type2 <= 40 && p_renderwindow.checkCollision(p_map.getTiles()[indexTile2]->getBox(), p_collision)) ok = true;
-			}
-			if (indexTile3 < p_map.getTiles().size()) {
-				int type3 = p_map.getTiles()[indexTile3]->getType();
-				if (type3 >= 77 && type3 <= 83) {
-					isDead = true;
-					return true;
-				}
-				if (type3 >= 0 && type3 <= 40 && p_renderwindow.checkCollision(p_map.getTiles()[indexTile3]->getBox(), p_collision)) ok = true;
-			}
-			if (indexTile4 < p_map.getTiles().size()) {
-				int type4 = p_map.getTiles()[indexTile4]->getType();
-				if (type4 >= 77 && type4 <= 83) {
-					isDead = true;
-					return true;
-				}
-				if (type4 >= 0 && type4 <= 40 && p_renderwindow.checkCollision(p_map.getTiles()[indexTile4]->getBox(), p_collision)) ok = true;
-			}
-			if (indexTile2 < p_map.getTiles().size() && indexTile4 < p_map.getTiles().size()) {
-				if ((p_map.getTiles()[indexTile2]->getType() > 40) && (p_map.getTiles()[indexTile4]->getType() > 40)) p_grounded = false;
-				if ((p_map.getTiles()[indexTile4]->getType() > 40) && (p_map.getTiles()[indexTile2]->getType() <= 40) && p_collision.x + p_collision.w <= p_map.getTiles()[indexTile2]->getX()) p_grounded = false;
-			}
-		}
-		p_groundIndex = indexTile4;
 	}
 	return ok;
 }

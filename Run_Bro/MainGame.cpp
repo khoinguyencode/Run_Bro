@@ -95,7 +95,11 @@ void MainGame::setTile() {
 		}
 	}
 }
-void updatePlayer();
+void MainGame::updatePlayer() {
+	players[0].update(p_renderwindow, maps);
+	players[0].setCamera(camera, velCam);
+	players[0].render(p_renderwindow, camera);
+}
 void updateGame();
 void resetGame();
 
