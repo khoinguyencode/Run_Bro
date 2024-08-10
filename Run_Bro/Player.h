@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Entity.h"
 #include "Renderwindow.h"
 #include "Tile.h"
@@ -28,7 +28,7 @@ private:
     static const int JUMPING_ANIMATIONS_FRAME = 4;
     static const int FALLING_ANIMATIONS_FRAME = 4;
     static const int ATTACKING_ANIMATIONS_FRAME = 3;
-    static const int DEATH_ANIMATIONS_FRAME = 14;
+    static const int DEATH_ANIMATIONS_FRAME = 8;
 
     //cac frame
     SDL_Rect idlingClips[IDLING_ANIMATIONS_FRAME];

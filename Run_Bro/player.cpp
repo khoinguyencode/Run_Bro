@@ -3,49 +3,63 @@
 using namespace std;
 
 Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_tex) {
-    collision.w = PLAYER_WIDTH;
+    collision.w = PLAYER_WIDTH; 
     collision.h = PLAYER_HEIGHT;
 
-    for (int i = 0; i < IDLING_ANIMATIONS_FRAME; ++i) {
-        idlingClips[i].x = i * PLAYER_WIDTH;
-        idlingClips[i].y = 0;
-        idlingClips[i].w = PLAYER_WIDTH;
-        idlingClips[i].h = PLAYER_HEIGHT;
+    //kich co sprite chua cac frame cua nhan vat chia deu 
+    for (int i = 0; i < IDLING_ANIMATIONS_FRAME; i++) {
+        if (i < 4) {
+            idlingClips[i].x = i * (currentFrame.w / 4);
+            idlingClips[i].y = 0;
+        }
+        else {
+            idlingClips[i].x = (i - 4) * (currentFrame.w / 4);
+            idlingClips[i].y = currentFrame.h / 9;
+        }
+        idlingClips[i].w = currentFrame.w / 4;
+        idlingClips[i].h = currentFrame.h / 9;
     }
-
-    for (int i = 0; i < RUNNING_ANIMATIONS_FRAME; ++i) {
-        runningClips[i].x = i * PLAYER_WIDTH;
-        runningClips[i].y = PLAYER_HEIGHT;
-        runningClips[i].w = PLAYER_WIDTH;
-        runningClips[i].h = PLAYER_HEIGHT;
+    for (int i = 0; i < RUNNING_ANIMATIONS_FRAME; i++) {
+        if (i < 4) {
+            runningClips[i].x = i * (currentFrame.w / 4);
+            runningClips[i].y = (currentFrame.h / 9) * 2;
+        }
+        else {
+            runningClips[i].x = (i - 4) * currentFrame.w / 4;
+            runningClips[i].y = (currentFrame.h / 9) * 3;
+        }
+        runningClips[i].w = currentFrame.w / 4;
+        runningClips[i].h = currentFrame.h / 9;
     }
-
-    for (int i = 0; i < JUMPING_ANIMATIONS_FRAME; ++i) {
-        jumpingClips[i].x = i * PLAYER_WIDTH;
-        jumpingClips[i].y = PLAYER_HEIGHT * 4;
-        jumpingClips[i].w = PLAYER_WIDTH;
-        jumpingClips[i].h = PLAYER_HEIGHT;
+    for (int i = 0; i < ATTACKING_ANIMATIONS_FRAME; i++) {
+        attackingClips[i].x = i * ((currentFrame.w / 4) + 32);
+        attackingClips[i].y = (currentFrame.h / 9) * 4;
+        attackingClips[i].w = currentFrame.w / 4 + 32;
+        attackingClips[i].h = currentFrame.h / 9;
     }
-
-    for (int i = 0; i < FALLING_ANIMATIONS_FRAME; ++i) {
-        fallingClips[i].x = i * PLAYER_WIDTH;
-        fallingClips[i].y = PLAYER_HEIGHT * 5;
-        fallingClips[i].w = PLAYER_WIDTH;
-        fallingClips[i].h = PLAYER_HEIGHT;
+    for (int i = 0; i < JUMPING_ANIMATIONS_FRAME; i++) {
+        jumpingClips[i].x = i * (currentFrame.w / 4);
+        jumpingClips[i].y = (currentFrame.h / 9) * 5;
+        jumpingClips[i].w = currentFrame.w / 4 ;
+        jumpingClips[i].h = currentFrame.h / 9;
     }
-
-    for (int i = 0; i < ATTACKING_ANIMATIONS_FRAME; ++i) {
-        attackingClips[i].x = i * PLAYER_WIDTH;
-        attackingClips[i].y = PLAYER_HEIGHT * 3;
-        attackingClips[i].w = PLAYER_WIDTH;
-        attackingClips[i].h = PLAYER_HEIGHT;
+    for (int i = 0; i < FALLING_ANIMATIONS_FRAME; i++) {
+        fallingClips[i].x = i * (currentFrame.w / 4);
+        fallingClips[i].y = (currentFrame.h / 9) * 6;
+        fallingClips[i].w = currentFrame.w / 4;
+        fallingClips[i].h = currentFrame.h / 9;
     }
-
-    for (int i = 0; i < DEATH_ANIMATIONS_FRAME; ++i) {
-        deathClips[i].x = i * PLAYER_WIDTH;
-        deathClips[i].y = PLAYER_HEIGHT * 7;
-        deathClips[i].w = PLAYER_WIDTH;
-        deathClips[i].h = PLAYER_HEIGHT;
+    for (int i = 0; i < DEATH_ANIMATIONS_FRAME; i++) {
+        if (i < 4) {
+            deathClips[i].x = i * (currentFrame.w / 4);
+            deathClips[i].y = (currentFrame.h / 9) * 7;
+        }
+        else {
+            deathClips[i].x = (i - 4) * (currentFrame.w / 4);
+            deathClips[i].y = (currentFrame.h / 9) * 8;
+        }
+        deathClips[i].w = currentFrame.w / 4;
+        deathClips[i].h = currentFrame.h / 9;
     }
 }
 
@@ -102,29 +116,36 @@ void Player::gravity() {
         velY += 0.3;
         if (velY > 15.0) velY = 15.0;
     }
-    else velY = 2;
+    else velY = 0.3;
 }
 
 void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps) {
     gravity();
+    isIdling = (velX == 0 && grounded && !isAttacking);
+    isRunning = (velX != 0 && grounded && !isAttacking);
+    isJumping = (velY <= 0 && !grounded && !isAttacking);
+    isFalling = (velY > 0 && !grounded && !isAttacking);
     if (!isDead) {
-        isIdling = (velX == 0 && grounded && !isAttacking);
-        isRunning = (velX != 0 && grounded && !isAttacking);
-        isJumping = (velY <= 0 && !grounded && !isAttacking);
-        isFalling = (velY > 0 && !grounded && !isAttacking);
-    }
-
-    //check X collsion
-    x += velX;
-    collision.x = x + PLAYER_WIDTH;
-    if (p_renderwindow.checkTileCollsionX(collision, p_maps, p_renderwindow, isDead)) {
-        x -= velX;
+        //check X collsion
+        x += velX;
         collision.x = x + PLAYER_WIDTH;
+        if (x + PLAYER_WIDTH < 0) {
+            x = -PLAYER_WIDTH;
+            collision.x = x + PLAYER_WIDTH;
+        }
+        if (p_renderwindow.checkTileCollsionX(collision, p_maps, p_renderwindow, isDead)) {
+            x -= velX;
+            collision.x = x + PLAYER_WIDTH;
+        }
     }
 
     //check Y collsion
     y += velY;
     collision.y = y + PLAYER_HEIGHT;
+    if (y + PLAYER_HEIGHT < 0) {
+        y = -PLAYER_HEIGHT;
+        collision.y = y + PLAYER_HEIGHT;
+    }
     if (p_renderwindow.checkTileCollsionY(collision, p_maps, p_renderwindow, grounded, groundIndex, isDead, mapIndex)) {
         if (velY > 0) {
             //set lai y
@@ -149,9 +170,9 @@ void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps) {
 
 void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
     if (isIdling) {
-        p_renderwindow.renderAnimation(*this, idlingClips[idleFrame / 4], p_camera, 0, NULL, flipType);
+        p_renderwindow.renderAnimation(*this, idlingClips[idleFrame / 8], p_camera, 0, NULL, flipType);
         idleFrame++;
-        if (idleFrame / 4 >= IDLING_ANIMATIONS_FRAME) idleFrame = 0;
+        if (idleFrame / 8 >= IDLING_ANIMATIONS_FRAME) idleFrame = 0;
     }
     else idleFrame = 0;
 
@@ -191,13 +212,13 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 }
 
 void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
-    if (!isDead) p_camera.x += velCam;
+    p_camera.x += velCam;
     // tang dan gia toc theo thoi gian
-    float gia_toc = 0.0001;
+    float gia_toc = 0.001;
     if (velCam > 4) gia_toc = 0.0003;
     if (velCam > 5) gia_toc = 0.00001;
     velCam += gia_toc;
-
+    
     //camera tu dong di chuyen
     if (x + PLAYER_WIDTH / 2 - p_camera.x >= SCREEN_WIDTH * 2 / 3) {
         p_camera.x = (x + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 2 / 3;
@@ -207,7 +228,6 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     //Giu cho camera luon nam trong vong
     if (p_camera.x < 0) p_camera.x = 0;
     if (p_camera.y < 0) p_camera.y = 0;
-    if (p_camera.x > LEVEL_WIDTH - p_camera.w) p_camera.x = LEVEL_WIDTH - p_camera.w;
     if (p_camera.y > LEVEL_HEIGHT - p_camera.h) p_camera.y = LEVEL_HEIGHT - p_camera.h;
 }
 
