@@ -48,23 +48,23 @@ Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex)
 void Map::setX(float p_x) {
     x = p_x;
     for (int i = 0; i < tiles.size(); i++) {
-        int cols = i / 24;
-        int rows = (i - cols * 24) * TILE_WIDTH + x;
+        int cols = i / 21;
+        int rows = (i - cols * 21) * TILE_WIDTH + getX();
         tiles.at(i)->setX(rows);
     }
 }
 void Map::setMap(Map& p_map) {
     x = p_map.getX() + LEVEL_WIDTH;
     for (int i = 0; i < tiles.size(); i++) {
-        int cols = i / 24;
-        int rows = (i - cols * 24) * TILE_WIDTH + x;
+        int cols = i / 21;
+        int rows = (i - cols * 21) * TILE_WIDTH + getX();
         tiles.at(i)->setX(rows);
     }
 }
 
 void Map::setTilesType(const char* p_filePath) {
     bool tilesLoaded = true;
-    int n = x, m = y;
+    int n = getX(), m = getY();
     ifstream map(p_filePath);
 
     if (map.fail()) {
@@ -94,9 +94,9 @@ void Map::setTilesType(const char* p_filePath) {
             n += TILE_WIDTH;
 
             //den cuoi map
-            if (n >= x + LEVEL_WIDTH) {
+            if (n >= getX() + LEVEL_WIDTH) {
                 //xuong dong
-                n = x;
+                n = getX();
                 m += TILE_HEIGHT;
             }
         }

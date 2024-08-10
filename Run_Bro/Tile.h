@@ -7,7 +7,7 @@
 //Tile constants
 const int TILE_WIDTH = 64;
 const int TILE_HEIGHT = 64;
-const int TOTAL_TILES = 384; //chieu rong x chieu cao cua map
+const int TOTAL_TILES = 336; //chieu rong x chieu cao cua map
 const int TOTAL_TILE_SPRITES = 187; //chieu rong x chieu cao cua tileSet
 
 

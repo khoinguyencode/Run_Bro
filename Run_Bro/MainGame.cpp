@@ -21,7 +21,7 @@ bool MainGame::init() {
 }
 
 void MainGame::loadMedia() {
-	playerTex = p_renderwindow.loadTexture("res/gfx/DarkSamuraiX.png");
+	playerTex = p_renderwindow.loadTexture("res/gfx/test3.png");
 	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
 }
 
@@ -79,6 +79,7 @@ void MainGame::updateMap() {
 		maps[i].render(tileClips, camera, p_renderwindow);
 	}
 }
+
 void MainGame::setTile() {
 	int n = 0, m = 0;
 	for (int i = 0; i < TOTAL_TILE_SPRITES; i++) {
@@ -127,6 +128,7 @@ void MainGame::resetGame() {
 
 void MainGame::handleGameEvent(SDL_Event& event) {
 	if(event.type == SDL_QUIT) isRunning = false;
+	players[0].handleEvent(event);
 }
 
 bool MainGame::getIsRunning() {
