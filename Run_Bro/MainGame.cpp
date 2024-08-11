@@ -65,7 +65,10 @@ void MainGame::loadMap() {
 }
 
 void MainGame::loadScore() {
+	// cap nhat diem neu vi tri cua nguoi choi lon hon diem hien tai
 	if (score < players[0].getX() / TILE_WIDTH) score = players[0].getX() / TILE_WIDTH;
+
+	//xoa noi dung hien tai trong scoreText va cap nhat diem moi
 	scoreText.str("");
 	scoreText << "Score: " << score << "m";
 
@@ -78,8 +81,8 @@ void MainGame::loadScore() {
 
 	SDL_Texture* scoreTex = p_renderwindow.loadText(scoreText.str().c_str(), { 255,255,255,255 });
 	SDL_Texture* bestscoreTex = p_renderwindow.loadText(bestscoreText.str().c_str(), { 255, 0, 0, 255 });
-	Entity cur_score(1100, 30, scoreTex);
-	Entity best_score(1100, 0, bestscoreTex);
+	Entity cur_score(1120, 30, scoreTex);
+	Entity best_score(1120, 0, bestscoreTex);
 	p_renderwindow.renderText(cur_score);
 	p_renderwindow.renderText(best_score);
 }
@@ -127,15 +130,11 @@ void MainGame::setTile() {
 			m += TILE_HEIGHT;
 		}
 	}
-
 	spike[0].x = 0;
 	spike[0].y = 0;
 	spike[0].w = 64;
 	spike[0].h = 1728;
-
 }
-
-
 
 void MainGame::updatePlayer() {
 	players[0].update(p_renderwindow, maps, camera);
@@ -153,6 +152,10 @@ void MainGame::updateGame() {
 	updatePlayer();
 	updateSpike();
 	loadScore();
+	if (players[0].getDead()) {
+		if (score > bestscore) bestscore = score;
+		updateBestScore();
+	}
 	p_renderwindow.display();
 }
 
@@ -171,7 +174,6 @@ void MainGame::resetGame() {
 		else maps[i].setMap(maps[i - 1]);
 		maps[i].setTilesType(lists[random]);
 	}
-
 }
 
 void MainGame::handleGameEvent(SDL_Event& event) {
