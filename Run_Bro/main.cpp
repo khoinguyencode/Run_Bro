@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
                 game.handleGameEvent(event);
             }
             if (game.getMenus()[0].getMenu()) game.renderMenu();
-            game.updateGame();
+            else game.updateGame();
         }
     }
     window.cleanUp();

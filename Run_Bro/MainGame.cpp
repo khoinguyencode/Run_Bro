@@ -38,7 +38,7 @@ void MainGame::loadMedia() {
 }
 
 void MainGame::loadPlayer() {
-	Player samurai(500, 500, playerTex);
+	Player samurai(90, 700, playerTex);
 	players.push_back(samurai);
 }
 
@@ -170,9 +170,11 @@ void MainGame::updateGame() {
 	updateSpike();
 	loadScore();
 	if (players[0].getDead()) {
+		menus[0].renderRestartMenu(p_renderwindow);
 		if (score > bestscore) bestscore = score;
 		updateBestScore();
 	}
+	if (menus[0].getReset()) resetGame();
 	p_renderwindow.display();
 }
 
@@ -191,11 +193,14 @@ void MainGame::resetGame() {
 		else maps[i].setMap(maps[i - 1]);
 		maps[i].setTilesType(lists[random]);
 	}
+	menus[0].set_reset(false);
+	score = 0;
 }
 
 void MainGame::handleGameEvent(SDL_Event& event) {
 	if(event.type == SDL_QUIT) isRunning = false;
-	players[0].handleEvent(event);
+	menus[0].handleEvent(event, isRunning, players[0]);
+	if (!menus[0].getMenu() && !menus[0].getPaused()) players[0].handleEvent(event);
 }
 
 bool MainGame::getIsRunning() {

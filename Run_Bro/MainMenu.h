@@ -11,11 +11,11 @@ public:
 	MainMenu(SDL_Texture* p_buttonTex, SDL_Texture* p_mainMenuBGTex, SDL_Texture* p_restartBGTex);
 	void handleEvent(SDL_Event& event, bool& p_gameRunning, Player& p_player);
 	void renderMainMenu(RenderWindow& p_renderwindow);
-	void renderRestartMenu();
+	void renderRestartMenu(RenderWindow& p_renderwindow);
 	bool checkMouseAt(int x, int y); //kiem tra chuot tai 1 vung
 	bool getMenu();
 	bool getPaused();
-	bool getReset();
+	bool getReset() const;
 	void set_reset(bool p_reset);
 private:
 	const int BUTTON_WIDTH = 192;
@@ -34,4 +34,5 @@ private:
 
 	SDL_Texture* buttonTex = NULL;
 	SDL_Texture* mainMenuBGTex = NULL;
+	SDL_Texture* restartBGTex = NULL;
 };

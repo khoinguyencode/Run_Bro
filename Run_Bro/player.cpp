@@ -233,8 +233,8 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
 }
 
 void Player::resetPlayer() {
-    x = 200;
-    y = 1000;
+    x = 90;
+    y = 700;
     velX = 0;
     velY = 0;
     isDead = false;
