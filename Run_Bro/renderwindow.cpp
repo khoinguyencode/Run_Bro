@@ -34,25 +34,6 @@ void RenderWindow::clear() {
 	SDL_RenderClear(renderer);
 }
 
-void RenderWindow::render(Entity& p_entity) {
-	// xac dinh phan cua texture duoc ve
-	SDL_Rect src;
-	src.x = p_entity.getCurrentFrame().x;
-	src.y = p_entity.getCurrentFrame().y;
-	src.w = p_entity.getCurrentFrame().w;
-	src.h = p_entity.getCurrentFrame().h;
-
-	// xac dinh vi tri va kich thuoc hinh chu nhat noi chua texture
-	SDL_Rect dst;
-	dst.x = p_entity.getX();
-	dst.y = p_entity.getY();
-	dst.w = p_entity.getCurrentFrame().w * 4;
-	dst.h = p_entity.getCurrentFrame().h * 4;
-
-	SDL_RenderCopy(renderer, p_entity.getTex(), &src, &dst);
-}
-
-
 void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip) {
 	//xac dinh phan cua texture duoc ve
 	SDL_Rect src;
@@ -70,6 +51,25 @@ void RenderWindow::renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect&
 	dst.w = p_clip.w;
 	dst.h = p_clip.h;
 	SDL_RenderCopyEx(renderer, p_entity.getTex(), &p_clip, &dst, p_angle, p_center, p_flip);
+}
+
+void RenderWindow::renderSpike(SDL_Texture* p_tex, float p_x, float p_y, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip) {
+	//xac dinh phan cua texture duoc ve
+	SDL_Rect src;
+	src.x = p_clip.x;
+	src.y = p_clip.y;
+	src.w = p_clip.w;
+	src.h = p_clip.h;
+
+	//xac dinh vi tri va kich thuoc hinh chu nhat duoc ve len man hinh
+	SDL_Rect dst;
+	dst.x = p_x - p_camera.x; //Vi tri cua nhan vat tren man hinh = vi tri thuc te - vi tri camera
+	dst.y = p_y - p_camera.y;
+
+	//scale nhan vat
+	dst.w = p_clip.w;
+	dst.h = p_clip.h;
+	SDL_RenderCopyEx(renderer, p_tex, &p_clip, &dst, p_angle, p_center, p_flip);
 }
 
 void RenderWindow::renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera) {

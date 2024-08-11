@@ -18,6 +18,7 @@ public:
 	void updateMap();
 	void setTile();
 	void updatePlayer();
+	void updateSpike();
 	void updateGame();
 	void resetGame();
 	void handleGameEvent(SDL_Event& event);
@@ -31,8 +32,10 @@ private:
 	//cac texture
 	SDL_Texture* playerTex = NULL;
 	SDL_Texture* tileTex = NULL;
+	SDL_Texture* spikeTex = NULL;
 
 	SDL_Rect tileClips[TOTAL_TILE_SPRITES];
+	SDL_Rect spike[1];
 
 	//camera
 	SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };

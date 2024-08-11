@@ -119,12 +119,13 @@ void Player::gravity() {
     else velY = 0.3;
 }
 
-void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps) {
+void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera) {
     gravity();
-    isIdling = (velX == 0 && grounded && !isAttacking);
-    isRunning = (velX != 0 && grounded && !isAttacking);
-    isJumping = (velY <= 0 && !grounded && !isAttacking);
-    isFalling = (velY > 0 && !grounded && !isAttacking);
+    if (!isDead) getHit(p_camera);
+    isIdling = (velX == 0 && grounded && !isAttacking && !isDead);
+    isRunning = (velX != 0 && grounded && !isAttacking && !isDead);
+    isJumping = (velY <= 0 && !grounded && !isAttacking && !isDead);
+    isFalling = (velY > 0 && !grounded && !isAttacking && !isDead);
     if (!isDead) {
         //check X collsion
         x += velX;
@@ -238,4 +239,10 @@ void Player::resetPlayer() {
     velY = 0;
     isDead = false;
     flipType = SDL_FLIP_NONE;
+}
+
+void Player::getHit(SDL_Rect& p_camera) {
+    if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= LEVEL_HEIGHT) {
+        isDead = true;
+    }
 }

@@ -23,10 +23,11 @@ bool MainGame::init() {
 void MainGame::loadMedia() {
 	playerTex = p_renderwindow.loadTexture("res/gfx/test3.png");
 	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
+	spikeTex = p_renderwindow.loadTexture("res/gfx/spiked.png");
 }
 
 void MainGame::loadPlayer() {
-	Player samurai(100, 500, playerTex);
+	Player samurai(500, 500, playerTex);
 	players.push_back(samurai);
 }
 
@@ -94,17 +95,28 @@ void MainGame::setTile() {
 			m += TILE_HEIGHT;
 		}
 	}
+
+	spike[0].x = 0;
+	spike[0].y = 0;
+	spike[0].w = 64;
+	spike[0].h = 1728;
+
 }
 void MainGame::updatePlayer() {
-	players[0].update(p_renderwindow, maps);
+	players[0].update(p_renderwindow, maps, camera);
 	players[0].setCamera(camera, velCam);
 	players[0].render(p_renderwindow, camera);
+}
+
+void MainGame::updateSpike() {
+	p_renderwindow.renderSpike(spikeTex, camera.x, 0, spike[0], camera, 0, NULL, SDL_FLIP_NONE);
 }
 
 void MainGame::updateGame() {
 	p_renderwindow.clear();
 	updateMap();
 	updatePlayer();
+	updateSpike();
 	p_renderwindow.display();
 }
 

@@ -22,13 +22,12 @@ public:
     void cleanUp();
     void clear();
 
-    //ve cac thuc the
-    void render(Entity& p_entity);
-
     SDL_Renderer* getRenderer() const;
 
     //ve cac animation len man hinh
+    
     void renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
+    void renderSpike(SDL_Texture* p_tex, float p_x, float p_y, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
 
     //ve tile
     void renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& camera);
