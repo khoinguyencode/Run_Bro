@@ -17,6 +17,10 @@ bool MainGame::init() {
 		cout << "IMG Init failed: " << SDL_GetError << endl;
 		return false;
 	}
+	if (TTF_Init() == -1) {
+		cout << "TTF_Init HAS FAILED. SDL_ERROR: " << TTF_GetError() << endl;
+		return false;
+	}
 	return true;
 }
 
@@ -60,6 +64,33 @@ void MainGame::loadMap() {
 	}
 }
 
+void MainGame::loadScore() {
+	if (score < players[0].getX() / TILE_WIDTH) score = players[0].getX() / TILE_WIDTH;
+	scoreText.str("");
+	scoreText << "Score: " << score << "m";
+
+	ifstream readFile;
+	readFile.open("res/bestscore.txt");
+	if (readFile.fail()) updateBestScore();
+	readFile >> bestscore;
+	bestscoreText.str("");
+	bestscoreText << "Best Score: " << bestscore << "m";
+
+	SDL_Texture* scoreTex = p_renderwindow.loadText(scoreText.str().c_str(), { 255,255,255,255 });
+	SDL_Texture* bestscoreTex = p_renderwindow.loadText(bestscoreText.str().c_str(), { 255, 0, 0, 255 });
+	Entity cur_score(1100, 30, scoreTex);
+	Entity best_score(1100, 0, bestscoreTex);
+	p_renderwindow.renderText(cur_score);
+	p_renderwindow.renderText(best_score);
+}
+
+void MainGame::updateBestScore() {
+	ofstream outFile;
+	outFile.open("res/bestscore.txt");
+	outFile.clear();
+	outFile << bestscore;
+	outFile.close();
+}
 
 void MainGame::updateMap() {
 	//check xem map dau tien ra khoi man hinh chua
@@ -103,6 +134,9 @@ void MainGame::setTile() {
 	spike[0].h = 1728;
 
 }
+
+
+
 void MainGame::updatePlayer() {
 	players[0].update(p_renderwindow, maps, camera);
 	players[0].setCamera(camera, velCam);
@@ -118,6 +152,7 @@ void MainGame::updateGame() {
 	updateMap();
 	updatePlayer();
 	updateSpike();
+	loadScore();
 	p_renderwindow.display();
 }
 

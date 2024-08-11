@@ -16,7 +16,7 @@ public:
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera, float& velCam);
     void resetPlayer();
-
+    bool getDead();
     //nhan vat bi roi, cham vao gai hoac bi danh boi quai
     void getHit(SDL_Rect& p_camera);
 private:

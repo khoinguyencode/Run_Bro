@@ -241,6 +241,10 @@ void Player::resetPlayer() {
     flipType = SDL_FLIP_NONE;
 }
 
+bool Player::getDead() {
+    return isDead;
+}
+
 void Player::getHit(SDL_Rect& p_camera) {
     if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= LEVEL_HEIGHT) {
         isDead = true;

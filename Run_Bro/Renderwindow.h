@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 #include "SDL_ttf.h"
+#include <fstream>
+#include <sstream>
 using namespace std;
 //kich co screen
 const int SCREEN_WIDTH = 1280;

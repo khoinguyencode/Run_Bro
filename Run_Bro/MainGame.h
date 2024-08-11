@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "Player.h"
 
+using namespace std;
 
 class MainGame {
 public:
@@ -17,8 +18,8 @@ public:
 	void loadMap();
 	void updateMap();
 	void setTile();
-	void renderScore();
-	void updateScore();
+	void loadScore();
+	void updateBestScore();
 	void updatePlayer();
 	void updateSpike();
 	void updateGame();
@@ -42,6 +43,11 @@ private:
 	//camera
 	SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 	float velCam = 1.5;
+
+	stringstream scoreText;
+	stringstream bestscoreText;
+	int score = 0;
+	int bestscore = 0;
 
 	vector<const char*> lists; //chua cac map
 	vector<Map> maps; //chua cac map
