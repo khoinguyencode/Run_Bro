@@ -5,6 +5,7 @@
 #include "Tile.h"
 #include "Entity.h"
 #include "Player.h"
+#include "MainMenu.h"
 
 using namespace std;
 
@@ -24,11 +25,11 @@ public:
 	void updatePlayer();
 	void updateSpike();
 	void updateGame();
-	void updateMenu();
+	void renderMenu();
 	void resetGame();
 	void handleGameEvent(SDL_Event& event);
 	bool getIsRunning();
-
+	vector<MainMenu> getMenus();
 
 private:
 	RenderWindow& p_renderwindow;
@@ -40,6 +41,7 @@ private:
 	SDL_Texture* tileTex = NULL;
 	SDL_Texture* spikeTex = NULL;
 	SDL_Texture* buttonTex = NULL;
+	SDL_Texture* backgroundTex = NULL;
 
 	SDL_Rect tileClips[TOTAL_TILE_SPRITES];
 	SDL_Rect spike[1];
@@ -56,4 +58,5 @@ private:
 	vector<const char*> lists; //chua cac map
 	vector<Map> maps; //chua cac map
 	vector<Player> players;
+	vector<MainMenu> menus;
 };

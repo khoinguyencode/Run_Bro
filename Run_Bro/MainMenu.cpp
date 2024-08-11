@@ -114,9 +114,16 @@ bool MainMenu::checkMouseAt(int p_x, int p_y) {
 }
 
 void MainMenu::renderMainMenu(RenderWindow& p_renderwindow) {
-	if (menu) {
-		p_renderwindow.renderText(*this, 0, 0, 1280, 720);
-		p_renderwindow.renderText(*this, button1.x, button1.y);
+	if (getMenu()) {
+		p_renderwindow.renderTexture(mainMenuBGTex, 0, 0, 1280, 720);
+
+		if (selected[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[1]);
+		else if (!pressed[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[0]);
+		else p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[2]);
+
+		if (selected[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[1]);
+		else if (!pressed[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[0]);
+		else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[2]);
 	}
 }
 void MainMenu::renderRestartMenu(){}

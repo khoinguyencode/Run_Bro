@@ -100,6 +100,25 @@ void RenderWindow::renderText(Entity& entity, SDL_Rect* rec, SDL_Rect* camera, d
 	SDL_RenderCopyEx(renderer, entity.getTex(), rec, &dst, angle, center, flip);
 }
 
+void RenderWindow::renderTexture(SDL_Texture* p_tex, float p_x, float p_y, float p_w, float p_h, SDL_Rect* rec, SDL_Rect* camera, double angle, SDL_Point* center, SDL_RendererFlip flip) {
+	SDL_Rect dst;
+	dst.x = p_x;
+	dst.y = p_y;
+	dst.w = p_w;
+	dst.h = p_h;
+
+	//neu rec != NULL in theo rec
+	if (rec != NULL) {
+		dst.w = rec->w;
+		dst.h = rec->h;
+	}
+	if (camera != NULL) {
+		dst.x = dst.x - camera->x;
+		dst.y = dst.y - camera->y;
+	}
+	SDL_RenderCopyEx(renderer, p_tex, rec, &dst, angle, center, flip);
+}
+
 void RenderWindow::openFont(const char* p_filePath) {
 	TTF_CloseFont(font);
 	font = TTF_OpenFont(p_filePath, 28);

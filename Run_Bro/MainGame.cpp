@@ -17,6 +17,10 @@ bool MainGame::init() {
 		cout << "IMG Init failed: " << SDL_GetError << endl;
 		return false;
 	}
+	if (!(IMG_Init(IMG_INIT_JPG))) {
+		cout << "IMG_Init HAS FAILED. SDL_ERROR: " << IMG_GetError << endl;
+		return false;
+	}
 	if (TTF_Init() == -1) {
 		cout << "TTF_Init HAS FAILED. SDL_ERROR: " << TTF_GetError() << endl;
 		return false;
@@ -30,6 +34,7 @@ void MainGame::loadMedia() {
 	spikeTex = p_renderwindow.loadTexture("res/gfx/spiked.png");
 	p_renderwindow.openFont("res/PixelFont.ttf");
 	buttonTex = p_renderwindow.loadTexture("res/gfx/Button.png");
+	backgroundTex = p_renderwindow.loadTexture("res/gfx/ds3.jpg");
 }
 
 void MainGame::loadPlayer() {
@@ -88,6 +93,11 @@ void MainGame::loadScore() {
 	p_renderwindow.renderText(best_score);
 }
 
+void MainGame::loadMenu() {
+	MainMenu gameMenu(buttonTex, backgroundTex, backgroundTex);
+	menus.push_back(gameMenu);
+}
+
 void MainGame::updateBestScore() {
 	ofstream outFile;
 	outFile.open("res/bestscore.txt");
@@ -115,6 +125,12 @@ void MainGame::updateMap() {
 	for (int i = 0; i < maps.size(); i++) {
 		maps[i].render(tileClips, camera, p_renderwindow);
 	}
+}
+
+void MainGame::renderMenu() {
+	p_renderwindow.clear();
+	menus[0].renderMainMenu(p_renderwindow);
+	p_renderwindow.display();
 }
 
 void MainGame::setTile() {
@@ -184,4 +200,8 @@ void MainGame::handleGameEvent(SDL_Event& event) {
 
 bool MainGame::getIsRunning() {
 	return isRunning;
+}
+
+vector<MainMenu> MainGame::getMenus() {
+	return menus;
 }

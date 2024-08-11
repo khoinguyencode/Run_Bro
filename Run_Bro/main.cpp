@@ -20,11 +20,13 @@ int main(int argc, char* argv[]) {
         game.createMapLists();
         game.loadPlayer();
         game.loadMap();
+        game.loadMenu();
         while (game.getIsRunning()) {
             SDL_Event event;
             while (SDL_PollEvent(&event)) {
                 game.handleGameEvent(event);
             }
+            if (game.getMenus()[0].getMenu()) game.renderMenu();
             game.updateGame();
         }
     }

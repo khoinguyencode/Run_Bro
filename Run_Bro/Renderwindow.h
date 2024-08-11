@@ -38,6 +38,7 @@ public:
     //ve tile
     void renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& camera);
     void renderText(Entity& entity, SDL_Rect* rec = NULL, SDL_Rect* camera = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+    void renderTexture(SDL_Texture* p_tex, float p_x, float p_y, float p_w = 0, float p_h = 0, SDL_Rect* rec = NULL, SDL_Rect* camera = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     void openFont(const char* filePath);
     SDL_Texture* loadText(string p_text, SDL_Color p_textColor);
