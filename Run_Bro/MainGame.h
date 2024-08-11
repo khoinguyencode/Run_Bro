@@ -34,10 +34,12 @@ private:
 	RenderWindow& p_renderwindow;
 	bool isRunning = true;
 	const int tong_map = TOTAL_MAP - 1;
+
 	//cac texture
 	SDL_Texture* playerTex = NULL;
 	SDL_Texture* tileTex = NULL;
 	SDL_Texture* spikeTex = NULL;
+	SDL_Texture* buttonTex = NULL;
 
 	SDL_Rect tileClips[TOTAL_TILE_SPRITES];
 	SDL_Rect spike[1];

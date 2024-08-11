@@ -10,13 +10,28 @@ class MainMenu {
 public:
 	MainMenu(SDL_Texture* p_buttonTex, SDL_Texture* p_mainMenuBGTex, SDL_Texture* p_restartBGTex);
 	void handleEvent(SDL_Event& event, bool& p_gameRunning, Player& p_player);
-	void renderMainMenu();
+	void renderMainMenu(RenderWindow& p_renderwindow);
 	void renderRestartMenu();
+	bool checkMouseAt(int x, int y); //kiem tra chuot tai 1 vung
+	bool getMenu();
+	bool getPaused();
+	bool getReset();
+	void set_reset(bool p_reset);
 private:
-	const int BUTTON_WIDTH = 100;
-	const int BUTTON_HEIGHT = 50;
-	static const int TOTAL_BUTTONS = 3;
+	const int BUTTON_WIDTH = 192;
+	const int BUTTON_HEIGHT = 96;
+	static const int TOTAL_BUTTONS = 3; //3 loai nut: choi, thoat, restart
 	SDL_Rect playButtonClips[TOTAL_BUTTONS];
 	SDL_Rect exitButtonClips[TOTAL_BUTTONS];
 	SDL_Rect restartButtonClips[TOTAL_BUTTONS];
+
+	bool menu = true, reset = false, paused = false, restart = false;
+	bool selected[4] = { false }; //check chon
+	bool pressed[4] = { false }; //check nhan
+
+	SDL_Point button1 = { SCREEN_WIDTH / 2 - BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 };
+	SDL_Point button2 = { SCREEN_WIDTH / 2 - BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + BUTTON_HEIGHT + 32 };
+
+	SDL_Texture* buttonTex = NULL;
+	SDL_Texture* mainMenuBGTex = NULL;
 };

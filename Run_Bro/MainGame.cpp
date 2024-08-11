@@ -29,6 +29,7 @@ void MainGame::loadMedia() {
 	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
 	spikeTex = p_renderwindow.loadTexture("res/gfx/spiked.png");
 	p_renderwindow.openFont("res/PixelFont.ttf");
+	buttonTex = p_renderwindow.loadTexture("res/gfx/Button.png");
 }
 
 void MainGame::loadPlayer() {
