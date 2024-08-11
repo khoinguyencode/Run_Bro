@@ -215,9 +215,9 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     p_camera.x += velCam;
     // tang dan gia toc theo thoi gian
-    float gia_toc = 0.0001;
-    if (velCam > 4) gia_toc = 0.0003;
-    if (velCam > 5) gia_toc = 0.00001;
+    float gia_toc = 0.001;
+    if (velCam > 4) gia_toc = 0.0004;
+    if (velCam > 5) gia_toc = 0.00002;
     velCam += gia_toc;
     
     //camera tu dong di chuyen

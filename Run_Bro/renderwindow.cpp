@@ -81,6 +81,48 @@ void RenderWindow::renderTile(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_ca
 	SDL_RenderCopy(renderer, p_entity.getTex(), &p_clip, &dst);
 }
 
+void RenderWindow::renderText(Entity& entity, SDL_Rect* rec, SDL_Rect* camera, double angle, SDL_Point* center, SDL_RendererFlip flip) {
+	SDL_Rect dst;
+	dst.x = entity.getX();
+	dst.y = entity.getY();
+	dst.w = entity.getCurrentFrame().w;
+	dst.h = entity.getCurrentFrame().h;
+
+	//neu rec != NULL in theo rec
+	if (rec != NULL) {
+		dst.w = rec->w;
+		dst.h = rec->h;
+	}
+	if (camera != NULL) {
+		dst.x = dst.x - camera->x;
+		dst.y = dst.y - camera->y;
+	}
+	SDL_RenderCopyEx(renderer, entity.getTex(), rec, &dst, angle, center, flip);
+}
+
+void RenderWindow::openFont(const char* p_filePath) {
+	TTF_CloseFont(font);
+	font = TTF_OpenFont(p_filePath, 28);
+}
+
+SDL_Texture* RenderWindow::loadText(string p_text, SDL_Color p_textColor) {
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, p_text.c_str(), p_textColor);
+	SDL_Texture* texture = NULL;
+	if (textSurface == NULL) {
+		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
+	}
+	else {
+		//create texture text from surface pixels
+		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+		if (texture == NULL) {
+			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
+		}
+		SDL_FreeSurface(textSurface);
+		return texture;
+	}
+	return NULL;
+}
+
 void RenderWindow::display() {
 	SDL_RenderPresent(renderer);
 }

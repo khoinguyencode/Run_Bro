@@ -17,6 +17,8 @@ public:
 	void loadMap();
 	void updateMap();
 	void setTile();
+	void renderScore();
+	void updateScore();
 	void updatePlayer();
 	void updateSpike();
 	void updateGame();
