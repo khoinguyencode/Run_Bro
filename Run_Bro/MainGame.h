@@ -17,12 +17,14 @@ public:
 	void createMapLists();
 	void loadMap();
 	void updateMap();
+	void loadMenu();
 	void setTile();
 	void loadScore();
 	void updateBestScore();
 	void updatePlayer();
 	void updateSpike();
 	void updateGame();
+	void updateMenu();
 	void resetGame();
 	void handleGameEvent(SDL_Event& event);
 	bool getIsRunning();
