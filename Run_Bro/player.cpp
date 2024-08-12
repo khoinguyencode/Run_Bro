@@ -230,7 +230,7 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     //Giu cho camera luon nam trong vong
     if (p_camera.x < 0) p_camera.x = 0;
     if (p_camera.y < 0) p_camera.y = 0;
-    if (p_camera.y > LEVEL_HEIGHT - p_camera.h) p_camera.y = LEVEL_HEIGHT - p_camera.h;
+    if (p_camera.y > MAP_HEIGHT - p_camera.h) p_camera.y = MAP_HEIGHT - p_camera.h;
 }
 
 void Player::resetPlayer() {
@@ -247,7 +247,8 @@ bool Player::getDead() {
 }
 
 void Player::getHit(SDL_Rect& p_camera) {
-    if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= LEVEL_HEIGHT) {
+    //dam vao gai hoac roi xuong
+    if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= MAP_HEIGHT) {
         isDead = true;
     }
 }

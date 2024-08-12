@@ -11,16 +11,26 @@ Monster::Monster(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_
 		idlingClips[i].h = currentFrame.h / 6;
 	}
 	for (int i = 0; i < RUNNING_ANIMATIONS_FRAME; i++) {
-		runningClips[i].x = i * (currentFrame.w / 4);
-		if (i < 4) runningClips[i].y = i * (currentFrame.h / 6);
-		else runningClips[i].y = i * (currentFrame.h / 6) * 2;
+		if (i < 4) {
+			runningClips[i].x = i * (currentFrame.w / 4);
+			runningClips[i].y = (currentFrame.h / 6);
+		}
+		else {
+			runningClips[i].x = (i - 4) * (currentFrame.w / 4);
+			runningClips[i].y = (currentFrame.h / 6) * 2;
+		}
 		runningClips[i].w = currentFrame.w / 4;
 		runningClips[i].h = currentFrame.h / 6;
 	}
 	for (int i = 0; i < ATTACKING_ANIMATIONS_FRAME; i++) {
-		attackingClips[i].x = i * (currentFrame.w / 4);
-		if(i < 4) attackingClips[i].y = (currentFrame.h / 6) * 3;
-		else attackingClips[i].y = (currentFrame.h / 6) * 4;
+		if (i < 4) {
+			attackingClips[i].x = i * (currentFrame.w / 4);
+			attackingClips[i].y = (currentFrame.h / 6) * 3;
+		}
+		else {
+			attackingClips[i].x = (i - 4) * (currentFrame.w / 4);
+			attackingClips[i].y = (currentFrame.h / 6) * 4;
+		}
 		attackingClips[i].w = currentFrame.w / 4;
 		attackingClips[i].h = currentFrame.h / 6;
 	}
@@ -40,6 +50,10 @@ SDL_Rect Monster::getCollision() const{
 	return collision;
 }
 
+float Monster::getDistance() {
+	return distance;
+}
+
 void Monster::gravity() {
 	if (!grounded) {
 		velY += 0.3;
@@ -48,8 +62,48 @@ void Monster::gravity() {
 	else velY = 0.3;
 }
 
-void Monster::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera) {
+void Monster::autoMoveToPlayer(Player& p_player, vector<Map>& p_maps) {
+	//cong thuc tinh khoang cach Euclid giua 2 diem trong khong gian (giua nguoi choi va quai)
+	distance = sqrt(((p_player.getX() - getX()) * (p_player.getX() - getX())) + (p_player.getY() - getY()) * (p_player.getY() - getY()));
+	if (!takingHit && !isDead) {
+		//neu quai nhin thay trong pham vi 7 tile
+		if (distance <= TILE_WIDTH * 7 && (p_player.getY() >= y - TILE_WIDTH && p_player.getY() <= y + TILE_WIDTH / 2.0)) {
+			//player nam ben phai quai
+			if (p_player.getX() - x < 0) {
+				//kiem tra tile ben trai xem co phai vat can khong, neu co thi quay lai
+				if (p_maps[mapIndex].getTiles()[groundIndex - 1]->getType() > 40) velX = 0;
+				else velX = -MONSTER_VEL;
+			}
+			else {
+				//kiem tra tile ben phai xem co phai vat can khong, neu co thi quay lai
+				if (p_maps[mapIndex].getTiles()[groundIndex + 1]->getType() > 40) velX = 0;
+				else velX = MONSTER_VEL;
+			}
+		}
+	}
+	//neu du gan thi quai se danh
+	if (!isDead && !takingHit && grounded && (distance <= TILE_WIDTH * 1.5 || (p_player.getY() >= y - TILE_WIDTH * 2.5 && p_player.getY() <= y - 64 && distance <= TILE_WIDTH * 2.5))) isAttacking = true;
+	else isAttacking = false;
+}
+
+//tu dong di chuyen neu thay player
+void Monster::autoMove(vector<Map>& p_maps) {
+	if (!isDead && grounded && !takingHit) {
+		if (p_maps[mapIndex].getTiles()[groundIndex + 1]->getType() > 40 && velX > 0) velX = -MONSTER_VEL / 2.0;
+		else if (p_maps[mapIndex].getTiles()[groundIndex - 1]->getType() > 40 && velX < 0) velX = MONSTER_VEL / 2.0;
+		else if (p_maps[mapIndex].getTiles()[groundIndex + 1]->getType() > 40 && p_maps[mapIndex].getTiles()[groundIndex - 2]->getType() > 40) velX = 0;
+		else if (p_maps[mapIndex].getTiles()[groundIndex + 2]->getType() > 40 && p_maps[mapIndex].getTiles()[groundIndex - 2]->getType() > 40) velX = 0;
+		else {
+			if (flipType == SDL_FLIP_NONE) velX = MONSTER_VEL / 2.0;
+			else if (flipType == SDL_FLIP_HORIZONTAL) velX = -MONSTER_VEL / 2.0;
+		}
+	}
+}
+
+void Monster::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera, Player& p_player) {
 	gravity();
+	autoMove(p_maps);
+	autoMoveToPlayer(p_player, p_maps);
 	//update trang thai monster
 	isIdling = (velX == 0 && grounded && !isAttacking && !isDead && !takingHit);
 
@@ -106,14 +160,14 @@ void Monster::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 	}
 
 	if (isAttacking) {
-		p_renderwindow.renderAnimation(*this, attackingClips[attackFrame / 8], p_camera, 0, NULL, flipType);
+		p_renderwindow.renderAnimation(*this, attackingClips[attackFrame / 4], p_camera, 0, NULL, flipType);
 		attackFrame++;
-		if (attackFrame / 8 >= ATTACKING_ANIMATIONS_FRAME) attackFrame = 0;
+		if (attackFrame / 4 >= ATTACKING_ANIMATIONS_FRAME) attackFrame = 0;
 	}
 	else attackFrame = 0;
 
 	if (takingHit) {
-		p_renderwindow.renderAnimation(*this, takingHitClips[takeHitFrame / 7], p_camera, 0, NULL, flipType);
+		p_renderwindow.renderAnimation(*this, takingHitClips[takeHitFrame / 8], p_camera, 0, NULL, flipType);
 		takeHitFrame++;
 	}
 	else takeHitFrame = 0;

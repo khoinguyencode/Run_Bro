@@ -36,7 +36,7 @@ Map::Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex)
             }
 
             x += TILE_WIDTH;
-            if (x >= getX() + LEVEL_WIDTH) {
+            if (x >= getX() + MAP_WIDTH) {
                 x = getX();
                 y += TILE_HEIGHT;
             }
@@ -54,7 +54,7 @@ void Map::setX(float p_x) {
     }
 }
 void Map::setMap(Map& p_map) {
-    x = p_map.getX() + LEVEL_WIDTH;
+    x = p_map.getX() + MAP_WIDTH;
     for (int i = 0; i < tiles.size(); i++) {
         int cols = i / 21;
         int rows = (i - cols * 21) * TILE_WIDTH + getX();
@@ -94,7 +94,7 @@ void Map::setTilesType(const char* p_filePath) {
             n += TILE_WIDTH;
 
             //den cuoi map
-            if (n >= getX() + LEVEL_WIDTH) {
+            if (n >= getX() + MAP_WIDTH) {
                 //xuong dong
                 n = getX();
                 m += TILE_HEIGHT;

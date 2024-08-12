@@ -71,7 +71,7 @@ void MainGame::loadMap() {
 		int random = rand() % tong_map;
 		if (i == 0) random = tong_map;
 		if (random < lists.size()) {
-			Map map(i * LEVEL_WIDTH, 0, lists[random], tileTex);
+			Map map(i * MAP_WIDTH, 0, lists[random], tileTex);
 			maps.push_back(map);
 		}
 	}
@@ -115,7 +115,7 @@ void MainGame::updateBestScore() {
 
 void MainGame::updateMap() {
 	//check xem map dau tien ra khoi man hinh chua
-	if (maps[0].getX() - camera.x <= -LEVEL_WIDTH) {
+	if (maps[0].getX() - camera.x <= -MAP_WIDTH) {
 		int random = rand() % tong_map;
 		maps[0].setTilesType(lists[random]);
 
@@ -168,7 +168,7 @@ void MainGame::updatePlayer() {
 
 void MainGame::updateMonster() {
 	monsters[0].render(p_renderwindow, camera);
-	monsters[0].update(p_renderwindow, maps, camera);
+	monsters[0].update(p_renderwindow, maps, camera, players[0]);
 }
 
 void MainGame::updateSpike() {

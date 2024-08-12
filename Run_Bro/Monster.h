@@ -6,12 +6,18 @@
 class Monster : public Entity {
 public:
     Monster(float p_x, float p_y, SDL_Texture* p_tex);
-    void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera);
+    //tu dong tien lai gan nguoi choi neu trong tam nhin
+    void autoMoveToPlayer(Player& p_player, vector<Map>& p_maps);
+
+    //tu dong di chuyen, gap vat can thi quay dau lai(thay vuc thi quay lai)
+    void autoMove(vector<Map>& p_maps);
+    void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera, Player& p_player);
     void takeHit();
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     SDL_Rect getCollision() const;
     void gravity();
     bool getDead();
+    float getDistance();
 
 private:
     //player size
@@ -34,6 +40,7 @@ private:
     int idleFrame = 0, runFrame = 0, attackFrame, takeHitFrame = 0;
 
     float velX = 0, velY = 0;
+    float distance;
 
     int health = 3;
     int groundIndex = 1, mapIndex = 1;

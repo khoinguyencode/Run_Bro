@@ -184,7 +184,7 @@ bool RenderWindow::checkCollision(SDL_Rect a, SDL_Rect b) {
 bool RenderWindow::checkTileCollsionX(SDL_Rect& p_collision, vector<Map>& p_maps, RenderWindow& p_renderwindow, bool& isDead) {
 	//check truoc 3 map
 	for (int i = 0; i < p_maps.size(); i++) {
-		if (p_collision.x > p_maps[i].getX() && p_collision.x + p_collision.w + 13 < LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
+		if (p_collision.x > p_maps[i].getX() && p_collision.x + p_collision.w < MAP_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < MAP_WIDTH) {
 			//xac dinh cac khoang ma collsion nam trong hoac va cham
 			int col_start = (p_collision.x - p_maps[i].getX()) / TILE_WIDTH;
 			int col_end = col_start + 1;
@@ -228,7 +228,7 @@ bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, vector<Map>& p_maps
 	bool ok = false;
 	//check truoc 3 map
 	for (int i = 0; i < p_maps.size(); i++) {
-		if (p_collision.x + p_collision.w + 12 >= p_maps[i].getX() && p_collision.x <= LEVEL_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < LEVEL_WIDTH) {
+		if (p_collision.x + p_collision.w >= p_maps[i].getX() && p_collision.x <= MAP_WIDTH + p_maps[i].getX() && p_collision.y >= 0 && p_collision.y + TILE_HEIGHT < MAP_WIDTH) {
 			//xac dinh cac khoang ma collsion nam trong hoac va cham
 			int col_start = (p_collision.x - p_maps[i].getX()) / TILE_WIDTH;
 			int col_end = col_start + 1;
@@ -242,7 +242,7 @@ bool RenderWindow::checkTileCollsionY(SDL_Rect& p_collision, vector<Map>& p_maps
 			int indexTile4 = row_end * 21 + col_start; //dong duoi cot trai
 
 			//kiem tra type cua tile
-			if (p_collision.x <= p_maps[i].getX() && p_collision.x + p_collision.w + 12 >= p_maps[i].getX() || p_collision.x <= p_maps[i].getX() + LEVEL_WIDTH && p_collision.x + p_collision.w + 12 >= p_maps[i].getX() + LEVEL_WIDTH) {
+			if (p_collision.x <= p_maps[i].getX() && p_collision.x + p_collision.w + 12 >= p_maps[i].getX() || p_collision.x <= p_maps[i].getX() + MAP_WIDTH && p_collision.x + p_collision.w >= p_maps[i].getX() + MAP_WIDTH) {
 				p_grounded = false;
 			}
 			else {
