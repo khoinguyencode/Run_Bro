@@ -1,25 +1,25 @@
 #include "MainMenu.h"
 
-MainMenu::MainMenu(SDL_Texture* buttonTex, SDL_Texture* mainMenuBGTex, SDL_Texture* restartBGTex) {
+MainMenu::MainMenu(SDL_Texture* buttonTex, SDL_Texture* mainMenuTex, SDL_Texture* restartTex) {
 	for (int i = 0; i < TOTAL_BUTTONS; i++) {
-		playButtonClips[i].x = i * BUTTON_WIDTH;
-		playButtonClips[i].y = 0;
-		playButtonClips[i].w = BUTTON_WIDTH;
-		playButtonClips[i].h = BUTTON_HEIGHT;
+		playButton[i].x = i * BUTTON_WIDTH;
+		playButton[i].y = 0;
+		playButton[i].w = BUTTON_WIDTH;
+		playButton[i].h = BUTTON_HEIGHT;
 
-		exitButtonClips[i].x = i * BUTTON_WIDTH;
-		exitButtonClips[i].y = BUTTON_HEIGHT;
-		exitButtonClips[i].w = BUTTON_WIDTH;
-		exitButtonClips[i].h = BUTTON_HEIGHT;
+		exitButton[i].x = i * BUTTON_WIDTH;
+		exitButton[i].y = BUTTON_HEIGHT;
+		exitButton[i].w = BUTTON_WIDTH;
+		exitButton[i].h = BUTTON_HEIGHT;
 
-		restartButtonClips[i].x = i * BUTTON_WIDTH;
-		restartButtonClips[i].y = BUTTON_HEIGHT * 2;
-		restartButtonClips[i].w = BUTTON_WIDTH;
-		restartButtonClips[i].h = BUTTON_HEIGHT;
+		restartButton[i].x = i * BUTTON_WIDTH;
+		restartButton[i].y = BUTTON_HEIGHT * 2;
+		restartButton[i].w = BUTTON_WIDTH;
+		restartButton[i].h = BUTTON_HEIGHT;
 	}
 	this->buttonTex = buttonTex;
-	this->mainMenuBGTex = mainMenuBGTex;
-	this->restartBGTex = restartBGTex;
+	this->mainMenuTex = mainMenuTex;
+	this->restartTex = restartTex;
 }
 
 void MainMenu::handleEvent(SDL_Event& p_event, bool& p_gameRunning, Player& p_player){
@@ -27,7 +27,7 @@ void MainMenu::handleEvent(SDL_Event& p_event, bool& p_gameRunning, Player& p_pl
 	//nhan chuot
 	case SDL_MOUSEBUTTONDOWN:
 		if (p_event.button.button == SDL_BUTTON_LEFT) {
-			if (getMenu()) {
+			if (menu) {
 				if (checkMouseAt(button1.x, button1.y)) {
 					pressed[0] = true; //bam Play trong menu
 					menu = false;
@@ -57,7 +57,7 @@ void MainMenu::handleEvent(SDL_Event& p_event, bool& p_gameRunning, Player& p_pl
 		break;
 	//di chuyen chuot
 	case SDL_MOUSEMOTION:
-		if (getMenu()) {
+		if (menu) {
 			//con tro chuot di chuyen qua nut Play
 			if (checkMouseAt(button1.x, button1.y) && !pressed[0]) {
 				selected[0] = true; 
@@ -122,23 +122,23 @@ bool MainMenu::checkMouseAt(int p_x, int p_y) {
 
 void MainMenu::renderMainMenu(RenderWindow& p_renderwindow) {
 	if (menu) {
-		p_renderwindow.renderTexture(mainMenuBGTex, 0, 0, 1280, 720);
+		p_renderwindow.renderTexture(mainMenuTex, 0, 0, 1280, 720);
 
-		if (selected[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[1]);
-		else if (!pressed[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[0]);
-		else p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButtonClips[2]);
+		if (selected[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButton[1]);
+		else if (!pressed[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButton[0]);
+		else p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButton[2]);
 
-		if (selected[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[1]);
-		else if (!pressed[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[0]);
-		else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[2]);
+		if (selected[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[1]);
+		else if (!pressed[1]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[0]);
+		else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[2]);
 	}
 }
 void MainMenu::renderRestartMenu(RenderWindow& p_renderwindow) {
-	if (selected[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButtonClips[1]);
-	else if (!pressed[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButtonClips[0]);
-	else p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButtonClips[2]);
+	if (selected[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButton[1]);
+	else if (!pressed[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButton[0]);
+	else p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButton[2]);
 
-	if (selected[3]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[1]);
-	else if (!pressed[3]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[0]);
-	else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButtonClips[2]);
+	if (selected[3]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[1]);
+	else if (!pressed[3]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[0]);
+	else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[2]);
 }

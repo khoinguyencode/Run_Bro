@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
         game.loadMedia();
         game.createMapLists();
         game.loadPlayer();
+        game.loadMonster();
         game.loadMap();
         game.loadMenu();
         while (game.getIsRunning()) {
@@ -27,6 +28,7 @@ int main(int argc, char* argv[]) {
                 game.handleGameEvent(event);
             }
             if (game.getMenus()[0].getMenu()) game.renderMenu();
+            else if (game.getMenus()[0].getPaused()) {}
             else game.updateGame();
         }
     }

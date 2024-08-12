@@ -5,6 +5,7 @@
 #include "Tile.h"
 #include "Entity.h"
 #include "Player.h"
+#include "Monster.h"
 #include "MainMenu.h"
 
 using namespace std;
@@ -15,6 +16,7 @@ public:
 	bool init();
 	void loadMedia();
 	void loadPlayer();
+	void loadMonster();
 	void createMapLists();
 	void loadMap();
 	void updateMap();
@@ -23,6 +25,7 @@ public:
 	void loadScore();
 	void updateBestScore();
 	void updatePlayer();
+	void updateMonster();
 	void updateSpike();
 	void updateGame();
 	void renderMenu();
@@ -38,6 +41,7 @@ private:
 
 	//cac texture
 	SDL_Texture* playerTex = NULL;
+	SDL_Texture* monsterTex = NULL;
 	SDL_Texture* tileTex = NULL;
 	SDL_Texture* spikeTex = NULL;
 	SDL_Texture* buttonTex = NULL;
@@ -50,13 +54,16 @@ private:
 	SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 	float velCam = 1.5;
 
+	//best score
 	stringstream scoreText;
 	stringstream bestscoreText;
 	int score = 0;
 	int bestscore = 0;
 
+	//cac vector chua cac thuc the
 	vector<const char*> lists; //chua cac map
 	vector<Map> maps; //chua cac map
 	vector<Player> players;
+	vector<Monster> monsters;
 	vector<MainMenu> menus;
 };

@@ -30,16 +30,23 @@ bool MainGame::init() {
 
 void MainGame::loadMedia() {
 	playerTex = p_renderwindow.loadTexture("res/gfx/test3.png");
+	monsterTex = p_renderwindow.loadTexture("res/gfx/testmonster.png");
 	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
 	spikeTex = p_renderwindow.loadTexture("res/gfx/spiked.png");
 	p_renderwindow.openFont("res/PixelFont.ttf");
 	buttonTex = p_renderwindow.loadTexture("res/gfx/Button.png");
 	backgroundTex = p_renderwindow.loadTexture("res/gfx/ds3.jpg");
+	
 }
 
 void MainGame::loadPlayer() {
 	Player samurai(90, 700, playerTex);
 	players.push_back(samurai);
+}
+
+void MainGame::loadMonster() {
+	Monster mushroom(160, 700, monsterTex);
+	monsters.push_back(mushroom);
 }
 
 void MainGame::createMapLists() {
@@ -159,6 +166,11 @@ void MainGame::updatePlayer() {
 	players[0].render(p_renderwindow, camera);
 }
 
+void MainGame::updateMonster() {
+	monsters[0].render(p_renderwindow, camera);
+	monsters[0].update(p_renderwindow, maps, camera);
+}
+
 void MainGame::updateSpike() {
 	p_renderwindow.renderSpike(spikeTex, camera.x, 0, spike[0], camera, 0, NULL, SDL_FLIP_NONE);
 }
@@ -167,6 +179,7 @@ void MainGame::updateGame() {
 	p_renderwindow.clear();
 	updateMap();
 	updatePlayer();
+	updateMonster();
 	updateSpike();
 	loadScore();
 	if (players[0].getDead()) {
