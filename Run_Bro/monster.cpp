@@ -8,37 +8,43 @@ Monster::Monster(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_
 		idlingClips[i].x = i * (currentFrame.w / 4);
 		idlingClips[i].y = 0;
 		idlingClips[i].w = currentFrame.w / 4;
-		idlingClips[i].h = currentFrame.h / 6;
+		idlingClips[i].h = currentFrame.h / 7;
 	}
 	for (int i = 0; i < RUNNING_ANIMATIONS_FRAME; i++) {
 		if (i < 4) {
 			runningClips[i].x = i * (currentFrame.w / 4);
-			runningClips[i].y = (currentFrame.h / 6);
+			runningClips[i].y = (currentFrame.h / 7);
 		}
 		else {
 			runningClips[i].x = (i - 4) * (currentFrame.w / 4);
-			runningClips[i].y = (currentFrame.h / 6) * 2;
+			runningClips[i].y = (currentFrame.h / 7) * 2;
 		}
 		runningClips[i].w = currentFrame.w / 4;
-		runningClips[i].h = currentFrame.h / 6;
+		runningClips[i].h = currentFrame.h / 7;
 	}
 	for (int i = 0; i < ATTACKING_ANIMATIONS_FRAME; i++) {
 		if (i < 4) {
 			attackingClips[i].x = i * (currentFrame.w / 4);
-			attackingClips[i].y = (currentFrame.h / 6) * 3;
+			attackingClips[i].y = (currentFrame.h / 7) * 3;
 		}
 		else {
 			attackingClips[i].x = (i - 4) * (currentFrame.w / 4);
-			attackingClips[i].y = (currentFrame.h / 6) * 4;
+			attackingClips[i].y = (currentFrame.h / 7) * 4;
 		}
 		attackingClips[i].w = currentFrame.w / 4;
-		attackingClips[i].h = currentFrame.h / 6;
+		attackingClips[i].h = currentFrame.h / 7;
 	}
 	for (int i = 0; i < TAKINGHIT_ANIMATIONS_FRAME; i++) {
 		takingHitClips[i].x = i * (currentFrame.w / 4);
-		takingHitClips[i].y = (currentFrame.h / 6) * 5;
+		takingHitClips[i].y = (currentFrame.h / 7) * 5;
 		takingHitClips[i].w = currentFrame.w / 4;
-		takingHitClips[i].h = currentFrame.h / 6;
+		takingHitClips[i].h = currentFrame.h / 7;
+	}
+	for (int i = 0; i < DEATH_ANIMATIONS_FRAME; i++) {
+		deathClips[i].x = i * (currentFrame.w / 4);
+		deathClips[i].y = (currentFrame.h / 7) * 6;
+		deathClips[i].w = currentFrame.w / 4;
+		deathClips[i].h = currentFrame.h / 7;
 	}
 }
 
@@ -90,7 +96,7 @@ void Monster::autoMoveToPlayer(Player& p_player, vector<Map>& p_maps) {
 	else isAttacking = false;
 }
 
-//tu dong di chuyen neu thay player
+//tu dong di chuyen neu khong thay player
 void Monster::autoMove(vector<Map>& p_maps) {
 	if (!isDead && grounded && !takingHit) {
 		if (p_maps[mapIndex].getTiles()[groundIndex + 1]->getType() > 40 && velX > 0) velX = -MONSTER_VEL / 2.0;
@@ -104,10 +110,12 @@ void Monster::autoMove(vector<Map>& p_maps) {
 	}
 }
 
-void Monster::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera, Player& p_player) {
+void Monster::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Player& p_player) {
 	gravity();
 	autoMove(p_maps);
 	autoMoveToPlayer(p_player, p_maps);
+	beingHit(p_camera, p_player);
+	getHit();
 	//update trang thai monster
 	isIdling = (velX == 0 && grounded && !isAttacking && !isDead && !takingHit);
 
@@ -175,5 +183,36 @@ void Monster::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 		takeHitFrame++;
 	}
 	else takeHitFrame = 0;
+
+	if (isDead) {
+		p_renderwindow.renderAnimation(*this, deathClips[deathFrame / 8], p_camera, 0, NULL, flipType);
+		if (deathFrame / 8 < DEATH_ANIMATIONS_FRAME - 1) deathFrame++;
+	}
+	else deathFrame = 0;
 }
 
+void Monster::beingHit(SDL_Rect& p_camera, Player& p_player) {
+	cout << health << endl;
+	if (distance <= 1.8 * TILE_WIDTH && p_player.getAttacking() && y >= p_player.getY() - TILE_WIDTH && y <= p_player.getY() + TILE_WIDTH / 2.0) {
+		takingHit = true;
+		--health;
+	}
+
+	if (takeHitFrame / 8 >= TAKINGHIT_ANIMATIONS_FRAME) {
+		takingHit = false;
+		takeHitFrame = 0;
+	}
+
+	if (health < 1 || y + MONSTER_HEIGHT >= MAP_HEIGHT || x - p_camera.x <= 5) {
+		isDead = true;
+		takingHit = false;
+	}
+}
+
+void Monster::getHit() {
+	if (takingHit && takeHitFrame < 1) {
+		velY = -3.2;
+		if (flipType == SDL_FLIP_NONE) velY = -4;
+		else if (flipType == SDL_FLIP_HORIZONTAL) velX = 4;
+	}
+}

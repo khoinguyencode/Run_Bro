@@ -64,7 +64,7 @@ void Map::setMap(Map& p_map) {
 
 void Map::setTilesType(const char* p_filePath) {
     bool tilesLoaded = true;
-    int n = getX(), m = getY();
+    int n = x, m = y;
     ifstream map(p_filePath);
 
     if (map.fail()) {
@@ -94,9 +94,9 @@ void Map::setTilesType(const char* p_filePath) {
             n += TILE_WIDTH;
 
             //den cuoi map
-            if (n >= getX() + MAP_WIDTH) {
+            if (n >= x + MAP_WIDTH) {
                 //xuong dong
-                n = getX();
+                n = x;
                 m += TILE_HEIGHT;
             }
         }

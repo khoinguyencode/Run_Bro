@@ -246,9 +246,13 @@ bool Player::getDead() {
     return isDead;
 }
 
+bool Player::getAttacking() {
+    return attackFrame / 2 >= 2;
+}
+
 void Player::beingHit(SDL_Rect& p_camera, Monster& p_monster) {
     //nguoi trong tam danh cua quai
-    if ((p_monster.getDistance() <= TILE_WIDTH * 1.2 && p_monster.getAttacking() && y >= p_monster.getY() - TILE_WIDTH && y <= p_monster.getY() + TILE_WIDTH / 2.0))
+    if ((p_monster.getDistance() <= TILE_WIDTH * 1.5 && p_monster.getAttacking() && y >= p_monster.getY() - TILE_WIDTH && y <= p_monster.getY() + TILE_WIDTH / 2.0))
            isDead = true;
 
     //dam vao gai hoac roi xuong

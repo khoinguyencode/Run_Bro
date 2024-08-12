@@ -133,13 +133,9 @@ SDL_Texture* RenderWindow::loadText(string p_text, SDL_Color p_textColor) {
 	else {
 		//create texture text from surface pixels
 		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
-		if (texture == NULL) {
-			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
-		}
 		SDL_FreeSurface(textSurface);
-		return texture;
 	}
-	return NULL;
+	return texture;
 }
 
 void RenderWindow::display() {

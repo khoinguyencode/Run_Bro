@@ -19,6 +19,7 @@ public:
     void setCamera(SDL_Rect& p_camera, float& velCam);
     void resetPlayer();
     bool getDead();
+    bool getAttacking();
     //nhan vat bi roi, cham vao gai hoac bi danh boi quai
     void beingHit(SDL_Rect& p_camera, Monster& p_monster);
 private:
