@@ -54,6 +54,10 @@ float Monster::getDistance() {
 	return distance;
 }
 
+bool Monster::getAttacking() {
+	return attackFrame / 4 >= 2;
+}
+
 void Monster::gravity() {
 	if (!grounded) {
 		velY += 0.3;
@@ -160,9 +164,9 @@ void Monster::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 	}
 
 	if (isAttacking) {
-		p_renderwindow.renderAnimation(*this, attackingClips[attackFrame / 4], p_camera, 0, NULL, flipType);
+		p_renderwindow.renderAnimation(*this, attackingClips[attackFrame / 2], p_camera, 0, NULL, flipType);
 		attackFrame++;
-		if (attackFrame / 4 >= ATTACKING_ANIMATIONS_FRAME) attackFrame = 0;
+		if (attackFrame / 2 >= ATTACKING_ANIMATIONS_FRAME) attackFrame = 0;
 	}
 	else attackFrame = 0;
 

@@ -3,6 +3,8 @@
 #include "Renderwindow.h"
 #include "Player.h"
 
+class Player;
+
 class Monster : public Entity {
 public:
     Monster(float p_x, float p_y, SDL_Texture* p_tex);
@@ -17,6 +19,7 @@ public:
     SDL_Rect getCollision() const;
     void gravity();
     bool getDead();
+    bool getAttacking();
     float getDistance();
 
 private:

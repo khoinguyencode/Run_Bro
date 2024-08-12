@@ -45,7 +45,7 @@ void MainGame::loadPlayer() {
 }
 
 void MainGame::loadMonster() {
-	Monster mushroom(160, 700, monsterTex);
+	Monster mushroom(300, 200, monsterTex);
 	monsters.push_back(mushroom);
 }
 
@@ -161,7 +161,7 @@ void MainGame::setTile() {
 }
 
 void MainGame::updatePlayer() {
-	players[0].update(p_renderwindow, maps, camera);
+	players[0].update(p_renderwindow, maps, camera, monsters[0]);
 	players[0].setCamera(camera, velCam);
 	players[0].render(p_renderwindow, camera);
 }
@@ -206,6 +206,7 @@ void MainGame::resetGame() {
 		else maps[i].setMap(maps[i - 1]);
 		maps[i].setTilesType(lists[random]);
 	}
+	loadMonster();
 	menus[0].set_reset(false);
 	score = 0;
 }

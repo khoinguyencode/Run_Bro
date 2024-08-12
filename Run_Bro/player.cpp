@@ -119,9 +119,9 @@ void Player::gravity() {
     else velY = 0.3;
 }
 
-void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera) {
+void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Monster& p_monster) {
     gravity();
-    if (!isDead) getHit(p_camera);
+    if (!isDead) beingHit(p_camera, p_monster);
     isIdling = (velX == 0 && grounded && !isAttacking && !isDead);
     isRunning = (velX != 0 && grounded && !isAttacking && !isDead);
     isJumping = (velY <= 0 && !grounded && !isAttacking && !isDead);
@@ -246,7 +246,11 @@ bool Player::getDead() {
     return isDead;
 }
 
-void Player::getHit(SDL_Rect& p_camera) {
+void Player::beingHit(SDL_Rect& p_camera, Monster& p_monster) {
+    //nguoi trong tam danh cua quai
+    if ((p_monster.getDistance() <= TILE_WIDTH * 1.2 && p_monster.getAttacking() && y >= p_monster.getY() - TILE_WIDTH && y <= p_monster.getY() + TILE_WIDTH / 2.0))
+           isDead = true;
+
     //dam vao gai hoac roi xuong
     if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= MAP_HEIGHT) {
         isDead = true;
