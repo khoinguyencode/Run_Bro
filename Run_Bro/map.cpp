@@ -125,3 +125,7 @@ float Map::getY() {
 vector<int> Map::getMonsterPos() {
     return monsterPos;
 }
+
+void Map::setMonsterPos(vector<int>& p_monsterPos) {
+    monsterPos = p_monsterPos;
+}

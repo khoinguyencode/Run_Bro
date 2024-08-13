@@ -36,7 +36,7 @@ void MainGame::loadMedia() {
 	p_renderwindow.openFont("res/PixelFont.ttf");
 	buttonTex = p_renderwindow.loadTexture("res/gfx/Button.png");
 	backgroundTex = p_renderwindow.loadTexture("res/gfx/ds3.jpg");
-	
+
 }
 
 void MainGame::loadPlayer() {
@@ -46,6 +46,7 @@ void MainGame::loadPlayer() {
 
 void MainGame::loadMonster() {
 	for (int i = 0; i < maps.size(); i++) {
+		cout << maps[i].getMonsterPos().size() << endl;
 		if (maps[i].getMonsterPos().size() > 0) {
 			for (int j = 0; j < maps[i].getMonsterPos().size() - 1; j += 2) {
 				Monster* monster = new Monster(maps[i].getMonsterPos()[j] * TILE_WIDTH + maps[i].getX(), maps[i].getMonsterPos()[j + 1] * TILE_WIDTH + maps[i].getY(), monsterTex);
@@ -56,18 +57,18 @@ void MainGame::loadMonster() {
 }
 
 void MainGame::createMapLists() {
-	lists.push_back(Path({1, 10 }, "res/gfx/dungeon1.map"));
-	lists.push_back(Path({1, 4 }, "res/gfx/dungeon2.map"));
-	lists.push_back(Path({10, 2 }, "res/gfx/dungeon3.map"));
-	lists.push_back(Path({3, 5 }, "res/gfx/dungeon4.map"));
-	lists.push_back(Path({6, 3,10,2 }, "res/gfx/dungeon5.map"));
-	lists.push_back(Path({10, 13, 10, 10}, "res/gfx/dungeon6.map"));
-	lists.push_back(Path({13, 12 }, "res/gfx/dungeon7.map"));
-	lists.push_back(Path({6, 5 }, "res/gfx/dungeon8.map"));
-	lists.push_back(Path({3, 2}, "res/gfx/dungeon9.map"));
-	lists.push_back(Path({1, 8 }, "res/gfx/dungeon10.map"));
-	lists.push_back(Path({1, 1 }, "res/gfx/dungeon11.map"));
-	lists.push_back(Path({ }, "res/gfx/dungeon0.map"));
+	lists.push_back(Path({ (10, 6), (7, 7)}, "res/gfx/dungeon1.map"));
+	lists.push_back(Path({ }, "res/gfx/dungeon2.map"));
+	lists.push_back(Path({ (9, 9), (17, 5)}, "res/gfx/dungeon3.map"));
+	lists.push_back(Path({ (14, 11), (15, 11)}, "res/gfx/dungeon4.map"));
+	lists.push_back(Path({ (9, 9), (16, 5)}, "res/gfx/dungeon5.map"));
+	lists.push_back(Path({ (9, 9), (10, 10) }, "res/gfx/dungeon6.map"));
+	lists.push_back(Path({ (15, 11), (15, 5), (12, 6)}, "res/gfx/dungeon7.map"));
+	lists.push_back(Path({ (7, 12), (16, 11), (16, 11), (16, 11)}, "res/gfx/dungeon8.map"));
+	lists.push_back(Path({ (11, 5), (15, 10)}, "res/gfx/dungeon9.map"));
+	lists.push_back(Path({ (10, 3), (13, 11), (13, 11), (14, 11), (12, 11)}, "res/gfx/dungeon10.map"));
+	lists.push_back(Path({ }, "res/gfx/dungeon11.map"));
+	lists.push_back(Path({ (14, 11)}, "res/gfx/dungeon0.map"));
 }
 
 void MainGame::loadMap() {
@@ -78,6 +79,7 @@ void MainGame::loadMap() {
 		if (i == 0) random = tong_map;
 		if (random < lists.size()) {
 			Map map(i * MAP_WIDTH, 0, lists[random].path, tileTex);
+			map.setMonsterPos(lists[random].monsterPos);
 			maps.push_back(map);
 		}
 	}
@@ -128,6 +130,7 @@ void MainGame::updateMap() {
 		//dat vi tri x cua map dau tien sao cho no nam ngay sau map cuối trong lists
 		maps[0].setMap(maps[maps.size() - 1]);
 
+		maps[0].setMonsterPos(lists[random].monsterPos);
 		if (maps[0].getMonsterPos().size() > 0) {
 			for (int j = 0; j < maps[0].getMonsterPos().size() - 1; j += 2) {
 				Monster* monster = new Monster(maps[0].getMonsterPos()[j] * TILE_WIDTH + maps[0].getX(), maps[0].getMonsterPos()[j + 1] * TILE_WIDTH + maps[0].getY(), monsterTex);
@@ -221,6 +224,14 @@ void MainGame::resetGame() {
 	camera.y = 0;
 	velCam = 1.5;
 
+	//delete monster
+	if (!maps.empty())
+		for (int i = monsters.size() - 1; i >= 0; i--) {
+			delete monsters[i];
+			monsters[i] = NULL;
+			monsters.erase(monsters.begin() + i);
+		}
+
 	for (int i = 0; i < maps.size(); i++) {
 		int random = rand() % (tong_map);
 		if (i == 0) {
@@ -229,6 +240,7 @@ void MainGame::resetGame() {
 		}
 		else maps[i].setMap(maps[i - 1]);
 		maps[i].setTilesType(lists[random].path);
+		maps[i].setMonsterPos(lists[random].monsterPos);
 	}
 	loadMonster();
 	menus[0].set_reset(false);
@@ -236,7 +248,7 @@ void MainGame::resetGame() {
 }
 
 void MainGame::handleGameEvent(SDL_Event& event) {
-	if(event.type == SDL_QUIT) isRunning = false;
+	if (event.type == SDL_QUIT) isRunning = false;
 	menus[0].handleEvent(event, isRunning, players[0]);
 	if (!menus[0].getMenu() && !menus[0].getPaused()) players[0].handleEvent(event);
 }

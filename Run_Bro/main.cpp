@@ -18,9 +18,9 @@ int main(int argc, char* argv[]) {
     if (game.init()) {
         game.loadMedia();
         game.createMapLists();
+        game.loadMap();
         game.loadPlayer();
         game.loadMonster();
-        game.loadMap();
         game.loadMenu();
         while (game.getIsRunning()) {
             SDL_Event event;

@@ -21,6 +21,7 @@ static TTF_Font* font = NULL;
 class Tile;
 class Map;
 
+
 class RenderWindow {
 public:
     RenderWindow(const char* p_title, int p_w, int p_h);

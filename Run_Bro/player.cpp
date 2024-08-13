@@ -221,10 +221,9 @@ void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
     velCam += gia_toc;
     
     //camera tu dong di chuyen
-    //if (x + PLAYER_WIDTH / 2 - p_camera.x >= SCREEN_WIDTH * 2 / 3) {
-    //    p_camera.x = (x + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 2 / 3;
-    //}
-    p_camera.x = (x + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 2 / 3;
+    if (x + PLAYER_WIDTH / 2 - p_camera.x >= SCREEN_WIDTH * 2 / 3) {
+        p_camera.x = (x + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 2 / 3;
+    }
     p_camera.y = (y + PLAYER_HEIGHT / 2) - SCREEN_HEIGHT / 2;
 
     //Giu cho camera luon nam trong vong
