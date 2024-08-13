@@ -45,8 +45,10 @@ void MainGame::loadPlayer() {
 }
 
 void MainGame::loadMonster() {
-	Monster mushroom(300, 200, monsterTex);
-	monsters.push_back(mushroom);
+	Monster mushroom1(300, 200, monsterTex);
+	Monster mushroom2(1150, 200, monsterTex);
+	monsters.push_back(mushroom1);
+	monsters.push_back(mushroom2);
 }
 
 void MainGame::createMapLists() {
@@ -167,8 +169,10 @@ void MainGame::updatePlayer() {
 }
 
 void MainGame::updateMonster() {
-	monsters[0].render(p_renderwindow, camera);
-	monsters[0].update(p_renderwindow, maps, camera, players[0]);
+	for (int i = 0; i < monsters.size(); i++) {
+		monsters[i].render(p_renderwindow, camera);
+		monsters[i].update(p_renderwindow, maps, camera, players[0]);
+	}
 }
 
 void MainGame::updateSpike() {

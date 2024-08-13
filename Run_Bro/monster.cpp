@@ -192,8 +192,8 @@ void Monster::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 }
 
 void Monster::beingHit(SDL_Rect& p_camera, Player& p_player) {
-	cout << health << endl;
-	if (distance <= 1.8 * TILE_WIDTH && p_player.getAttacking() && y >= p_player.getY() - TILE_WIDTH && y <= p_player.getY() + TILE_WIDTH / 2.0) {
+	//quai trong tam cua player
+	if (distance <= 2.0 * TILE_WIDTH && p_player.getAttacking() && y >= p_player.getY() - TILE_WIDTH && y <= p_player.getY() + TILE_WIDTH + 10) {
 		takingHit = true;
 		--health;
 	}

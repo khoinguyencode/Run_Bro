@@ -45,7 +45,7 @@ private:
     SDL_Rect takingHitClips[TAKINGHIT_ANIMATIONS_FRAME];
     SDL_Rect deathClips[TAKINGHIT_ANIMATIONS_FRAME];
 
-    int idleFrame = 0, runFrame = 0, attackFrame = 0, takeHitFrame = 0, deathFrame;
+    int idleFrame = 0, runFrame = 0, attackFrame = 0, takeHitFrame = 0, deathFrame = 0;
 
     float velX = 0, velY = 0;
     float distance;
