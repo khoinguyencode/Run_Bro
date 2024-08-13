@@ -67,7 +67,7 @@ void MainGame::createMapLists() {
 	lists.push_back(Path({ (15, 11), (15, 5), (12, 6)}, "res/gfx/dungeon7.map"));
 	lists.push_back(Path({ (7, 12), (16, 11), (16, 11), (16, 11)}, "res/gfx/dungeon8.map"));
 	lists.push_back(Path({ (11, 5), (15, 10)}, "res/gfx/dungeon9.map"));
-	lists.push_back(Path({ (10, 3), (14, 11), (14, 11), (14, 11)}, "res/gfx/dungeon10.map"));
+	lists.push_back(Path({ (10, 3), (15, 10)}, "res/gfx/dungeon10.map"));
 	lists.push_back(Path({ }, "res/gfx/dungeon11.map"));
 	lists.push_back(Path({ (14, 11)}, "res/gfx/dungeon0.map"));
 }
@@ -263,15 +263,22 @@ vector<MainMenu> MainGame::getMenus() {
 }
 
 void MainGame::loadMenuMusic() {
-	//if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
-	//	Mix_HaltMusic();  // Dừng nhạc hiện tại
-	//	Mix_PlayMusic(menuMusic, -1);  // Phát nhạc menu
-	//}
+	if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
+		Mix_HaltMusic();  // Dừng nhạc hiện tại
+		Mix_PlayMusic(menuMusic, -1);  // Phát nhạc menu
+	}
 }
 
 void MainGame::loadGameMusic() {
+	Mix_FreeMusic(menuMusic);
+	menuMusic = NULL;
 	if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
-		Mix_HaltMusic();  // Dừng nhạc hiện tại
+		Mix_HaltMusic();
 		Mix_PlayMusic(gameMusic, -1);  // Phát nhạc game
 	}
+	if (Mix_PausedMusic() == 1) Mix_ResumeMusic();
+}
+
+void MainGame::pauseMusic() {
+	if (Mix_PlayingMusic() == 1) Mix_PauseMusic();
 }

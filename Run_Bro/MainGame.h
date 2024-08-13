@@ -32,6 +32,7 @@ public:
 	void resetGame();
 	void loadMenuMusic();
 	void loadGameMusic();
+	void pauseMusic();
 	void handleGameEvent(SDL_Event& event);
 	bool getIsRunning();
 	vector<MainMenu> getMenus();

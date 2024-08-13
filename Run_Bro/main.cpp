@@ -31,9 +31,11 @@ int main(int argc, char* argv[]) {
                 game.renderMenu();
                 game.loadMenuMusic();
             }
-            else if (game.getMenus()[0].getPaused()) {}
+            else if (game.getMenus()[0].getPaused()) {
+                cout << "Da bam\n";
+                game.pauseMusic();
+            }
             else {
-                cout << "Roi vao day\n";
                 game.updateGame();
                 game.loadGameMusic();
             }
