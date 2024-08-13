@@ -10,6 +10,17 @@ const int TOTAL_MAP = 12;
 class Tile;
 class RenderWindow;
 
+struct Path {
+	const char* path;
+	vector<int> monsterPos;
+
+	//khoi tao lists
+	Path(vector<int> monsterPos, const char* p_path) {
+		path = p_path;
+		this->monsterPos = monsterPos;
+	}
+};
+
 class Map {
 public:
 	Map(float p_x, float p_y, const char* p_filePath, SDL_Texture* p_tileTex);
@@ -21,7 +32,9 @@ public:
 	vector<Tile*> getTiles();
 	float getX();
 	float getY();
+	vector<int> getMonsterPos();
 private:
 	float x, y;
 	vector<Tile*> tiles; //vector chua con tro toi cac doi tuong Tile
+	vector<int> monsterPos;
 };

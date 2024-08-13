@@ -49,7 +49,7 @@ Monster::Monster(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_
 }
 
 bool Monster::getDead() {
-	return deathFrame / 8 >= 3.2;
+	return deathFrame / 8 >= 3;
 }
 
 SDL_Rect Monster::getCollision() const{

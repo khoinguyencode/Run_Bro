@@ -61,7 +61,7 @@ private:
 	int bestscore = 0;
 
 	//cac vector chua cac thuc the
-	vector<const char*> lists; //chua cac map
+	vector<Path> lists; //chua cac map
 	vector<Map> maps; //chua cac map
 	vector<Player> players;
 	vector<Monster*> monsters;

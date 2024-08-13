@@ -121,3 +121,7 @@ float Map::getX() {
 float Map::getY() {
     return y;
 }
+
+vector<int> Map::getMonsterPos() {
+    return monsterPos;
+}

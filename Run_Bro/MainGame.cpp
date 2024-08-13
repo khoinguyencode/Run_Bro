@@ -45,25 +45,29 @@ void MainGame::loadPlayer() {
 }
 
 void MainGame::loadMonster() {
-	Monster *x = new Monster(700, 200, monsterTex);
-	Monster *y = new Monster(1150, 200, monsterTex);
-	monsters.push_back(x);
-	monsters.push_back(y);
+	for (int i = 0; i < maps.size(); i++) {
+		if (maps[i].getMonsterPos().size() > 0) {
+			for (int j = 0; j < maps[i].getMonsterPos().size() - 1; j += 2) {
+				Monster* monster = new Monster(maps[i].getMonsterPos()[j] * TILE_WIDTH + maps[i].getX(), maps[i].getMonsterPos()[j + 1] * TILE_WIDTH + maps[i].getY(), monsterTex);
+				monsters.push_back(monster);
+			}
+		}
+	}
 }
 
 void MainGame::createMapLists() {
-	lists.push_back("res/gfx/dungeon1.map");
-	lists.push_back("res/gfx/dungeon2.map");
-	lists.push_back("res/gfx/dungeon3.map");
-	lists.push_back("res/gfx/dungeon4.map");
-	lists.push_back("res/gfx/dungeon5.map");
-	lists.push_back("res/gfx/dungeon6.map");
-	lists.push_back("res/gfx/dungeon7.map");
-	lists.push_back("res/gfx/dungeon8.map");
-	lists.push_back("res/gfx/dungeon9.map");
-	lists.push_back("res/gfx/dungeon10.map");
-	lists.push_back("res/gfx/dungeon11.map");
-	lists.push_back("res/gfx/dungeon0.map");
+	lists.push_back(Path({1, 10 }, "res/gfx/dungeon1.map"));
+	lists.push_back(Path({1, 4 }, "res/gfx/dungeon2.map"));
+	lists.push_back(Path({10, 2 }, "res/gfx/dungeon3.map"));
+	lists.push_back(Path({3, 5 }, "res/gfx/dungeon4.map"));
+	lists.push_back(Path({6, 3,10,2 }, "res/gfx/dungeon5.map"));
+	lists.push_back(Path({10, 13, 10, 10}, "res/gfx/dungeon6.map"));
+	lists.push_back(Path({13, 12 }, "res/gfx/dungeon7.map"));
+	lists.push_back(Path({6, 5 }, "res/gfx/dungeon8.map"));
+	lists.push_back(Path({3, 2}, "res/gfx/dungeon9.map"));
+	lists.push_back(Path({1, 8 }, "res/gfx/dungeon10.map"));
+	lists.push_back(Path({1, 1 }, "res/gfx/dungeon11.map"));
+	lists.push_back(Path({ }, "res/gfx/dungeon0.map"));
 }
 
 void MainGame::loadMap() {
@@ -73,7 +77,7 @@ void MainGame::loadMap() {
 		int random = rand() % tong_map;
 		if (i == 0) random = tong_map;
 		if (random < lists.size()) {
-			Map map(i * MAP_WIDTH, 0, lists[random], tileTex);
+			Map map(i * MAP_WIDTH, 0, lists[random].path, tileTex);
 			maps.push_back(map);
 		}
 	}
@@ -119,10 +123,17 @@ void MainGame::updateMap() {
 	//check xem map dau tien ra khoi man hinh chua
 	if (maps[0].getX() - camera.x <= -MAP_WIDTH) {
 		int random = rand() % tong_map;
-		maps[0].setTilesType(lists[random]);
+		maps[0].setTilesType(lists[random].path);
 
 		//dat vi tri x cua map dau tien sao cho no nam ngay sau map cuối trong lists
 		maps[0].setMap(maps[maps.size() - 1]);
+
+		if (maps[0].getMonsterPos().size() > 0) {
+			for (int j = 0; j < maps[0].getMonsterPos().size() - 1; j += 2) {
+				Monster* monster = new Monster(maps[0].getMonsterPos()[j] * TILE_WIDTH + maps[0].getX(), maps[0].getMonsterPos()[j + 1] * TILE_WIDTH + maps[0].getY(), monsterTex);
+				monsters.push_back(monster);
+			}
+		}
 
 		Map map = maps[0];
 		//xoa map dau tien roi day map moi vao
@@ -217,7 +228,7 @@ void MainGame::resetGame() {
 			maps[i].setX(0);
 		}
 		else maps[i].setMap(maps[i - 1]);
-		maps[i].setTilesType(lists[random]);
+		maps[i].setTilesType(lists[random].path);
 	}
 	loadMonster();
 	menus[0].set_reset(false);
