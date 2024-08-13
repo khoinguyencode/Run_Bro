@@ -64,6 +64,6 @@ private:
 	vector<const char*> lists; //chua cac map
 	vector<Map> maps; //chua cac map
 	vector<Player> players;
-	vector<Monster> monsters;
+	vector<Monster*> monsters;
 	vector<MainMenu> menus;
 };

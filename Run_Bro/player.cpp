@@ -119,7 +119,7 @@ void Player::gravity() {
     else velY = 0.3;
 }
 
-void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Monster& p_monster) {
+void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Monster p_monster) {
     gravity();
     if (!isDead) beingHit(p_camera, p_monster);
     isIdling = (velX == 0 && grounded && !isAttacking && !isDead);
