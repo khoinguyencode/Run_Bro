@@ -14,14 +14,14 @@ public:
     void handleEvent(SDL_Event& e);
     void jump();
     void gravity(); //keo nguoi choi xuong
-    void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Monster p_monster);
+    void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, vector<Monster*> &monsters);
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     void setCamera(SDL_Rect& p_camera, float& velCam);
     void resetPlayer();
     bool getDead();
     bool getAttacking();
     //nhan vat bi roi, cham vao gai hoac bi danh boi quai
-    void beingHit(SDL_Rect& p_camera, Monster& p_monster);
+    void beingHit(SDL_Rect& p_camera, vector<Monster*>& monsters);
 private:
     //player size
     const int PLAYER_WIDTH = 64;

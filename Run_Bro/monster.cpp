@@ -61,7 +61,7 @@ float Monster::getDistance() {
 }
 
 bool Monster::getAttacking() {
-	return attackFrame / 4 >= 2;
+	return attackFrame / 5 >= 2;
 }
 
 void Monster::gravity() {
@@ -203,6 +203,7 @@ void Monster::beingHit(SDL_Rect& p_camera, Player& p_player) {
 		takeHitFrame = 0;
 	}
 
+	//het hp, dam vao gai hoac bi roi
 	if (health < 1 || y + MONSTER_HEIGHT >= MAP_HEIGHT || x - p_camera.x <= 5) {
 		isDead = true;
 		takingHit = false;

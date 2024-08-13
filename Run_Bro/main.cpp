@@ -27,9 +27,16 @@ int main(int argc, char* argv[]) {
             while (SDL_PollEvent(&event)) {
                 game.handleGameEvent(event);
             }
-            if (game.getMenus()[0].getMenu()) game.renderMenu();
+            if (game.getMenus()[0].getMenu()) {
+                game.renderMenu();
+                game.loadMenuMusic();
+            }
             else if (game.getMenus()[0].getPaused()) {}
-            else game.updateGame();
+            else {
+                cout << "Roi vao day\n";
+                game.updateGame();
+                game.loadGameMusic();
+            }
         }
     }
     window.cleanUp();

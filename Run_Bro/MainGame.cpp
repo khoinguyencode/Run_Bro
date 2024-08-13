@@ -9,20 +9,21 @@ MainGame::MainGame(RenderWindow& renderwindow)
 }
 
 bool MainGame::init() {
-	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
 		cout << "SDL Init failed: " << SDL_GetError << endl;
 		return false;
 	}
-	if (!IMG_Init(IMG_INIT_PNG)) {
-		cout << "IMG Init failed: " << SDL_GetError << endl;
-		return false;
-	}
-	if (!(IMG_Init(IMG_INIT_JPG))) {
+	if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG)) {
 		cout << "IMG_Init HAS FAILED. SDL_ERROR: " << IMG_GetError << endl;
 		return false;
 	}
 	if (TTF_Init() == -1) {
-		cout << "TTF_Init HAS FAILED. SDL_ERROR: " << TTF_GetError() << endl;
+		cout << "TTF_Init HAS FAILED. SDL_ERROR: " << TTF_GetError << endl;
+		return false;
+	}
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
 		return false;
 	}
 	return true;
@@ -36,7 +37,8 @@ void MainGame::loadMedia() {
 	p_renderwindow.openFont("res/PixelFont.ttf");
 	buttonTex = p_renderwindow.loadTexture("res/gfx/Button.png");
 	backgroundTex = p_renderwindow.loadTexture("res/gfx/ds3.jpg");
-
+	menuMusic = Mix_LoadMUS("res/music/inMenu.mp3");
+	gameMusic = Mix_LoadMUS("res/music/inGame.mp3");
 }
 
 void MainGame::loadPlayer() {
@@ -46,7 +48,6 @@ void MainGame::loadPlayer() {
 
 void MainGame::loadMonster() {
 	for (int i = 0; i < maps.size(); i++) {
-		cout << maps[i].getMonsterPos().size() << endl;
 		if (maps[i].getMonsterPos().size() > 0) {
 			for (int j = 0; j < maps[i].getMonsterPos().size() - 1; j += 2) {
 				Monster* monster = new Monster(maps[i].getMonsterPos()[j] * TILE_WIDTH + maps[i].getX(), maps[i].getMonsterPos()[j + 1] * TILE_WIDTH + maps[i].getY(), monsterTex);
@@ -58,15 +59,15 @@ void MainGame::loadMonster() {
 
 void MainGame::createMapLists() {
 	lists.push_back(Path({ (10, 6), (7, 7)}, "res/gfx/dungeon1.map"));
-	lists.push_back(Path({ }, "res/gfx/dungeon2.map"));
+	lists.push_back(Path({(10, 10)}, "res/gfx/dungeon2.map"));
 	lists.push_back(Path({ (9, 9), (17, 5)}, "res/gfx/dungeon3.map"));
-	lists.push_back(Path({ (14, 11), (15, 11)}, "res/gfx/dungeon4.map"));
+	lists.push_back(Path({ 14, 11 ,15, 11}, "res/gfx/dungeon4.map"));
 	lists.push_back(Path({ (9, 9), (16, 5)}, "res/gfx/dungeon5.map"));
-	lists.push_back(Path({ (9, 9), (10, 10) }, "res/gfx/dungeon6.map"));
+	lists.push_back(Path({ (9, 9), (10, 9), (9, 9)}, "res/gfx/dungeon6.map"));
 	lists.push_back(Path({ (15, 11), (15, 5), (12, 6)}, "res/gfx/dungeon7.map"));
 	lists.push_back(Path({ (7, 12), (16, 11), (16, 11), (16, 11)}, "res/gfx/dungeon8.map"));
 	lists.push_back(Path({ (11, 5), (15, 10)}, "res/gfx/dungeon9.map"));
-	lists.push_back(Path({ (10, 3), (13, 11), (13, 11), (14, 11), (12, 11)}, "res/gfx/dungeon10.map"));
+	lists.push_back(Path({ (10, 3), (14, 11), (14, 11), (14, 11)}, "res/gfx/dungeon10.map"));
 	lists.push_back(Path({ }, "res/gfx/dungeon11.map"));
 	lists.push_back(Path({ (14, 11)}, "res/gfx/dungeon0.map"));
 }
@@ -177,7 +178,7 @@ void MainGame::setTile() {
 }
 
 void MainGame::updatePlayer() {
-	players[0].update(p_renderwindow, maps, camera, *monsters[0]);
+	players[0].update(p_renderwindow, maps, camera, monsters);
 	players[0].setCamera(camera, velCam);
 	players[0].render(p_renderwindow, camera);
 }
@@ -259,4 +260,18 @@ bool MainGame::getIsRunning() {
 
 vector<MainMenu> MainGame::getMenus() {
 	return menus;
+}
+
+void MainGame::loadMenuMusic() {
+	//if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
+	//	Mix_HaltMusic();  // Dừng nhạc hiện tại
+	//	Mix_PlayMusic(menuMusic, -1);  // Phát nhạc menu
+	//}
+}
+
+void MainGame::loadGameMusic() {
+	if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
+		Mix_HaltMusic();  // Dừng nhạc hiện tại
+		Mix_PlayMusic(gameMusic, -1);  // Phát nhạc game
+	}
 }

@@ -16,7 +16,7 @@ public:
     //tu dong di chuyen, gap vat can thi quay dau lai(thay vuc thi quay lai)
     void autoMove(vector<Map>& p_maps);
     void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera, Player& p_player);
-    void beingHit(SDL_Rect& p_camera, Player& p_player);
+    void beingHit(SDL_Rect& p_camera, Player& p_player); 
     void getHit(); //bi danh day lui ra sau
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     SDL_Rect getCollision() const;
@@ -50,7 +50,7 @@ private:
     float velX = 0, velY = 0;
     float distance;
 
-    int health = 9;
+    int health = 7;
     int groundIndex = 1, mapIndex = 1;
     bool grounded = false, isIdling = true, isRunning = false, isFalling = true, isAttacking = false, isDead = false, takingHit = false;
 

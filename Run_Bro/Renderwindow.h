@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "SDL_ttf.h"
+#include "SDL_mixer.h"
 #include <fstream>
 #include <sstream>
 using namespace std;

@@ -30,6 +30,8 @@ public:
 	void updateGame();
 	void renderMenu();
 	void resetGame();
+	void loadMenuMusic();
+	void loadGameMusic();
 	void handleGameEvent(SDL_Event& event);
 	bool getIsRunning();
 	vector<MainMenu> getMenus();
@@ -66,4 +68,8 @@ private:
 	vector<Player> players;
 	vector<Monster*> monsters;
 	vector<MainMenu> menus;
+
+	//sound
+	Mix_Music* menuMusic = NULL;
+	Mix_Music* gameMusic = NULL;
 };

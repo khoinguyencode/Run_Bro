@@ -64,6 +64,7 @@ Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_te
 }
 
 void Player::handleEvent(SDL_Event& e) {
+    if (isDead) return;
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {
         case SDLK_RIGHT:
@@ -119,14 +120,15 @@ void Player::gravity() {
     else velY = 0.3;
 }
 
-void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, Monster p_monster) {
+void Player::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, vector<Monster*>& p_monsters) {
     gravity();
-    if (!isDead) beingHit(p_camera, p_monster);
+    if (!isDead) beingHit(p_camera, p_monsters);
     isIdling = (velX == 0 && grounded && !isAttacking && !isDead);
     isRunning = (velX != 0 && grounded && !isAttacking && !isDead);
     isJumping = (velY <= 0 && !grounded && !isAttacking && !isDead);
     isFalling = (velY > 0 && !grounded && !isAttacking && !isDead);
-    if (!isDead) {
+
+    if (!isDead && !isAttacking) {
         //check X collsion
         x += velX;
         collision.x = x + PLAYER_WIDTH;
@@ -213,6 +215,7 @@ void Player::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 }
 
 void Player::setCamera(SDL_Rect& p_camera, float& velCam) {
+    if (isDead) return;
     p_camera.x += velCam;
     // tang dan gia toc theo thoi gian
     float gia_toc = 0.001;
@@ -249,13 +252,19 @@ bool Player::getAttacking() {
     return attackFrame / 2 >= 2;
 }
 
-void Player::beingHit(SDL_Rect& p_camera, Monster& p_monster) {
-    //nguoi trong tam danh cua quai
-    if ((p_monster.getDistance() <= TILE_WIDTH * 1.5 && p_monster.getAttacking() && y >= p_monster.getY() - TILE_WIDTH && y <= p_monster.getY() + TILE_WIDTH / 2.0))
-           isDead = true;
+void Player::beingHit(SDL_Rect& p_camera, vector<Monster*>& monsters) {
+    //nguoi trong tam danh quai
+    for (int i = 0; i < monsters.size(); i++) {
+        if (monsters[i] != NULL)
+            if ((monsters[i]->getDistance() <= TILE_WIDTH * 1.5 && monsters[i]->getAttacking() && y >= monsters[i]->getY() - TILE_WIDTH && y <= monsters[i]->getY() + TILE_WIDTH / 2.0)) {
+                isDead = true;
+                isAttacking = false;
+            }
+    }
 
     //dam vao gai hoac roi xuong
     if (x - p_camera.x <= 5 || y + PLAYER_HEIGHT >= MAP_HEIGHT) {
         isDead = true;
+        isAttacking = false;
     }
 }

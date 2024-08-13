@@ -122,7 +122,7 @@ bool MainMenu::checkMouseAt(int p_x, int p_y) {
 
 void MainMenu::renderMainMenu(RenderWindow& p_renderwindow) {
 	if (menu) {
-		p_renderwindow.renderTexture(mainMenuTex, 0, 0, 1280, 720);
+		p_renderwindow.renderTexture(mainMenuTex, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 		if (selected[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButton[1]);
 		else if (!pressed[0]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &playButton[0]);
@@ -133,6 +133,7 @@ void MainMenu::renderMainMenu(RenderWindow& p_renderwindow) {
 		else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[2]);
 	}
 }
+
 void MainMenu::renderRestartMenu(RenderWindow& p_renderwindow) {
 	if (selected[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButton[1]);
 	else if (!pressed[2]) p_renderwindow.renderTexture(buttonTex, button1.x, button1.y, 0, 0, &restartButton[0]);
@@ -142,3 +143,4 @@ void MainMenu::renderRestartMenu(RenderWindow& p_renderwindow) {
 	else if (!pressed[3]) p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[0]);
 	else p_renderwindow.renderTexture(buttonTex, button2.x, button2.y, 0, 0, &exitButton[2]);
 }
+
