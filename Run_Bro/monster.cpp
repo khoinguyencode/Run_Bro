@@ -114,7 +114,7 @@ void Monster::update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect
 	gravity();
 	autoMove(p_maps);
 	autoMoveToPlayer(p_player, p_maps);
-	beingHit(p_camera, p_player);
+	beingHit(p_camera, p_player, SFX);
 	getHit();
 	//update trang thai monster
 	isIdling = (velX == 0 && grounded && !isAttacking && !isDead && !takingHit);
@@ -191,11 +191,12 @@ void Monster::render(RenderWindow& p_renderwindow, SDL_Rect& p_camera) {
 	else deathFrame = 0;
 }
 
-void Monster::beingHit(SDL_Rect& p_camera, Player& p_player) {
+void Monster::beingHit(SDL_Rect& p_camera, Player& p_player, Mix_Chunk* sfx[]) {
 	//quai trong tam cua player
 	if (distance <= 2.0 * TILE_WIDTH && p_player.getAttacking() && y >= p_player.getY() - TILE_WIDTH && y <= p_player.getY() + TILE_WIDTH + 10) {
 		takingHit = true;
 		--health;
+		Mix_PlayChannel(-1, sfx[takeHitSound], 0);
 	}
 
 	if (takeHitFrame / 8 >= TAKINGHIT_ANIMATIONS_FRAME) {
@@ -207,6 +208,7 @@ void Monster::beingHit(SDL_Rect& p_camera, Player& p_player) {
 	if (health < 1 || y + MONSTER_HEIGHT >= MAP_HEIGHT || x - p_camera.x <= 5) {
 		isDead = true;
 		takingHit = false;
+		Mix_PlayChannel(-1, sfx[takeHitSound], 0);
 	}
 }
 

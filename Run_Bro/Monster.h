@@ -16,7 +16,7 @@ public:
     //tu dong di chuyen, gap vat can thi quay dau lai(thay vuc thi quay lai)
     void autoMove(vector<Map>& p_maps);
     void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& camera, Player& p_player);
-    void beingHit(SDL_Rect& p_camera, Player& p_player); 
+    void beingHit(SDL_Rect& p_camera, Player& p_player, Mix_Chunk* sfx[]);
     void getHit(); //bi danh day lui ra sau
     void render(RenderWindow& p_renderwindow, SDL_Rect& p_camera);
     SDL_Rect getCollision() const;
@@ -24,6 +24,7 @@ public:
     bool getDead();
     bool getAttacking();
     float getDistance();
+    const int takeHitSound = 0;
 
 private:
     //player size
@@ -50,10 +51,11 @@ private:
     float velX = 0, velY = 0;
     float distance;
 
-    int health = 7;
+    int health = 5;
     int groundIndex = 1, mapIndex = 1;
     bool grounded = false, isIdling = true, isRunning = false, isFalling = true, isAttacking = false, isDead = false, takingHit = false;
 
     SDL_Rect collision;
 
+    Mix_Chunk* SFX[1];
 };

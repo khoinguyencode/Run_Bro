@@ -63,7 +63,7 @@ Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_te
     }
 }
 
-void Player::handleEvent(SDL_Event& e) {
+void Player::handleEvent(SDL_Event& e, Mix_Chunk* sfx[]) {
     if (isDead) return;
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {
@@ -75,9 +75,13 @@ void Player::handleEvent(SDL_Event& e) {
             break;
         case SDLK_UP:
             jump();
+            Mix_VolumeChunk(sfx[jumpSound], 40);
+            Mix_PlayChannel(-1, sfx[jumpSound], 0);
             break;
         case SDLK_SPACE:
             isAttacking = true;
+            Mix_VolumeChunk(sfx[attackSound], 50);
+            Mix_PlayChannel(-1, sfx[attackSound], 0);
             break;
         default:
             break;
@@ -256,7 +260,7 @@ void Player::beingHit(SDL_Rect& p_camera, vector<Monster*>& monsters) {
     //nguoi trong tam danh quai
     for (int i = 0; i < monsters.size(); i++) {
         if (monsters[i] != NULL)
-            if ((monsters[i]->getDistance() <= TILE_WIDTH * 1.5 && monsters[i]->getAttacking() && y >= monsters[i]->getY() - TILE_WIDTH && y <= monsters[i]->getY() + TILE_WIDTH / 2.0)) {
+            if ((monsters[i]->getDistance() <= TILE_WIDTH * 1.5 && monsters[i]->getAttacking() && y >= monsters[i]->getY() - TILE_WIDTH && y <= monsters[i]->getY() + TILE_WIDTH / 2.2)) {
                 isDead = true;
                 isAttacking = false;
             }

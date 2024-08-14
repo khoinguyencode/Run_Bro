@@ -11,7 +11,7 @@ class Monster;
 class Player : public Entity {
 public:
     Player(float p_x, float p_y, SDL_Texture* p_tex);
-    void handleEvent(SDL_Event& e);
+    void handleEvent(SDL_Event& e, Mix_Chunk* sfx[]);
     void jump();
     void gravity(); //keo nguoi choi xuong
     void update(RenderWindow& p_renderwindow, vector<Map>& p_maps, SDL_Rect& p_camera, vector<Monster*> &monsters);
@@ -22,6 +22,8 @@ public:
     bool getAttacking();
     //nhan vat bi roi, cham vao gai hoac bi danh boi quai
     void beingHit(SDL_Rect& p_camera, vector<Monster*>& monsters);
+    const int jumpSound = 0;
+    const int attackSound = 1;
 private:
     //player size
     const int PLAYER_WIDTH = 64;
@@ -52,4 +54,6 @@ private:
     bool grounded = false, isIdling = true, isRunning = false, isJumping = false, isFalling = true, isAttacking = false, isDead = false;
 
     SDL_Rect collision;
+
+    Mix_Chunk* SFX[2];
 };

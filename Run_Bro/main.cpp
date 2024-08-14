@@ -32,7 +32,6 @@ int main(int argc, char* argv[]) {
                 game.loadMenuMusic();
             }
             else if (game.getMenus()[0].getPaused()) {
-                cout << "Da bam\n";
                 game.pauseMusic();
             }
             else {

@@ -39,6 +39,10 @@ void MainGame::loadMedia() {
 	backgroundTex = p_renderwindow.loadTexture("res/gfx/ds3.jpg");
 	menuMusic = Mix_LoadMUS("res/music/inMenu.mp3");
 	gameMusic = Mix_LoadMUS("res/music/inGame.mp3");
+	gameOverMusic = Mix_LoadMUS("res/music/gameOver.mp3");
+	playerSFX[0] = Mix_LoadWAV("res/music/jump.wav");
+	playerSFX[1] = Mix_LoadWAV("res/music/human_attack.wav");
+	monsterSFX[0] = Mix_LoadWAV("res/music/monster_being_hit.wav");
 }
 
 void MainGame::loadPlayer() {
@@ -58,18 +62,19 @@ void MainGame::loadMonster() {
 }
 
 void MainGame::createMapLists() {
-	lists.push_back(Path({ (10, 6), (7, 7)}, "res/gfx/dungeon1.map"));
-	lists.push_back(Path({(10, 10)}, "res/gfx/dungeon2.map"));
-	lists.push_back(Path({ (9, 9), (17, 5)}, "res/gfx/dungeon3.map"));
-	lists.push_back(Path({ 14, 11 ,15, 11}, "res/gfx/dungeon4.map"));
-	lists.push_back(Path({ (9, 9), (16, 5)}, "res/gfx/dungeon5.map"));
-	lists.push_back(Path({ (9, 9), (10, 9), (9, 9)}, "res/gfx/dungeon6.map"));
-	lists.push_back(Path({ (15, 11), (15, 5), (12, 6)}, "res/gfx/dungeon7.map"));
-	lists.push_back(Path({ (7, 12), (16, 11), (16, 11), (16, 11)}, "res/gfx/dungeon8.map"));
-	lists.push_back(Path({ (11, 5), (15, 10)}, "res/gfx/dungeon9.map"));
-	lists.push_back(Path({ (10, 3), (15, 10)}, "res/gfx/dungeon10.map"));
+	//moi cap x, y lan luot la toa do(ID) cua quai trong map
+	lists.push_back(Path({10, 6, 5, 9}, "res/gfx/dungeon1.map"));
+	lists.push_back(Path({10, 10}, "res/gfx/dungeon2.map"));
+	lists.push_back(Path({9, 9, 17, 5}, "res/gfx/dungeon3.map"));
+	lists.push_back(Path({14, 11 ,15, 11}, "res/gfx/dungeon4.map"));
+	lists.push_back(Path({9, 9, 16, 5}, "res/gfx/dungeon5.map"));
+	lists.push_back(Path({9, 9, 10, 9, 9, 9}, "res/gfx/dungeon6.map"));
+	lists.push_back(Path({15, 11, 15, 5, 12, 6}, "res/gfx/dungeon7.map"));
+	lists.push_back(Path({7, 12, 16, 11, 16, 11, 16, 11}, "res/gfx/dungeon8.map"));
+	lists.push_back(Path({11, 5, 15, 10}, "res/gfx/dungeon9.map"));
+	lists.push_back(Path({10, 3, 14, 10}, "res/gfx/dungeon10.map"));
 	lists.push_back(Path({ }, "res/gfx/dungeon11.map"));
-	lists.push_back(Path({ (14, 11)}, "res/gfx/dungeon0.map"));
+	lists.push_back(Path({14, 11}, "res/gfx/dungeon0.map"));
 }
 
 void MainGame::loadMap() {
@@ -251,7 +256,7 @@ void MainGame::resetGame() {
 void MainGame::handleGameEvent(SDL_Event& event) {
 	if (event.type == SDL_QUIT) isRunning = false;
 	menus[0].handleEvent(event, isRunning, players[0]);
-	if (!menus[0].getMenu() && !menus[0].getPaused()) players[0].handleEvent(event);
+	if (!menus[0].getMenu() && !menus[0].getPaused()) players[0].handleEvent(event, playerSFX);
 }
 
 bool MainGame::getIsRunning() {
@@ -270,15 +275,54 @@ void MainGame::loadMenuMusic() {
 }
 
 void MainGame::loadGameMusic() {
-	Mix_FreeMusic(menuMusic);
-	menuMusic = NULL;
-	if (Mix_PlayingMusic() == 0 || Mix_PlayingMusic() && Mix_GetMusicType(NULL) != MUS_MP3) {
-		Mix_HaltMusic();
-		Mix_PlayMusic(gameMusic, -1);  // Phát nhạc game
+	if (Mix_PausedMusic()) Mix_ResumeMusic();
+	//phat nhac thua game
+	if (players[0].getDead()) {
+		if (gameMusic != NULL) {
+			Mix_HaltMusic();
+			Mix_FreeMusic(gameMusic);
+			gameMusic = NULL;
+		}
+
+		if (gameOverMusic == NULL) {
+			gameOverMusic = Mix_LoadMUS("res/music/gameOver.mp3");
+			if (gameOverMusic == NULL) {
+				cout << "Failed to load game over music! SDL_mixer Error: " << Mix_GetError() << endl;
+				return;
+			}
+		}
+
+		if (!Mix_PlayingMusic()) {
+			if (Mix_PlayMusic(gameOverMusic, 1) == -1) {
+				cout << "Failed to play game over music! SDL_mixer Error: " << Mix_GetError() << endl;
+			}
+		}
 	}
-	if (Mix_PausedMusic() == 1) Mix_ResumeMusic();
+	//phat nhac trong game
+	else {
+		if (gameOverMusic != NULL) {
+			Mix_HaltMusic();
+			Mix_FreeMusic(gameOverMusic);
+			gameOverMusic = NULL;
+		}
+
+		if (gameMusic == NULL) {
+			gameMusic = Mix_LoadMUS("res/music/inGame.mp3");
+			if (gameMusic == NULL) {
+				std::cout << "Failed to load game music! SDL_mixer Error: " << Mix_GetError() << endl;
+				return;
+			}
+		}
+
+		if (!Mix_PlayingMusic()) {
+			if (Mix_PlayMusic(gameMusic, -1) == -1) {
+				cout << "Failed to play game music! SDL_mixer Error: " << Mix_GetError() << endl;
+			}
+		}
+	}
 }
 
 void MainGame::pauseMusic() {
 	if (Mix_PlayingMusic() == 1) Mix_PauseMusic();
 }
+

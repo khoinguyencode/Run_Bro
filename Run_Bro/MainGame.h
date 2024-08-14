@@ -73,4 +73,7 @@ private:
 	//sound
 	Mix_Music* menuMusic = NULL;
 	Mix_Music* gameMusic = NULL;
+	Mix_Music* gameOverMusic = NULL;
+	Mix_Chunk* playerSFX[2] = {NULL}; 
+	Mix_Chunk* monsterSFX[1] = {NULL};
 };
