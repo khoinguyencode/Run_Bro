@@ -1,0 +1,189 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\vclib\\Run_Bro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\Run_Bro\\Run_Bro\\Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\Run_Bro\\Run_Bro\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\vclib\\Run_Bro\\Run_Bro\\monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Run_Bro\\monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\VCLIB\\RUN_BRO\\RUN_BRO\\RENDERWINDOW.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:RUN_BRO\\RENDERWINDOW.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\renderwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\Renderwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9914209B-3DBA-43AD-BEDD-0816EA26457D}|Run_Bro\\Run_Bro.vcxproj|C:\\vclib\\testlazyfoo\\testlazyfoo\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tile.h",
+              "DocumentMoniker": "C:\\vclib\\Run_Bro\\Run_Bro\\Tile.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Tile.h",
+              "ToolTip": "C:\\vclib\\Run_Bro\\Run_Bro\\Tile.h",
+              "RelativeToolTip": "Run_Bro\\Tile.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-14T10:55:30.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "monster.cpp",
+              "DocumentMoniker": "C:\\vclib\\Run_Bro\\Run_Bro\\monster.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\monster.cpp",
+              "ToolTip": "C:\\vclib\\Run_Bro\\Run_Bro\\monster.cpp",
+              "RelativeToolTip": "Run_Bro\\monster.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-14T10:55:06.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Renderwindow.h",
+              "DocumentMoniker": "C:\\vclib\\Run_Bro\\Run_Bro\\Renderwindow.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Renderwindow.h",
+              "ToolTip": "C:\\vclib\\Run_Bro\\Run_Bro\\Renderwindow.h",
+              "RelativeToolTip": "Run_Bro\\Renderwindow.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-14T10:52:48.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "renderwindow.cpp",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\renderwindow.cpp",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\renderwindow.cpp",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\renderwindow.cpp",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\renderwindow.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-22T03:25:16.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\vclib\\Run_Bro\\Run_Bro\\main.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\main.cpp",
+              "ToolTip": "C:\\vclib\\Run_Bro\\Run_Bro\\main.cpp",
+              "RelativeToolTip": "Run_Bro\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-24T16:31:04.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Renderwindow.h",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Renderwindow.h",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\Renderwindow.h",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Renderwindow.h",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\Renderwindow.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-22T03:25:26.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.h",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Player.h",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\Player.h",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Player.h",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\Player.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-22T03:25:19.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "player.cpp",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\player.cpp",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\player.cpp",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\player.cpp",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\player.cpp",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAAADEAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-22T03:22:31.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Entity.h",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\Entity.h",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\Entity.h",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\Entity.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-22T03:22:34.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "entity.cpp",
+              "DocumentMoniker": "C:\\vclib\\testlazyfoo\\testlazyfoo\\entity.cpp",
+              "RelativeDocumentMoniker": "..\\testlazyfoo\\testlazyfoo\\entity.cpp",
+              "ToolTip": "C:\\vclib\\testlazyfoo\\testlazyfoo\\entity.cpp",
+              "RelativeToolTip": "..\\testlazyfoo\\testlazyfoo\\entity.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-22T03:22:33.925Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
