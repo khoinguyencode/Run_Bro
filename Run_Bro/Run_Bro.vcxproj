@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9914209b-3dba-43ad-bedd-0816ea26457d}</ProjectGuid>
+    <ProjectGuid>{cf81e56d-4b0c-4e38-88e6-1d8cb973c51f}</ProjectGuid>
     <RootNamespace>RunBro</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\vclib\SDL2_image-2.8.2\include;C:\vclib\SDL2-2.30.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vclib\SDL2_image-2.8.2\lib\x64;C:\vclib\SDL2-2.30.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclib\SDL2-2.30.5\include;C:\vclib\SDL2_ttf-2.22.0\include;C:\vclib\SDL2_mixer-2.8.0\include;C:\vclib\SDL2_image-2.8.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclib\SDL2-2.30.5\lib\x64;C:\vclib\SDL2_ttf-2.22.0\lib\x64;C:\vclib\SDL2_mixer-2.8.0\lib\x64;C:\vclib\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,15 +132,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\entity.cpp" />
-    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\player.cpp" />
-    <ClCompile Include="..\..\testlazyfoo\testlazyfoo\renderwindow.cpp" />
+    <ClCompile Include="..\..\vclib\Run_Game\Run_Game\renderwindow.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="map.cpp" />
+    <ClCompile Include="monster.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Entity.h" />
-    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Player.h" />
-    <ClInclude Include="..\..\testlazyfoo\testlazyfoo\Renderwindow.h" />
+    <ClInclude Include="..\..\vclib\Run_Game\Run_Game\Renderwindow.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
