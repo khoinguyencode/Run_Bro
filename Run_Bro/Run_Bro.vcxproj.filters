@@ -42,7 +42,7 @@
     <ClCompile Include="time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\vclib\Run_Game\Run_Game\renderwindow.cpp">
+    <ClCompile Include="renderwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +71,7 @@
     <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\vclib\Run_Game\Run_Game\Renderwindow.h">
+    <ClInclude Include="Renderwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -132,7 +132,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\vclib\Run_Game\Run_Game\renderwindow.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
@@ -140,17 +139,18 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="monster.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="renderwindow.cpp" />
     <ClCompile Include="tile.cpp" />
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\vclib\Run_Game\Run_Game\Renderwindow.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Renderwindow.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>

@@ -1,8 +1,19 @@
 ﻿  renderwindow.cpp
-C:\vclib\testlazyfoo\testlazyfoo\renderwindow.cpp(47,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\vclib\testlazyfoo\testlazyfoo\renderwindow.cpp(48,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\vclib\testlazyfoo\testlazyfoo\renderwindow.cpp(70,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\vclib\testlazyfoo\testlazyfoo\renderwindow.cpp(71,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-C:\vclib\Run_Bro\Run_Bro\Renderwindow.h(7,10): error C1083: Cannot open include file: 'SDL_ttf.h': No such file or directory
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(47,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(48,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(66,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(67,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(77,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(78,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(86,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(87,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(105,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(106,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(107,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(108,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(185,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(229,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  time.cpp
   Generating Code...
+  LINK : C:\Users\Khoi Nguyen\Run_Bro\x64\Debug\Run_Bro.exe not found or not built by the last incremental link; performing full link
+  Run_Bro.vcxproj -> C:\Users\Khoi Nguyen\Run_Bro\x64\Debug\Run_Bro.exe

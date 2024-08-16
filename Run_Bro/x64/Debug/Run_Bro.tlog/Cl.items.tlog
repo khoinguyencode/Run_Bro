@@ -1,4 +1,10 @@
-C:\vclib\testlazyfoo\testlazyfoo\entity.cpp;C:\vclib\Run_Bro\Run_Bro\x64\Debug\entity.obj
-C:\vclib\testlazyfoo\testlazyfoo\player.cpp;C:\vclib\Run_Bro\Run_Bro\x64\Debug\player.obj
-C:\vclib\testlazyfoo\testlazyfoo\renderwindow.cpp;C:\vclib\Run_Bro\Run_Bro\x64\Debug\renderwindow.obj
-C:\vclib\Run_Bro\Run_Bro\main.cpp;C:\vclib\Run_Bro\Run_Bro\x64\Debug\main.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\entity.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\entity.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\main.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\main.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\MainGame.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\MainMenu.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\map.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\monster.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\player.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\renderwindow.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\tile.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\tile.obj
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\time.cpp;C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\x64\Debug\time.obj
