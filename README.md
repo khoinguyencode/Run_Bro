@@ -5,10 +5,7 @@
 - MSSV: 22025526
 - Lớp: INT2215 70
 
-## Video demo :
-
-## Giới thiệu game
-**Run Bro!** Hãy chạy thật nhanh để không bị những cái gai sắc nhọn đến từ phía bên trái của bạn đâm vào. Trong lúc cố gắng chạy để thoát khỏi những cái gai, bạn sẽ đối mặt với quái vật và các cạm bẫy nguy hiểm, đòi hỏi sự khéo léo và chiến lược để vượt qua.
+## Video demo :  
 
 ## Mục lục
 - [Giới thiệu game](#giới-thiệu-game)
@@ -23,6 +20,9 @@
 6. [Nguồn tham khảo](#6-nguồn-tham-khảo)
 7. [Hướng phát triển](#7-hướng-phát-triển)
 
+## Giới thiệu game
+**Run Bro!** Hãy chạy thật nhanh để không bị những cái gai sắc nhọn đến từ phía bên trái của bạn đâm vào. Trong lúc cố gắng chạy để thoát khỏi những cái gai, bạn sẽ đối mặt với quái vật và các cạm bẫy nguy hiểm, đòi hỏi sự khéo léo và chiến lược để vượt qua.
+
 ## 0. Cách tải game
 
 ### 0.a Cách 1: Không bao gồm code
@@ -34,8 +34,8 @@ Bước 1. Clone repo này về máy hoặc chọn **Code** -> **Download ZIP**.
 
 ![Screenshot 2024-08-16 211340](https://github.com/user-attachments/assets/6652e23c-f6d0-493a-9a0f-ab78f1dcd102)
 
-Bước 2. Yêu cầu có **Visual Studio 2022 Community** và gói C++ cần thiết.
-Bước 3. Mở file `Run_Bro.sln` để tự động mở dự án trong Visual Studio.
+Bước 2. Yêu cầu có **Visual Studio 2022 Community** và gói C++ cần thiết.  
+Bước 3. Mở file `Run_Bro.sln` để tự động mở dự án trong Visual Studio.  
 Bước 4. Chọn **Local Windows Debugger** để khởi động game (chọn **Debug**, **x64**).
 
 ## 1. Bắt đầu game
@@ -59,7 +59,7 @@ Chờ một chút để menu hiện ra, click vào nút có biểu tượng "Pla
 Bạn cần phải cố gắng chạy và vượt quá các chướng ngại vật trên đường, đánh bại hoặc cố gắng né các con quái vật trên đường đi để có thể chạy tiếp về phía trước và thoát khỏi đống gai chết chóc đang đuổi theo bạn.
 
 **Điều khiển:**
-- **Di chuyển:** ↑ (Lên), ↓ (Xuống), ← (Trái), → (Phải)
+- **Di chuyển:** ↑ (Nhảy), ← (Chạy sang trái), → (Chạy sang phải)
 - **Chém:** SPACE
 - **Tạm dừng:** Esc
 
@@ -71,7 +71,6 @@ Trong game này, mục tiêu của người chơi không phải là đạt đế
 ## 5. Về source code
 - **Folder `Run_Bro`:** Chứa toàn bộ mã nguồn của game, bao gồm các file `.cpp` và `.h`.
 - **Folder `library`:** Chứa thư viện SDL2 cần thiết để phát triển game.
-- **.gitattributes và .gitignore:** Giúp quản lý phiên bản của dự án khi sử dụng Git.
 - **README.md:** Chứa thông tin mô tả về dự án, cách thiết lập và hướng dẫn sử dụng.
 - **Run_Bro.sln:** File solution của Visual Studio, dùng để mở và quản lý dự án game.
 
