@@ -26,26 +26,34 @@
 ## 0. Cách tải game
 
 ### 0.a Cách 1: Không bao gồm code
-Tải game (được nén thành `.zip`) tại link sau: [link tải game](#)  
+Tải game (được nén thành `.zip`) tại link sau: [[link tải game](https://github.com/khoinguyencode/Run_Bro/releases/tag/Run_Bro)]  
 Giải nén game vào một thư mục và bật `Run_Bro.exe` lên để chơi. Cách này tiết kiệm bộ nhớ và thời gian tải.
 
 ### 0.b Cách 2: Bao gồm code và có thể biên dịch
-1. Clone repo này về máy hoặc chọn **Code** -> **Download ZIP**.
-2. Yêu cầu có **Visual Studio 2022 Community** và gói C++ cần thiết.
-3. Mở file `Run_Bro.sln` để tự động mở dự án trong Visual Studio.
-4. Chọn **Local Windows Debugger** để khởi động game (chọn **Debug**, **x64**).
+Bước 1. Clone repo này về máy hoặc chọn **Code** -> **Download ZIP**.
+
+![Screenshot 2024-08-16 211340](https://github.com/user-attachments/assets/6652e23c-f6d0-493a-9a0f-ab78f1dcd102)
+
+Bước 2. Yêu cầu có **Visual Studio 2022 Community** và gói C++ cần thiết.
+Bước 3. Mở file `Run_Bro.sln` để tự động mở dự án trong Visual Studio.
+Bước 4. Chọn **Local Windows Debugger** để khởi động game (chọn **Debug**, **x64**).
 
 ## 1. Bắt đầu game
 Chờ một chút để menu hiện ra, click vào nút có biểu tượng "Play" để bắt đầu chơi game. Bấm vào nút có biểu tượng "Exit" nếu muốn thoát game.
+![Screenshot 2024-08-17 093725](https://github.com/user-attachments/assets/69b280eb-55f3-4d14-b194-88a2d4ee12ba)
 
 ## 2. Các thành phần trong game
-- **Player:** Hình ảnh nhân vật chính.
-- **Monster:** Hình ảnh quái vật.
-- **Score:** Điểm số hiện tại.
-- **Best score:** Điểm cao nhất bạn đạt được.
-- **Tile map:** Kỹ thuật tilemap dùng để tạo phần level cho bản đồ.
-- **Nút restart:** Dùng để chơi lại ván mới.
-- **Nút exit:** Dùng để thoát trò chơi.
+- **Player** ![nhanvat](https://github.com/user-attachments/assets/f45c3bb2-56a1-4574-b5d1-7271f9791608) : người chơi
+- **Monster** ![2](https://github.com/user-attachments/assets/e8d87b5e-ffaa-4407-b6ea-711e9a1f6480) : quái vật
+- **Score** ![Screenshot 2024-08-17 095604](https://github.com/user-attachments/assets/b7d1e882-7748-4883-ab5a-6d17c8ee49cd) : điểm số trong lượt chơi hiện tại
+- **Best score** ![Screenshot 2024-08-17 095557](https://github.com/user-attachments/assets/c586a3b1-e93f-489c-a4cc-d94591fc6a7f) : điểm số cao nhất mà người chơi đạt được
+- **Nút play**![play](https://github.com/user-attachments/assets/b80d7835-b807-4a28-b108-3ee6caefe7f4) : bắt đầu trò chơi
+- **Nút restart** ![restart](https://github.com/user-attachments/assets/b52efa15-56e2-4112-915f-949ecf50ab56) : dùng để chơi lại ván mới.
+- **Nút exit**![quit](https://github.com/user-attachments/assets/07eb7e3d-298a-42b6-a4f7-39315961874e) : dùng để thoát trò chơi
+- **Tile map:**: kĩ thuật tile map được sử dụng để vẽ map (vẽ các tile tường và nền)
+![Screenshot 2024-08-17 095738](https://github.com/user-attachments/assets/58c26a16-96ba-40a2-b77c-75b357791d99)
+- **Bố cục game cơ bản**
+![Screenshot 2024-08-17 095624](https://github.com/user-attachments/assets/dfa09062-15a5-4b60-8484-530dc31712f7)
 
 ## 3. Cách chơi
 Bạn cần phải cố gắng chạy và vượt quá các chướng ngại vật trên đường, đánh bại hoặc cố gắng né các con quái vật trên đường đi để có thể chạy tiếp về phía trước và thoát khỏi đống gai chết chóc đang đuổi theo bạn.
