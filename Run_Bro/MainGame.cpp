@@ -30,8 +30,8 @@ bool MainGame::init() {
 }
 
 void MainGame::loadMedia() {
-	playerTex = p_renderwindow.loadTexture("res/gfx/test3.png");
-	monsterTex = p_renderwindow.loadTexture("res/gfx/testmonster.png");
+	playerTex = p_renderwindow.loadTexture("res/gfx/DarkSamurai.png");
+	monsterTex = p_renderwindow.loadTexture("res/gfx/monster.png");
 	tileTex = p_renderwindow.loadTexture("res/gfx/DungeonTileSet.png");
 	spikeTex = p_renderwindow.loadTexture("res/gfx/spiked.png");
 	p_renderwindow.openFont("res/PixelFont.ttf");

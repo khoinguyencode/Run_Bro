@@ -1,19 +1,6 @@
-﻿  renderwindow.cpp
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(47,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(48,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(66,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(67,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(77,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(78,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(86,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(87,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(105,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(106,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(107,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(108,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(185,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(229,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  time.cpp
-  Generating Code...
-  LINK : C:\Users\Khoi Nguyen\Run_Bro\x64\Debug\Run_Bro.exe not found or not built by the last incremental link; performing full link
+﻿  MainGame.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(87,14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(96,72): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(208,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(235,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Run_Bro.vcxproj -> C:\Users\Khoi Nguyen\Run_Bro\x64\Debug\Run_Bro.exe

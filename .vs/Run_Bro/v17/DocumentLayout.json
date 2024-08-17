@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Khoi Nguyen\\Run_Bro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -29,6 +37,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainGame.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\MainGame.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp",
+              "RelativeToolTip": "Run_Bro\\MainGame.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T02:38:56.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainGame.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.h",
+              "RelativeDocumentMoniker": "Run_Bro\\MainGame.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.h",
+              "RelativeToolTip": "Run_Bro\\MainGame.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T02:38:52.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "renderwindow.cpp",
               "DocumentMoniker": "C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
@@ -41,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "renderwindow.cpp",
               "DocumentMoniker": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
               "ToolTip": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
