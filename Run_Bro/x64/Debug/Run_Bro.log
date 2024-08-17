@@ -3,4 +3,95 @@ C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(87,14): warning C4244: 'argume
 C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(96,72): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(208,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainGame.cpp(235,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  MainMenu.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(127,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(127,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(128,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(128,72): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(129,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(129,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(131,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(131,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(132,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(132,72): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(133,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(133,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(138,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(138,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(139,82): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(139,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(140,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(140,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(142,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(142,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(143,82): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(143,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(144,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\MainMenu.cpp(144,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\main.cpp(17,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  map.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(10,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(10,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(29,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(29,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(40,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(52,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(60,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(67,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(67,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\map.cpp(99,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  monster.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(69,11): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(72,14): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(85,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(90,17): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(102,101): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(103,105): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(107,54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(108,66): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(129,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(132,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(138,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(149,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\monster.cpp(217,10): warning C4305: '=': truncation from 'double' to 'float'
+  player.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(121,17): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(124,17): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(138,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(140,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(141,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(145,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(151,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(153,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(154,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(166,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(223,19): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(225,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(226,31): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(227,31): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(232,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\player.cpp(234,42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  renderwindow.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(47,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(48,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(66,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(67,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(77,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(78,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(86,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(87,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(105,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(106,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(107,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(108,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(185,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\renderwindow.cpp(229,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  tile.cpp
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\tile.cpp(6,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\tile.cpp(7,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\tile.cpp(20,9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Khoi Nguyen\Run_Bro\Run_Bro\tile.cpp(21,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  time.cpp
+  Generating Code...
   Run_Bro.vcxproj -> C:\Users\Khoi Nguyen\Run_Bro\x64\Debug\Run_Bro.exe

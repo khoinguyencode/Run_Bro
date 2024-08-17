@@ -3,12 +3,80 @@
   "WorkspaceRootPath": "C:\\Users\\Khoi Nguyen\\Run_Bro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Renderwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Renderwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\renderwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\renderwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Monster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Monster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Time.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Time.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\time.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF81E56D-4B0C-4E38-88E6-1D8CB973C51F}|Run_Bro\\Run_Bro.vcxproj|solutionrelative:Run_Bro\\time.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -24,7 +92,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,16 +104,259 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Entity.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Entity.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Entity.h",
+              "RelativeToolTip": "Run_Bro\\Entity.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:52:21.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\main.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\main.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\main.cpp",
+              "RelativeToolTip": "Run_Bro\\main.cpp",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAUwCUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:53:45.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Monster.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Monster.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Monster.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Monster.h",
+              "RelativeToolTip": "Run_Bro\\Monster.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:53:38.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainMenu.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.h",
+              "RelativeDocumentMoniker": "Run_Bro\\MainMenu.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.h",
+              "RelativeToolTip": "Run_Bro\\MainMenu.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACEAAABlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:53:05.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Time.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Time.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Time.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Time.h",
+              "RelativeToolTip": "Run_Bro\\Time.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:52:39.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "time.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\time.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\time.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\time.cpp",
+              "RelativeToolTip": "Run_Bro\\time.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:52:32.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "entity.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\entity.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\entity.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\entity.cpp",
+              "RelativeToolTip": "Run_Bro\\entity.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:52:19.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "monster.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\monster.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\monster.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\monster.cpp",
+              "RelativeToolTip": "Run_Bro\\monster.cpp",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFIAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:49:57.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "map.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\map.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\map.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\map.cpp",
+              "RelativeToolTip": "Run_Bro\\map.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:48:43.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "renderwindow.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\renderwindow.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\renderwindow.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\renderwindow.cpp",
+              "RelativeToolTip": "Run_Bro\\renderwindow.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAADAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:46:18.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Renderwindow.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Renderwindow.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Renderwindow.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Renderwindow.h",
+              "RelativeToolTip": "Run_Bro\\Renderwindow.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAADIAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:46:16.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Player.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Player.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Player.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Player.h",
+              "RelativeToolTip": "Run_Bro\\Player.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:43:28.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "player.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\player.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\player.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\player.cpp",
+              "RelativeToolTip": "Run_Bro\\player.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:43:13.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Map.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Map.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Map.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Map.h",
+              "RelativeToolTip": "Run_Bro\\Map.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:22:14.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainMenu.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\MainMenu.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainMenu.cpp",
+              "RelativeToolTip": "Run_Bro\\MainMenu.cpp",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAFEAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:22:03.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "tile.cpp",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\tile.cpp",
+              "RelativeDocumentMoniker": "Run_Bro\\tile.cpp",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\tile.cpp",
+              "RelativeToolTip": "Run_Bro\\tile.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-17T03:20:01.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Tile.h",
+              "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Tile.h",
+              "RelativeDocumentMoniker": "Run_Bro\\Tile.h",
+              "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\Tile.h",
+              "RelativeToolTip": "Run_Bro\\Tile.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-17T03:20:00.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "MainGame.cpp",
               "DocumentMoniker": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp",
               "RelativeDocumentMoniker": "Run_Bro\\MainGame.cpp",
               "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.cpp",
               "RelativeToolTip": "Run_Bro\\MainGame.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAA8AAAA",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAAAMIAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-17T02:38:56.754Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "renderwindow.cpp",
+              "DocumentMoniker": "C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
+              "ToolTip": "C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
+              "RelativeToolTip": "..\\..\\..\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-16T15:49:14.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "renderwindow.cpp",
+              "DocumentMoniker": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
+              "ToolTip": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-16T15:49:13.832Z"
             },
             {
               "$type": "Document",
@@ -55,33 +366,10 @@
               "RelativeDocumentMoniker": "Run_Bro\\MainGame.h",
               "ToolTip": "C:\\Users\\Khoi Nguyen\\Run_Bro\\Run_Bro\\MainGame.h",
               "RelativeToolTip": "Run_Bro\\MainGame.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEUAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-17T02:38:52.296Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "renderwindow.cpp",
-              "DocumentMoniker": "C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
-              "ToolTip": "C:\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
-              "RelativeToolTip": "..\\..\\..\\vclib\\Run_Game\\Run_Game\\renderwindow.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-16T15:49:14.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "renderwindow.cpp",
-              "DocumentMoniker": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
-              "ToolTip": "/vclib/Run_Game/Run_Game/renderwindow.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-16T15:49:13.832Z"
             }
           ]
         }

@@ -14,7 +14,7 @@ const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
 //kich co map
-const int MAP_WIDTH = 1344; //1 pixel width cua 1 tile(64) x so cot(24)
+const int MAP_WIDTH = 1344; //1 pixel width cua 1 tile(64) x so cot(21)
 const int MAP_HEIGHT = 1024; //1 pixel height cua 1 tile(64) x so dong(16)
 
 static TTF_Font* font = NULL;
@@ -33,7 +33,6 @@ public:
     SDL_Renderer* getRenderer() const;
 
     //ve cac animation len man hinh
-    
     void renderAnimation(Entity& p_entity, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
     void renderSpike(SDL_Texture* p_tex, float p_x, float p_y, SDL_Rect& p_clip, SDL_Rect& p_camera, double p_angle, SDL_Point* p_center, SDL_RendererFlip p_flip);
 

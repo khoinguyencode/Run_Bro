@@ -78,7 +78,7 @@ void Monster::autoMoveToPlayer(Player& p_player, vector<Map>& p_maps) {
 	if (!takingHit && !isDead) {
 		//neu quai nhin thay trong pham vi 7 tile
 		if (distance <= TILE_WIDTH * 7 && (p_player.getY() >= y - TILE_WIDTH && p_player.getY() <= y + TILE_WIDTH / 2.0)) {
-			//player nam ben phai quai
+			//player nam ben trai quai
 			if (p_player.getX() - x < 0) {
 				//kiem tra tile ben trai xem co phai vat can khong, neu co thi quay lai
 				if (p_maps[mapIndex].getTiles()[groundIndex - 1]->getType() > 40) velX = 0;

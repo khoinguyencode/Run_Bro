@@ -67,7 +67,7 @@ private:
 	vector<Path> lists; //chua cac map
 	vector<Map> maps; //chua cac map
 	vector<Player> players;
-	vector<Monster*> monsters;
+	vector<Monster*> monsters; //chua cac con tro tro toi doi tong monster
 	vector<MainMenu> menus;
 
 	//sound
