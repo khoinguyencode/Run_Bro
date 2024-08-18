@@ -6,6 +6,7 @@
 - Lớp: INT2215 70
 
 ## Video demo :  
+[link demo](https://www.youtube.com/watch?v=p_8YK265p7E)  
 
 ## Mục lục
 - [Giới thiệu game](#giới-thiệu-game)
