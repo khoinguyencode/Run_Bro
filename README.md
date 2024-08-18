@@ -77,9 +77,9 @@ Trong game này, mục tiêu của người chơi không phải là đạt đế
 
 ## 6. Nguồn tham khảo
 - Game được lấy ý tưởng từ game **Contra** và **Geometry Dash**.
-- Tham khảo code từ [Lazy Foo](http://lazyfoo.net/tutorials/SDL/) (sử dụng các hàm như `checkCollision`, `openFont`, `setTileType`, `time`) và [Youtube](https://www.youtube.com/watch?v=ObEOK7HSq2E).
+- Tham khảo code, cách làm từ [Lazy Foo](http://lazyfoo.net/tutorials/SDL/) (sử dụng các hàm như `checkCollision`, `openFont`, `setTileType`, `time`) và [Youtube](https://www.youtube.com/watch?v=ObEOK7HSq2E).
 - Cách chia file entity, renderwindow trên [YouTube](https://www.youtube.com/playlist?list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS).
-- Nhân vật, quái, tileset, music, và sfx trên trang itch io
+- Nhân vật, quái, tileset, music, sfx và các texture khác trên trang itch io
 - Cách vẽ map và thêm quái vật: [YouTube](https://www.youtube.com/watch?v=rLWlnPwR1uI&list=PL-K0viiuJ2RctP5nlJlqmHGeh66-GOZR_&index=14).
 
 ## 7. Hướng phát triển
